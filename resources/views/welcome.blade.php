@@ -93,13 +93,6 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                    ciaociaociao
-                    ciyfyi
-                    gesù
-                    123
-                    66
-                    77
-                    111
                 </div>
             </div>
         </div>
