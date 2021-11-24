@@ -23,9 +23,9 @@ class CreatePlatesTable extends Migration
             $table->float("rating", 2, 1)->nullable();
             $table->string("img")->nullable();
             //Slug, FK, TimeStamp
-            $table->string('slug')->unique();
-            $table->unsignedBigInteger('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->string('slug')->unique()->nullable();
+            $table->unsignedBigInteger('restaurant_id')->nullable();
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->nullable();
             $table->timestamps();
         });
     }

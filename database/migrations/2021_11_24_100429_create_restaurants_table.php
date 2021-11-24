@@ -16,14 +16,14 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('address', 50);
+            $table->string('address');
             $table->text('description');
             $table->float('delivery_cost', 3, 2)->nullable();
             $table->string('speciality', 20);
             //Slug, FK, TimeStamp
-            $table->string('slug')->unique();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('slug')->unique()->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->nullable();
             $table->timestamps();
         });
     }

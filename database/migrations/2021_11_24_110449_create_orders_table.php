@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string("note", 50)->nullable();
             $table->float("delivery_cost", 3, 2)->nullable();
             //Slug, TimeStamp
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->timestamps();
         });
     }
