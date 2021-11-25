@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use App\Category;
 
 class CategoriesTableSeeder extends Seeder
@@ -15,9 +16,10 @@ class CategoriesTableSeeder extends Seeder
         $categories = ["Italiano", "Internazionale", "Cinese", "Giapponese", "Messicano", "Indiano", "Pesce", "Carne", "Pizza"];
 
         for ($i = 0; $i < count($categories); $i++) {
-            $new_categories = new Category();
-            $new_categories->name = $categories[$i];
-            $new_categories->save();
+            $new_category = new Category();
+            $new_category->name = $categories[$i];
+            $new_category->slug = Str::slug($categories[$i], '-');
+            $new_category->save();
         }
     }
 }

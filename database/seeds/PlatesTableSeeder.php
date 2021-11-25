@@ -1,8 +1,13 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use App\Plate;
+use \FakerRestaurant\Provider\it_IT\Restaurant as Restaurant;
+
+$food = \Faker\Factory::create();
+// $food->addProvider(new \FakerRestaurant\Provider\it_IT\Restaurant($food));
 
 class PlatesTableSeeder extends Seeder
 {
@@ -11,18 +16,35 @@ class PlatesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run(Faker $faker, Restaurant $food)
     {
         for ($i = 0; $i < 10; $i++) {
-            $new_plates = new Plate();
-            $new_plates->name = $faker->name();
-            $new_plates->description = $faker->paragraph();
-            $new_plates->price = $faker->randomFloat(2, 1, 9);
-            $new_plates->visibility = $faker->boolean();
-            $new_plates->menu_category = $faker->word();
-            $new_plates->rating = $faker->randomFloat(1, 1, 9);
-            $new_plates->slug = $faker->slug();
-            $new_plates->save();
+            $new_plate = new Plate();
+            $new_plate->name = $food->foodName();
+            $new_plate->description = $faker->paragraph();
+            $new_plate->price = $faker->randomFloat(2, 1, 9);
+            $new_plate->menu_category = $faker->word();
+            $new_plate->rating = $faker->randomFloat(1, 1, 9);
+            // $new_plate->slug = Str::slug($new_plate->name, '-');
+
+            //Metodo per creare lo slug in automatico
+            $slug = Str::slug($new_plate->name, '-');
+            $slug_base = $slug;
+
+            $slug_presente = Plate::where('slug', $slug)->first();
+
+            $contatore = 1;
+
+            while ($slug_presente) {
+                $slug = $slug_base . '-' . $contatore;
+                $slug_presente = Plate::where('slug', $slug)->first();
+                $contatore++;
+            }
+
+            $new_plate->slug = $slug;
+
+            // Salvataggio
+            $new_plate->save();
         }
     }
 }

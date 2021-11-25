@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string("p_iva")->unique();
             $table->string("address");
-            // RememberToken, Slug, TimeStamp
-            $table->string('slug')->unique()->nullable();
+            // RememberToken, TimeStamp
             $table->rememberToken();
             $table->timestamps();
         });
