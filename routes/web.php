@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index')->name('index');
 
+// Rotta per i ristoranti
+Route::resource('/restaurants', 'RestaurantController');
+
 /* Serie di rotte che gestiscono il meccanismo di autenticazione */
 Auth::routes();
 
@@ -30,4 +33,5 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function () {
         //pagina di atterraggio dopo il login (con il prefix, l'url è /admin)
         Route::get('/', 'HomeController@index')->name('index');
+        Route::resource('/restaurants', 'RestaurantController');
     });
