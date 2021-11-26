@@ -11,12 +11,10 @@
             <div class="col-md-12">
                 <div class="card mb-3">
                     <div class="card-header pr-0 pl-0">
-                        Lista ordini
+                        Dettaglio Categoria
                     </div>
                     <ul>
-                       @foreach ($orders as $order)
-                           <li><a href="{{ route("admin.orders.show", $order["id"]) }}"> {{$order["guest_name"] ." - " . $order["address"]}}</a></li>
-                       @endforeach
+                        <li><strong>Nome Categoria: </strong>{{$category["name"]}}</li>
                     </ul>
                 </div>
             </div>

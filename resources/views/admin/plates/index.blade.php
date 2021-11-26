@@ -15,7 +15,7 @@
                     </div>
                     <ul>
                        @foreach ($plates as $plate)
-                           <li>{{$plate["name"]}}</li>
+                           <li><a href="{{ route("admin.plates.show", $plate["id"]) }}"> {{$plate["name"]}}</a></li>
                        @endforeach
                     </ul>
                 </div>

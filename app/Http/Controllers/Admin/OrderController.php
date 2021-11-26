@@ -43,12 +43,16 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Order $order
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        if (!$order) {
+            abort(404);
+        }
+
+        return view('admin.orders.show', compact('order'));
     }
 
     /**

@@ -24,7 +24,7 @@ class PlatesTableSeeder extends Seeder
             $new_plate->description = $faker->paragraph();
             $new_plate->price = $faker->randomFloat(2, 1, 9);
             $new_plate->menu_category = $faker->word();
-            $new_plate->rating = $faker->randomFloat(1, 1, 9);
+            $new_plate->rating = $faker->randomFloat(1, 1, 5);
             // $new_plate->slug = Str::slug($new_plate->name, '-');
             $new_plate->restaurant_id = $faker->numberBetween(1, 10);
 

@@ -17,7 +17,6 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::all();
-        // $restaurants = Auth::restaurant();
         return view('admin.restaurants.index', compact('restaurants'));
     }
 
@@ -45,12 +44,16 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
-        //
+        if (!$restaurant) {
+            abort(404);
+        }
+
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**

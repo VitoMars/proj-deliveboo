@@ -43,12 +43,16 @@ class PlateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Plate $plate
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Plate $plate)
     {
-        //
+        if (!$plate) {
+            abort(404);
+        }
+
+        return view('admin.plates.show', compact('plate'));
     }
 
     /**

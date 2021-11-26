@@ -11,12 +11,14 @@
             <div class="col-md-12">
                 <div class="card mb-3">
                     <div class="card-header pr-0 pl-0">
-                        Lista ordini
+                        Dettaglio Piatti
                     </div>
                     <ul>
-                       @foreach ($orders as $order)
-                           <li><a href="{{ route("admin.orders.show", $order["id"]) }}"> {{$order["guest_name"] ." - " . $order["address"]}}</a></li>
-                       @endforeach
+                        <li><strong>Nome Piatto: </strong>{{$plate["name"]}}</li>
+                        <li><strong>Descrizione: </strong>{{$plate["description"]}}</li>
+                        <li><strong>Prezzo: </strong>{{$plate["price"]}}€</li>
+                        <li><strong>Categoria Piatto: </strong>{{$plate["menu_category"]}}</li>
+                        <li><strong>Valutazione: </strong>{{$plate["rating"]}}/5</li>
                     </ul>
                 </div>
             </div>
