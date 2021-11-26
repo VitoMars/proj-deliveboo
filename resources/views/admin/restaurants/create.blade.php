@@ -60,9 +60,9 @@
 
                         {{-- Categoria --}}
                         <div class="form-group">
-                            <label class="mt-2" for="categories[]">Categoria: </label>
+                            <label class="mt-2 d-block" for="categories[]">Categoria: </label>
                             @foreach ($categories as $category)
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline mt-1">
                                 <input {{in_array($category->id, old('categories', [])) ? 'checked' : null}}
                                 value="{{ $category->id }}" type="checkbox" name="categories[]" class="form-check-input"
                                 id="{{'category' . $category->id}}">
@@ -78,7 +78,7 @@
                             {{-- Bottone Invia --}}
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Invia</button>
+                            <button type="submit" class="btn btn-primary text-white mt-2">Invia</button>
                         </div>
                     </form>
                 </div>
