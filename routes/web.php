@@ -34,4 +34,7 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
         //pagina di atterraggio dopo il login (con il prefix, l'url è /admin)
         Route::get('/', 'HomeController@index')->name('index');
         Route::resource('/restaurants', 'RestaurantController');
+        Route::resource('/categories', 'CategoryController');
+        Route::resource('/plates', 'PlateController');
+        Route::resource('/orders', 'OrderController');
     });

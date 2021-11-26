@@ -15,6 +15,8 @@ class OrdersTableSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             $new_orders = new Order();
+            $new_orders->guest_name = $faker->name();
+            $new_orders->email = $faker->email();
             $new_orders->order_date = $faker->dateTime();
             $new_orders->address = $faker->address();
             $new_orders->note = $faker->text(50);

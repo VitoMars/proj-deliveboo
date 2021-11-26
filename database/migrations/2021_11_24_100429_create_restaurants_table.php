@@ -16,6 +16,7 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
+            $table->string("city", 20)->default("Roma");
             $table->string('address');
             $table->text('description');
             $table->float('delivery_cost', 3, 2)->nullable();
