@@ -37,8 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label class="mt-2" for="delivery_cost">Costo Spedizione</label>
-                            <select class="form-select" name="delivery_cost" id="delivery_cost"
-                                aria-label="Default select example">
+                            <select class="form-select" name="delivery_cost" id="delivery_cost">
                                 <option value="0.00">Gratis</option>
                                 <option value="1.00">1.00€</option>
                                 <option value="1.50">1.50€</option>
@@ -51,16 +50,21 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label class="mt-2" for="address">Categoria: </label>
+                            <label class="mt-2" for="categories[]">Categoria: </label>
                             @foreach ($categories as $category)
                             <div class="form-check form-check-inline">
                                 <input {{in_array($category->id, old('categories', [])) ? 'checked' : null}}
                                 value="{{ $category->id }}" type="checkbox" name="categories[]" class="form-check-input"
                                 id="{{'category' . $category->id}}">
-                                <label class="form-check-label"
-                                    for="{{'category' . $category->id}}">{{$category->name}}</label>
+                                <label class="form-check-label" for="{{'category' . $category->id}}">
+                                    {{$category->name}}
+                                </label>
+                                @error('categories')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             @endforeach
+
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Invia</button>
