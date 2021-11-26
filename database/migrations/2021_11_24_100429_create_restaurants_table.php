@@ -16,11 +16,10 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string("city", 20)->default("Roma");
+            $table->string("city", 20)->default("Roma")->nullable();
             $table->string('address');
             $table->text('description');
-            $table->float('delivery_cost', 3, 2)->nullable();
-            $table->string('speciality', 20);
+            $table->float('delivery_cost', 3, 2)->nullable()->default(0.00);
             //Slug, FK, TimeStamp
             $table->string('slug')->unique()->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

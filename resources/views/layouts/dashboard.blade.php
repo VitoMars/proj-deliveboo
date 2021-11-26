@@ -21,7 +21,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Boolpress</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DeliveBoo</a>
         <ul class="navbar-nav px-3 ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('index') }}">
@@ -56,28 +56,42 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.restaurants.index') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                Restaurants
+                                Lista Ristoranti
                             </a>
                         </li>
                         {{-- Categories --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.categories.index') }}">
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-                              Categories
+                              Lista Categorie
                             </a>
                         </li>
                         {{-- Plates --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.plates.index') }}">
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-                              Plates
+                              Lista Piatti
                             </a>
                         </li>
                         {{-- Orders --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.orders.index') }}">
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-                              Orders
+                              Lista Ordini
+                            </a>
+                        </li>
+                        {{-- Aggiungi Ristorante --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.restaurants.create') }}">
+                              <i class="fas fa-plus" style="font-size: 20px"></i>
+                              Aggiungi Ristorante
+                            </a>
+                        </li>
+                        {{-- Aggiungi Piatto --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">
+                              <i class="fas fa-plus" style="font-size: 20px"></i>
+                              Aggiungi Piatto
                             </a>
                         </li>
                     </ul>

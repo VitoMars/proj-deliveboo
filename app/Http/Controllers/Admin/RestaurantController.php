@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use App\Category;
 
 class RestaurantController extends Controller
 {
@@ -27,7 +29,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view("admin.restaurants.create", compact("categories"));
     }
 
     /**
@@ -38,7 +41,44 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:50',
+            'city' => 'nullable|max:20',
+            'address' => 'required',
+            'description' => 'required',
+            'delivery_cost' => 'nullable',
+            'speciality' => 'required|max:20',
+            'user_id' => 'nullable|exists:users,id'
+        ]);
+
+        $form_data = $request->all();
+        $new_restaurant = new Restaurant();
+        $new_restaurant->fill($form_data);
+
+        //Metodo per creare lo slug in automatico
+        // $slug = Str::slug($new_restaurant->name);
+
+        // $new_restaurant->slug = $slug;
+        $slug = Str::slug($new_restaurant->title, '-');
+        $slug_base = $slug;
+
+        $slug_presente = Restaurant::where('slug', $slug)->first();
+
+        $contatore = 1;
+
+        while ($slug_presente) {
+            $slug = $slug_base . '-' . $contatore;
+            $slug_presente = Restaurant::where('slug', $slug)->first();
+            $contatore++;
+        }
+
+        $new_restaurant->slug = $slug;
+        $new_restaurant->save();
+
+        $new_restaurant->categories()->attach($form_data['categories']);
+
+        // return redirect()->route('admin.restaurants.index')->with('status', 'Il ristorante è stato inserito correttamente.');
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
