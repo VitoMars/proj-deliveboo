@@ -33,9 +33,9 @@
                                 @enderror
                             </div>                            
                             <div class="form-group">
-                                <label class="mt-2" for="address">Costo Spedizione</label>
+                                <label class="mt-2" for="delivery_cost">Costo Spedizione</label>
                                 <select class="form-select" name="delivery_cost" id="delivery_cost" aria-label="Default select example">
-                                    <option value="0.00" selected>Gratis</option>
+                                    <option value="0.00"> Gratis</option>
                                     <option value="1.00">1.00€</option>
                                     <option value="1.50">1.50€</option>
                                     <option value="2.00">2.00€</option>

@@ -41,14 +41,14 @@
                             <label class="mt-2" for="address">Costo Spedizione</label>
                             <select class="form-select" name="delivery_cost" id="delivery_cost"
                                 >
-                                <option value="0.00" {{ old('delivery_cost') == 0.00 ? 'selected' : null }}>
+                                <option value="0.00" {{  old('delivery_cost') == 0.00 ? 'selected' : '' }}>
                                     Gratis</option>
-                                <option value="1.00" {{ old('delivery_cost') == 1.00 ? 'selected' : null }}>1.00€</option>
-                                <option value="1.50" {{ old('delivery_cost') == 1.50 ? 'selected' : null }}>1.50€</option>
-                                <option value="2.00" {{ old('delivery_cost') == 2.00 ? 'selected' : null }}>2.00€</option>
-                                <option value="2.50" {{ old('delivery_cost') == 2.50 ? 'selected' : null }}>2.50€
+                                <option value="1.00" {{ old('delivery_cost') == 1.00 ? 'selected' : '' }} >1.00€</option>
+                                <option value="1.50" {{ old('delivery_cost') == 1.50 ? 'selected' : '' }} >1.50€</option>
+                                <option value="2.00" {{ old('delivery_cost') == 2.00 ? 'selected' : '' }}>2.00€</option>
+                                <option value="2.50" {{ old('delivery_cost') == 2.50 ? 'selected' : '' }} >2.50€
                                 </option>
-                                <option value="3.00" {{ old('delivery_cost') == 3.00 ? 'selected' : null }}>3.00€
+                                <option value="3.00" {{ old('delivery_cost') == 3.00 ? 'selected' : '' }}>3.00€
                                 </option>
                             </select>
                             @error('delivery_cost')
