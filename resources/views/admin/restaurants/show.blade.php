@@ -19,7 +19,12 @@
                         <li><strong>Indirizzo: </strong>{{$restaurant["address"]}}</li>
                         <li><strong>Descrizione: </strong>{{$restaurant["description"]}}</li>
                         <li><strong>Costo spedizione: </strong>{{$restaurant["delivery_cost"]}}€</li>
-                        <li><strong>Specialità: </strong>{{$restaurant["speciality"]}}</li>
+                        <li><strong>Categorie: </strong>
+                            @foreach ($restaurant->categories as $category)
+                                {{-- <a href="{{ route('admin.tags.show', $category['id']) }}" class="mx-3">{{$category['name']}}</a>  --}}
+                                <a href="" class="mx-2">{{$category['name']}}</a> 
+                            @endforeach
+                        </li>
                     </ul>
                 </div>
             </div>

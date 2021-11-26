@@ -47,13 +47,14 @@ class RestaurantController extends Controller
             'address' => 'required',
             'description' => 'required',
             'delivery_cost' => 'nullable',
-            'speciality' => 'required|max:20',
+            'categories'=>'exists:categories,id',
             'user_id' => 'nullable|exists:users,id'
         ]);
 
         $form_data = $request->all();
         $new_restaurant = new Restaurant();
         $new_restaurant->fill($form_data);
+
 
         //Metodo per creare lo slug in automatico
         // $slug = Str::slug($new_restaurant->name);
