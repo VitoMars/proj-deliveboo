@@ -19,7 +19,7 @@ class CreateRestaurantsTable extends Migration
             $table->string("city", 20)->default("Roma")->nullable();
             $table->string('address');
             $table->text('description');
-            $table->float('delivery_cost', 3, 2)->nullable()->default(0.00);
+            $table->float('delivery_cost', 3, 2)->nullable();
             //Slug, FK, TimeStamp
             $table->string('slug')->unique()->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

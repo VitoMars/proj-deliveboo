@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Restaurant;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use App\Category;
+use App\Http\Controllers\Controller;
+use App\Restaurant;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -47,20 +46,19 @@ class RestaurantController extends Controller
             'address' => 'required',
             'description' => 'required',
             'delivery_cost' => 'nullable',
-            'categories'=>'exists:categories,id',
-            'user_id' => 'nullable|exists:users,id'
+            'categories' => 'exists:categories,id',
+            'user_id' => 'nullable|exists:users,id',
         ]);
 
         $form_data = $request->all();
         $new_restaurant = new Restaurant();
         $new_restaurant->fill($form_data);
 
-
         //Metodo per creare lo slug in automatico
         // $slug = Str::slug($new_restaurant->name);
 
         // $new_restaurant->slug = $slug;
-        $slug = Str::slug($new_restaurant->title, '-');
+        $slug = Str::slug($new_restaurant->name, '-');
         $slug_base = $slug;
 
         $slug_presente = Restaurant::where('slug', $slug)->first();
@@ -77,6 +75,7 @@ class RestaurantController extends Controller
         $new_restaurant->save();
 
         $new_restaurant->categories()->attach($form_data['categories']);
+      
 
         // return redirect()->route('admin.restaurants.index')->with('status', 'Il ristorante è stato inserito correttamente.');
         return redirect()->route('admin.restaurants.index');
@@ -100,24 +99,64 @@ class RestaurantController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     *
+     *  @param  Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+        if (!$restaurant) {
+            abort(404);
+        }
+        $categories = Category::all();
+        return view("admin.restaurants.edit", compact("restaurant", "categories"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
+     * @param  Restaurant $restaurant
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:50',
+            'city' => 'nullable|max:20',
+            'address' => 'required',
+            'description' => 'required',
+            'delivery_cost' => 'nullable',
+            'categories' => 'exists:categories,id',
+            'user_id' => 'nullable|exists:users,id',
+        ]);
+
+        $form_data = $request->all();
+        if ($form_data['name'] != $restaurant->name) {
+            //è stato modificato il titoo, quindi devo modificare anche lo slug
+            $slug = Str::slug($form_data['name'], '-');
+            // $slug_base = $slug;
+
+            $slug_presente = Restaurant::where('slug', $slug)->first();
+
+            $contatore = 1;
+
+            while ($slug_presente) {
+                $slug = $slug . '-' . $contatore;
+                $slug_presente = Restaurant::where('slug', $slug)->first();
+                $contatore++;
+            }
+            $form_data['slug'] = $slug;
+        }
+
+        $restaurant->update($form_data);
+        if (array_key_exists('categories', $form_data)) {
+            $restaurant->categories()->sync($form_data['categories']);
+        } else {
+            $restaurant->categories()->sync([]);
+        }
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**

@@ -15,7 +15,7 @@
                     </div>
                     <ul>
                        @foreach ($restaurants as $restaurant)
-                           <li><a href="{{ route("admin.restaurants.show", $restaurant["id"]) }}">{{$restaurant["name"]}}</a></li>
+                           <li><a href="{{ route("admin.restaurants.show", $restaurant["id"]) }}">{{$restaurant["name"]}}</a> - <a href="{{ route('admin.restaurants.edit' , $restaurant['id']) }}">Edit</a> </li>
                        @endforeach
                     </ul>
                 </div>
