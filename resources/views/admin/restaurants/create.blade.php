@@ -11,6 +11,8 @@
                     <form action="{{ route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
+
+                        {{-- Nome --}}
                         <div class="form-group">
                             <label class="mt-2" for="name">Nome</label>
                             <input type="text" name="name" id="name"
@@ -19,6 +21,8 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        {{-- Indirizzo --}}
                         <div class="form-group">
                             <label class="mt-2" for="address">Indirizzo</label>
                             <input type="text" name="address" id="address"
@@ -27,6 +31,8 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        {{-- Descrizione --}}
                         <div class="form-group">
                             <label class="mt-2" for="address">Descrizione</label>
                             <textarea name="description" id="description"
@@ -35,6 +41,8 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        {{-- Costo Spedizione --}}
                         <div class="form-group">
                             <label class="mt-2" for="delivery_cost">Costo Spedizione</label>
                             <select class="form-select" name="delivery_cost" id="delivery_cost">
@@ -49,6 +57,8 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        {{-- Categoria --}}
                         <div class="form-group">
                             <label class="mt-2" for="categories[]">Categoria: </label>
                             @foreach ($categories as $category)
@@ -65,6 +75,7 @@
                             </div>
                             @endforeach
 
+                            {{-- Bottone Invia --}}
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Invia</button>
