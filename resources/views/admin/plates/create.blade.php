@@ -62,8 +62,9 @@
 
                         {{-- Visibilità --}}
                         <div class="form-group">
-                            <label class="mt-2" for="visibility">Vuoi che questo piatto sia visibile agli
-                                utenti?</label>
+                            <label class="mt-2" for="visibility">
+                                Vuoi che questo piatto sia visibile agli utenti?
+                            </label>
                             <select class="form-select" name="visibility" id="visibility">
                                 <option value="1">Si</option>
                                 <option value="0">No</option>
