@@ -17,9 +17,9 @@ class CreatePlatesTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->text('description')->nullable();
-            $table->float('price', 5, 2);
-            $table->boolean('visibility')->default(true);
             $table->string('menu_category', 20);
+            $table->float('price', 5, 2);
+            $table->boolean('visibility');
             $table->float("rating", 2, 1)->nullable();
             $table->string("img")->nullable();
             //Slug, FK, TimeStamp

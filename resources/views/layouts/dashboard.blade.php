@@ -123,7 +123,7 @@
                         </li>
                         {{-- Aggiungi Piatto --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('admin.plates.create') }}">
                                 <i class="fas fa-plus" style="font-size: 20px"></i>
                                 Aggiungi Piatto
                             </a>
