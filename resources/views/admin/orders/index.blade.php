@@ -16,7 +16,7 @@
                 <ul>
                     @foreach ($orders as $order)
                     <li>
-                        <a href="{{ route(" admin.orders.show", $order["id"]) }}">
+                        <a href="{{ route('admin.orders.show', $order["id"]) }}">
                             {{$order["guest_name"] ." - ".$order["address"]}}
                         </a>
                     </li>

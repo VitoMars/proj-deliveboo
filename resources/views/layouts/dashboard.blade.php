@@ -23,7 +23,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-between flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 px-5" href="#">DeliveBoo</a>
+        <a class="navbar-brand col-sm-3 col-md-2 px-5" href="/admin">DeliveBoo</a>
         <ul class="navbar-nav px-5 ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('index') }}">

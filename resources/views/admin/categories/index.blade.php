@@ -18,13 +18,13 @@
                 </div>
                 <ul>
                     @foreach ($categories as $category)
-                    <li>
-                        <a href="{{ route(" admin.categories.show", $category["id"]) }}">{{$category["name"]}}</a> -
-                        <a href="{{ route('admin.categories.edit' , $category['id']) }}">Edit</a>
+                    <li class="my-3">
+                        <a href="{{ route('admin.categories.show', $category["id"]) }}">{{$category["name"]}}</a>
+                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark" href="{{ route('admin.categories.edit', $category['id']) }}" class="card-link"><i class="far fa-edit"></i></i></a>
                         <!-- Modal button -->
-                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
                             data-bs-target="#deleteCategory{{$category->id}}">
-                            Delete
+                            <i class="far fa-trash-alt"></i>
                         </button>
 
                         <!-- Modal -->

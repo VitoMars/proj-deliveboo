@@ -18,15 +18,15 @@
                 </div>
                 <ul>
                     @foreach ($restaurants as $restaurant)
-                    <li>
+                    <li class="my-3">
                         {{-- Show --}}
-                        <a href="{{route(" admin.restaurants.show", $restaurant["id"])}}">{{$restaurant["name"]}}</a> -
+                        <a href="{{route('admin.restaurants.show', $restaurant["id"])}}">{{$restaurant["name"]}}</a>
                         {{-- Edit --}}
-                        <a href="{{route('admin.restaurants.edit' , $restaurant['id'])}}">Edit</a> -
+                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark" href="{{ route('admin.restaurants.edit', $restaurant['id']) }}" class="card-link"><i class="far fa-edit"></i></i></a>
                         {{-- Delete --}}
-                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
                             data-bs-target="#deleteRestaurant{{$restaurant->id}}">
-                            Delete
+                            <i class="far fa-trash-alt"></i>
                         </button>
 
                         <!-- Modal Delete Button -->
