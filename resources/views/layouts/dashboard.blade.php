@@ -121,17 +121,18 @@
                                 Aggiungi Ristorante
                             </a>
                         </li>
+                        {{-- Aggiungi Categoria --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.categories.create') }}">
+                                <i class="fas fa-plus" style="font-size: 20px"></i>
+                                Aggiungi Categoria
+                            </a>
+                        </li>
                         {{-- Aggiungi Piatto --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.plates.create') }}">
                                 <i class="fas fa-plus" style="font-size: 20px"></i>
                                 Aggiungi Piatto
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.categories.create') }}">
-                                <i class="fas fa-plus" style="font-size: 20px"></i>
-                                Aggiungi Categoria
                             </a>
                         </li>
                     </ul>
