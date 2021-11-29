@@ -14,7 +14,7 @@
         <div class="col-md-12">
             <div class="card mb-3">
                 <div class="card-header pr-0 pl-0">
-                    Lista ristoranti
+                    Lista ristorantii
                 </div>
                 <ul>
                     @foreach ($restaurants as $restaurant)
