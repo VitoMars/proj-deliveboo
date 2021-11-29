@@ -20,10 +20,9 @@
                     @foreach ($restaurants as $restaurant)
                     <li>
                         {{-- Show --}}
-                        <a href="{{ route(" admin.restaurants.show", $restaurant["id"]) }}">{{$restaurant["name"]}}</a>
-                        -
+                        <a href="{{route(" admin.restaurants.show", $restaurant["id"])}}">{{$restaurant["name"]}}</a> -
                         {{-- Edit --}}
-                        <a href="{{ route('admin.restaurants.edit' , $restaurant['id']) }}">Edit</a> -
+                        <a href="{{route('admin.restaurants.edit' , $restaurant['id'])}}">Edit</a> -
                         {{-- Delete --}}
                         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
                             data-bs-target="#deleteRestaurant{{$restaurant->id}}">
@@ -36,17 +35,20 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteRestaurantLabel">Eliminazione ristorante:
-                                            {{$restaurant->name}}</h5>
+                                        <h5 class="modal-title" id="deleteRestaurantLabel">
+                                            Eliminazione ristorante: {{$restaurant->name}}
+                                        </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                            aria-label="Close">
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         Sei sicuro di voler elimanare il ristorante?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Annulla</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Annulla
+                                        </button>
                                         <form method="POST"
                                             action="{{ route('admin.restaurants.destroy', $restaurant['id']) }}">
                                             @csrf
