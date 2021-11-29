@@ -18,7 +18,7 @@
                 </div>
                 <ul>
                     @if($plate->cover)
-                    <img src="{{ asset('storage/'. $plate->cover)}}">
+                    <img class="img-thumbnail my-3" style="max-height: 300px" src="{{ asset('storage/'. $plate->cover)}}">
                     @endif
                     <li><strong>Nome Piatto: </strong>{{$plate["name"]}}</li>
                     <li><strong>Descrizione: </strong>{{$plate["description"]}}</li>

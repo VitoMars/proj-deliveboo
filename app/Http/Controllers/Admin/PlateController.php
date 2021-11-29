@@ -57,7 +57,7 @@ class PlateController extends Controller
         // Verifico se è stata caricata un'immagine
         if (array_key_exists("image", $form_data)) {
             // Salviamo l'immagine e recuperiamo il percorso
-            $cover_path = Storage::put("post_covers", $form_data["image"]);
+            $cover_path = Storage::put("plate_covers", $form_data["image"]);
             // Aggiungiamo all'array che viene usato nella funzione fill
             // la chiave cover che contiene il percorso relativo dell'immagine caricata a partire da public/storage
             $form_data["cover"] = $cover_path;
