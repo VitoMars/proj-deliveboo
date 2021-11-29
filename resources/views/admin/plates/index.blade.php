@@ -15,7 +15,35 @@
                     </div>
                     <ul>
                        @foreach ($plates as $plate)
-                           <li><a href="{{ route("admin.plates.show", $plate["id"]) }}"> {{$plate["name"]}}</a></li>
+                           <li><a href="{{ route("admin.plates.show", $plate["id"]) }}"> {{$plate["name"]}}</a> - <a href="{{ route('admin.plates.edit' , $plate['id']) }}">Edit</a>
+                            <!-- Modal button -->
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletePlate{{$plate->id}}">
+                                Delete
+                            </button>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="deletePlate{{$plate->id}}" tabindex="-1" aria-labelledby="deletePlateLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="deletePlateLabel">Eliminazione piatto: {{$plate->name}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        Sei sicuro di voler elimanare il piatto?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                        <form method="POST" action="{{ route('admin.plates.destroy', $plate['id']) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Elimina</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                    
+                        </li>
                        @endforeach
                     </ul>
                 </div>

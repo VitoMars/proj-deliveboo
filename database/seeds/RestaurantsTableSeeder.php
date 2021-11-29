@@ -27,7 +27,7 @@ class RestaurantsTableSeeder extends Seeder
             // 2* e 3* numero = il range di valori
             // $new_restaurant->speciality =  $speciality[array_rand($speciality, 1)];
             // $new_restaurant->slug = Str::slug($new_restaurant->name, '-');
-            $new_restaurant->user_id = $faker->numberBetween(1, 10);
+            // $new_restaurant->user_id = $faker->numberBetween(1, 10);
 
             //Metodo per creare lo slug in automatico
             $slug = Str::slug($new_restaurant->name, '-');

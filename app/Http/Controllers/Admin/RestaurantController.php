@@ -46,7 +46,7 @@ class RestaurantController extends Controller
             'address' => 'required',
             'description' => 'required',
             'delivery_cost' => 'nullable',
-            'categories' => 'exists:categories,id',
+            'category_id' => 'exists:categories,id',
             'user_id' => 'nullable|exists:users,id',
         ]);
 
@@ -128,7 +128,7 @@ class RestaurantController extends Controller
             'address' => 'required',
             'description' => 'required',
             'delivery_cost' => 'nullable',
-            'categories' => 'exists:categories,id',
+            'category_id' => 'exists:categories,id',
             'user_id' => 'nullable|exists:users,id',
         ]);
 
@@ -162,11 +162,14 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->categories()->detach($restaurant->id);
+        $restaurant->delete();
+
+        return redirect()->route('admin.restaurants.index')->with('status','Ristorante eliminato');
     }
 }

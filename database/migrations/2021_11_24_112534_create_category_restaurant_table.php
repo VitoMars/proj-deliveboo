@@ -14,13 +14,14 @@ class CreateCategoryRestaurantTable extends Migration
     public function up()
     {
         Schema::create('category_restaurant', function (Blueprint $table) {
+            $table->id();
             // Restaurant
             $table->unsignedBigInteger('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
 
             // Category
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

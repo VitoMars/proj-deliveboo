@@ -55,21 +55,6 @@ class PlateController extends Controller
         $new_plate = new Plate();
         $new_plate->fill($form_data);
 
-        // Slug
-        $slug = Str::slug($new_plate->name, '-');
-        $slug_base = $slug;
-
-        $slug_presente = Plate::where('slug', $slug)->first();
-
-        $contatore = 1;
-
-        while ($slug_presente) {
-            $slug = $slug_base . '-' . $contatore;
-            $slug_presente = Plate::where('slug', $slug)->first();
-            $contatore++;
-        }
-
-        $new_plate->slug = $slug;
         $new_plate->save();
 
         return redirect()->route('admin.plates.index');
@@ -93,34 +78,55 @@ class PlateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Plate $plate
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plate $plate)
     {
-        //
+        if (!$plate) {
+            abort(404);
+        }
+        return view("admin.plates.edit", compact("plate"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Plate $plate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Plate $plate)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:50',
+            'description' => 'required',
+            'menu_category' => 'required|max:20',
+            'price' => 'required',
+            'visibility' => 'required',
+            'rating' => 'nullable',
+            'img' => 'nullable',
+            'restaurant_id' => 'nullable|exists:restaurant,id',
+        ]);
+
+        $form_data = $request->all();
+        
+        $plate->update($form_data);
+
+        return redirect()->route('admin.plates.index');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Plate $plate
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Plate $plate)
     {
-        //
+        $plate->delete();
+
+        return redirect()->route('admin.plates.index')->with('status','Piatto eliminato.');
     }
 }
