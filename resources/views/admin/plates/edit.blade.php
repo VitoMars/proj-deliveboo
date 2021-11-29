@@ -8,7 +8,8 @@
                     <h2 class="mt-3 mb-3">Aggiungi Piatto</h2>
                 </div>
                 <div class="card-body d-flex flex-column py-3 px-4">
-                    <form action="{{ route('admin.plates.update', $plate->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.plates.update', $plate->id)}}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -16,7 +17,8 @@
                         <div class="form-group">
                             <label class="mt-2" for="name">Nome</label>
                             <input type="text" name="name" id="name"
-                                class="form-control @error('name') is-invalid @enderror" value="{{old('name', $plate->name)}}">
+                                class="form-control @error('name') is-invalid @enderror"
+                                value="{{old('name', $plate->name)}}">
                             @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -54,7 +56,8 @@
                         <div class="form-group">
                             <label class="mt-2" for="price">Prezzo €</label>
                             <input type="number" name="price" id="price" min="0.00" max="999.99" step="0.50"
-                                class="form-control @error('price') is-invalid @enderror" value="{{old('price', $plate->price)}}">
+                                class="form-control @error('price') is-invalid @enderror"
+                                value="{{old('price', $plate->price)}}">
                             @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

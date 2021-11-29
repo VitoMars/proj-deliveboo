@@ -8,7 +8,8 @@
                     <h2 class="mt-3 mb-3">Rinomina Categoria</h2>
                 </div>
                 <div class="card-body d-flex flex-column py-3 px-4">
-                    <form action="{{ route('admin.categories.update', $category->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.categories.update', $category->id)}}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -16,7 +17,8 @@
                         <div class="form-group">
                             <label class="mt-2" for="name">Nome Categoria</label>
                             <input type="text" name="name" id="name"
-                                class="form-control @error('name') is-invalid @enderror" value="{{old('name', $category->name)}}">
+                                class="form-control @error('name') is-invalid @enderror"
+                                value="{{old('name', $category->name)}}">
                             @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
