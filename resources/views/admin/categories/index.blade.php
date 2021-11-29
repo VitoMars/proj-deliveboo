@@ -19,15 +19,20 @@
                 <ul>
                     @foreach ($categories as $category)
                     <li class="my-3">
-                        <a href="{{ route('admin.categories.show', $category["id"]) }}">{{$category["name"]}}</a>
-                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark" href="{{ route('admin.categories.edit', $category['id']) }}" class="card-link"><i class="far fa-edit"></i></i></a>
-                        <!-- Modal button -->
+                        {{-- Show --}}
+                        <a href="{{ route('admin.categories.show', $category['id']) }}">{{$category["name"]}}</a>
+                        {{-- Edit --}}
+                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark"
+                            href="{{ route('admin.categories.edit', $category['id']) }}" class="card-link">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <!-- Delete -->
                         <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
                             data-bs-target="#deleteCategory{{$category->id}}">
                             <i class="far fa-trash-alt"></i>
                         </button>
 
-                        <!-- Modal -->
+                        <!-- Modal Delete Button-->
                         <div class="modal fade" id="deleteCategory{{$category->id}}" tabindex="-1"
                             aria-labelledby="deleteCategoryLabel" aria-hidden="true">
                             <div class="modal-dialog">

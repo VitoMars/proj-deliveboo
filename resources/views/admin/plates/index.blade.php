@@ -20,9 +20,12 @@
                     @foreach ($plates as $plate)
                     <li class="my-3">
                         {{-- Show --}}
-                        <a href="{{ route('admin.plates.show', $plate["id"]) }}"> {{$plate["name"]}}</a>
+                        <a href="{{ route('admin.plates.show', $plate['id']) }}"> {{$plate["name"]}}</a>
                         {{-- Edit --}}
-                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark" href="{{ route('admin.plates.edit', $plate['id']) }}" class="card-link"><i class="far fa-edit"></i></i></a>
+                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark"
+                            href="{{ route('admin.plates.edit', $plate['id']) }}" class="card-link">
+                            <i class="far fa-edit"></i>
+                        </a>
                         {{-- Detete --}}
                         <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
                             data-bs-target="#deletePlate{{$plate->id}}">
