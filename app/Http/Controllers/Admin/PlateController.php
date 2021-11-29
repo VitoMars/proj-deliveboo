@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Plate;
 
@@ -47,12 +48,20 @@ class PlateController extends Controller
             'price' => 'required',
             'visibility' => 'required',
             'rating' => 'nullable',
-            'img' => 'nullable',
+            'img' => 'nullable|image',
             'restaurant_id' => 'nullable|exists:restaurant,id',
         ]);
 
         $form_data = $request->all();
         $new_plate = new Plate();
+        if (array_key_exists('image', $form_data)) {
+            //salviamo l'immagine e recuperiamo il path
+            $img_path = Storage::put('plate_imgs', $form_data['image']);
+
+            // aggiungiamo all'array che viene usato nella funzione fill la chiave cover
+            // che contiene il percorso relativo dell'immagine caricata a partire  da public/storage
+            $form_data['img'] = $img_path;
+        }
         $new_plate->fill($form_data);
 
         $new_plate->save();
@@ -110,11 +119,10 @@ class PlateController extends Controller
         ]);
 
         $form_data = $request->all();
-        
+
         $plate->update($form_data);
 
         return redirect()->route('admin.plates.index');
-
     }
 
     /**
@@ -127,6 +135,6 @@ class PlateController extends Controller
     {
         $plate->delete();
 
-        return redirect()->route('admin.plates.index')->with('status','Piatto eliminato.');
+        return redirect()->route('admin.plates.index')->with('status', 'Piatto eliminato.');
     }
 }

@@ -69,9 +69,6 @@
                                 <label class="form-check-label" for="{{'category' . $category->id}}">
                                     {{$category->name}}
                                 </label>
-                                @error('categories')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
                             </div>
                             @endforeach
                         </div>

@@ -60,6 +60,15 @@
                             @enderror
                         </div>
 
+                        {{-- Upload file --}}
+                        <div class="form-group">
+                            <label for="" class="d-block mt-2">Immagine di copertina</label>
+                            <input type="file" id="image" name="image" class="@error('image') is-invalid @enderror">
+                            @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         {{-- Visibilità --}}
                         <div class="form-group">
                             <label class="mt-2" for="visibility">

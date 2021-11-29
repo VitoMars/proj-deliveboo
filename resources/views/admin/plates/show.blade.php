@@ -17,6 +17,9 @@
                     Dettaglio Piatti
                 </div>
                 <ul>
+                    @if($plate->img)
+                    <img src="{{ asset('storage/'. $plate->img)}}">
+                    @endif
                     <li><strong>Nome Piatto: </strong>{{$plate["name"]}}</li>
                     <li><strong>Descrizione: </strong>{{$plate["description"]}}</li>
                     <li><strong>Prezzo: </strong>{{$plate["price"]}}€</li>

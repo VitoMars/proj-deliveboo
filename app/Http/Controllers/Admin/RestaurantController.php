@@ -45,6 +45,7 @@ class RestaurantController extends Controller
             'city' => 'nullable|max:20',
             'address' => 'required',
             'description' => 'required',
+            // 'categories' => 'required',
             'delivery_cost' => 'nullable',
             'category_id' => 'exists:categories,id',
             'user_id' => 'nullable|exists:users,id',
@@ -75,7 +76,6 @@ class RestaurantController extends Controller
         $new_restaurant->save();
 
         $new_restaurant->categories()->attach($form_data['categories']);
-
 
         // return redirect()->route('admin.restaurants.index')->with('status', 'Il ristorante è stato inserito correttamente.');
         return redirect()->route('admin.restaurants.index');
@@ -170,6 +170,6 @@ class RestaurantController extends Controller
         $restaurant->categories()->detach($restaurant->id);
         $restaurant->delete();
 
-        return redirect()->route('admin.restaurants.index')->with('status','Ristorante eliminato');
+        return redirect()->route('admin.restaurants.index')->with('status', 'Ristorante eliminato');
     }
 }

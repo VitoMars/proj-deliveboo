@@ -134,7 +134,6 @@ class CategoryController extends Controller
         $category->update($form_data);
 
         return redirect()->route('admin.categories.index');
-
     }
 
     /**
@@ -147,6 +146,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with('status','Categoria eliminata.');
+        return redirect()->route('admin.categories.index')->with('status', 'Categoria eliminata.');
     }
 }
