@@ -21,7 +21,20 @@
                     <li><strong>Descrizione: </strong>{{$plate["description"]}}</li>
                     <li><strong>Prezzo: </strong>{{$plate["price"]}}€</li>
                     <li><strong>Categoria Piatto: </strong>{{$plate["menu_category"]}}</li>
-                    <li><strong>Valutazione: </strong>{{$plate["rating"]}}/5</li>
+                    <li><strong>Valutazione: </strong>
+                        @if ($plate["rating"])
+                        {{$plate["rating"]}}/5
+                        @else
+                        Non disponibile
+                        @endif
+                    </li>
+                    <li><strong>Visibilità: </strong>
+                        @if ($plate["visibility"]=="1")
+                        Si
+                        @else
+                        No
+                        @endif
+                    </li>
                 </ul>
             </div>
         </div>
