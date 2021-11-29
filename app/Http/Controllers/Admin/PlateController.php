@@ -48,20 +48,21 @@ class PlateController extends Controller
             'price' => 'required',
             'visibility' => 'required',
             'rating' => 'nullable',
-            'img' => 'nullable|image',
+            'cover' => 'nullable|image',
             'restaurant_id' => 'nullable|exists:restaurant,id',
         ]);
 
         $form_data = $request->all();
         $new_plate = new Plate();
-        if (array_key_exists('image', $form_data)) {
-            //salviamo l'immagine e recuperiamo il path
-            $img_path = Storage::put('plate_imgs', $form_data['image']);
-
-            // aggiungiamo all'array che viene usato nella funzione fill la chiave cover
-            // che contiene il percorso relativo dell'immagine caricata a partire  da public/storage
-            $form_data['img'] = $img_path;
+        // Verifico se è stata caricata un'immagine
+        if (array_key_exists("image", $form_data)) {
+            // Salviamo l'immagine e recuperiamo il percorso
+            $cover_path = Storage::put("post_covers", $form_data["image"]);
+            // Aggiungiamo all'array che viene usato nella funzione fill
+            // la chiave cover che contiene il percorso relativo dell'immagine caricata a partire da public/storage
+            $form_data["cover"] = $cover_path;
         }
+
         $new_plate->fill($form_data);
 
         $new_plate->save();

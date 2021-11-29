@@ -21,7 +21,7 @@ class CreatePlatesTable extends Migration
             $table->float('price', 5, 2);
             $table->boolean('visibility');
             $table->float("rating", 2, 1)->nullable();
-            $table->string("img")->nullable();
+            $table->string("cover")->nullable();
             //Slug, FK, TimeStamp
             $table->string('slug')->unique()->nullable();
             $table->unsignedBigInteger('restaurant_id')->nullable();

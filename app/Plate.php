@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plate extends Model
 {
-    protected $fillable = ["name", "description", "menu_category", "price", "visibility", "rating", "img", "slug", "restaurant_id"];
+    protected $fillable = ["name", "description", "menu_category", "price", "visibility", "rating", "cover", "slug", "restaurant_id"];
 
     public function orders()
     {
