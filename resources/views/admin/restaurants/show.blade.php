@@ -21,7 +21,13 @@
                     <li><strong>Città: </strong>{{$restaurant["city"]}}</li>
                     <li><strong>Indirizzo: </strong>{{$restaurant["address"]}}</li>
                     <li><strong>Descrizione: </strong>{{$restaurant["description"]}}</li>
-                    <li><strong>Costo spedizione: </strong>{{$restaurant["delivery_cost"]}}€</li>
+                    <li><strong>Costo spedizione: </strong>
+                        @if ($restaurant["delivery_cost"])
+                        {{$restaurant["delivery_cost"]}}€
+                        @else
+                        Gratis
+                        @endif
+                    </li>
                     <li><strong>Categorie: </strong>
                         @foreach ($restaurant->categories as $category)
                         <a href="" class="mx-2">{{$category['name']}}</a>

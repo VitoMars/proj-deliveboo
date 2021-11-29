@@ -14,7 +14,7 @@ class RestaurantsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // $speciality = ["Pizza", "Hamburger", "Panini", "Sushi", "Dolci"];
+        $categories = ["Italiano", "Internazionale", "Cinese", "Giapponese", "Messicano", "Indiano", "Pesce", "Carne", "Pizza"];
         // $delivery_costs = ["0.00", "1.00", "1.50", "2.00", "2.50", "3.00"];
 
         for ($i = 0; $i < 10; $i++) {
@@ -25,7 +25,7 @@ class RestaurantsTableSeeder extends Seeder
             // RandomFloat 
             // 1* numero = cifre dopo la virgola
             // 2* e 3* numero = il range di valori
-            // $new_restaurant->speciality =  $speciality[array_rand($speciality, 1)];
+            $new_restaurant->categories =  $categories[array_rand($categories, 1)];
             // $new_restaurant->slug = Str::slug($new_restaurant->name, '-');
             // $new_restaurant->user_id = $faker->numberBetween(1, 10);
 
