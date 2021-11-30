@@ -3,13 +3,6 @@
 @section('content')
 <div class="container-fluid mt-100">
     <div class="row">
-        {{-- Alert Modifica --}}
-        @if (session('status'))
-        <div class="alert alert-success w-100">
-            {{ session('status') }}
-        </div>
-        @endif
-
         {{-- Lista Ristoranti --}}
         <div class="col-md-12">
             <div class="card mb-3">
