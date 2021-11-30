@@ -8,7 +8,8 @@
                     <h2 class="mt-3 mb-3">Aggiungi Ristorante</h2>
                 </div>
                 <div class="card-body d-flex flex-column py-3 px-4">
-                    <form action="{{ route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
+                    <form name="myRestaurantForm" action="{{ route('admin.restaurants.store')}}" method="post"
+                        enctype="multipart/form-data" onsubmit="return validateRestaurantForm()">
                         @csrf
                         @method('POST')
 
@@ -62,15 +63,18 @@
                         <div class="form-group">
                             <label class="mt-2 d-block" for="categories[]">Categoria: </label>
                             @foreach ($categories as $category)
-                            <div class="form-check form-check-inline mt-1">
-                                <input {{in_array($category->id, old('categories', [])) ? 'checked' : null}}
-                                value="{{ $category->id }}" type="checkbox" name="categories[]" class="form-check-input"
-                                id="{{'category' . $category->id}}">
-                                <label class="form-check-label" for="{{'category' . $category->id}}">
-                                    {{$category->name}}
+                            <div class="form-check-inline mt-1">
+                                <input name="categories[]" class="form-check-input" type="checkbox"
+                                    value="{{ $category->id }}" {{ in_array($category->id, old('categories', [])) ?
+                                'checked=checked' : '' }}>
+                                <label class="form-check-label">
+                                    {{ $category->name }}
                                 </label>
                             </div>
                             @endforeach
+                            @error('categories')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         {{-- Bottone Invia --}}
@@ -83,4 +87,16 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function validateRestaurantForm(){
+        var selected = false;
+        for (var i=0; i<document.forms["myRestaurantForm"].elements.length; i++){
+            if (document.forms["myRestaurantForm"].elements[i].type && document.forms["myRestaurantForm"].elements[i].type.toLowerCase() == "checkbox" && document.forms["myRestaurantForm"].elements[i].checked)
+            selected = true;
+        }
+        if (!selected){
+            alert ("Devi spuntare almeno una categoria");
+        };
+    }
+</script>
 @endsection
