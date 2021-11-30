@@ -12,7 +12,15 @@ class UsersTableSeeder extends Seeder
      * @return void
      */
     public function run(Faker $faker)
-    {       
+    {
+        $new_user = new User();
+        $new_user->name = 'admin';
+        $new_user->email = 'admin@mail.com';
+        $new_user->password = '$2y$10$7UP4Vn6aoj.tFEKbaiXt4uUKg2i3b.bwyYzpwU7NH3/7EYvQEvVx6';
+        $new_user->p_iva = $faker->numerify("###########");
+        $new_user->address = $faker->address();
+        $new_user->save();
+
         for ($i = 0; $i < 10; $i++) {
             $new_user = new User();
             $new_user->name = $faker->name();
@@ -22,13 +30,5 @@ class UsersTableSeeder extends Seeder
             $new_user->address = $faker->address();
             $new_user->save();
         }
-
-        $new_user = new User();
-            $new_user->name = 'admin';
-            $new_user->email = 'admin@mail.com';
-            $new_user->password = '$2y$10$7UP4Vn6aoj.tFEKbaiXt4uUKg2i3b.bwyYzpwU7NH3/7EYvQEvVx6';
-            $new_user->p_iva = $faker->numerify("###########");
-            $new_user->address = $faker->address();
-            $new_user->save();
     }
 }

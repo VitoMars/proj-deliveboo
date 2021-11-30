@@ -73,6 +73,14 @@
                             @endforeach
                         </div>
 
+                        {{-- <div class="form-group">
+                            <div class="mb-3">
+                                <label for="user_id" class="form-label">User_id</label>
+                                <input type="text" name="user_id" id="user_id" class="form-control"
+                                    placeholder="Disabled input">
+                            </div>
+                        </div> --}}
+
                         {{-- Bottone Invia --}}
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary text-white mt-2">Invia</button>

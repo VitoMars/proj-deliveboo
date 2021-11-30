@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -54,6 +55,7 @@ class RestaurantController extends Controller
         $form_data = $request->all();
         $new_restaurant = new Restaurant();
         $new_restaurant->fill($form_data);
+        $new_restaurant->user_id = Auth::user()->id;
 
         //Metodo per creare lo slug in automatico
         // $slug = Str::slug($new_restaurant->name);

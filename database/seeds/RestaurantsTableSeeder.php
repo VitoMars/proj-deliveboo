@@ -22,7 +22,8 @@ class RestaurantsTableSeeder extends Seeder
             $new_restaurant->name = "Ristorante " . $faker->sentence(2);
             $new_restaurant->address = $faker->address(50);
             $new_restaurant->description = $faker->paragraph();
-            // RandomFloat 
+            $new_restaurant->user_id = 1;
+            // RandomFloat
             // 1* numero = cifre dopo la virgola
             // 2* e 3* numero = il range di valori
             // $new_restaurant->categories =  $category_list[array_rand($category_list, 1)];
