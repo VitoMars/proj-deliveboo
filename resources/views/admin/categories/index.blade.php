@@ -21,45 +21,6 @@
                     <li class="my-3">
                         {{-- Show --}}
                         <a href="{{ route('admin.categories.show', $category['id']) }}">{{$category["name"]}}</a>
-                        {{-- Edit --}}
-                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark"
-                            href="{{ route('admin.categories.edit', $category['id']) }}" class="card-link">
-                            <i class="far fa-edit"></i>
-                        </a>
-                        <!-- Delete -->
-                        <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
-                            data-bs-target="#deleteCategory{{$category->id}}">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-
-                        <!-- Modal Delete Button-->
-                        <div class="modal fade" id="deleteCategory{{$category->id}}" tabindex="-1"
-                            aria-labelledby="deleteCategoryLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteCategoryLabel">
-                                            Eliminazione categoria: {{$category->name}}
-                                        </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Sei sicuro di voler elimanare la categoria?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Annulla</button>
-                                        <form method="POST"
-                                            action="{{ route('admin.categories.destroy', $category['id']) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger text-white">Elimina</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </li>
                     @endforeach
                 </ul>

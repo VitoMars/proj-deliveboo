@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ["Italiano", "Internazionale", "Cinese", "Giapponese", "Messicano", "Indiano", "Pesce", "Carne", "Pizza"];
+        $categories = ["Italiano", "Americano", "Sandwich", "Kebab", "Hamburger", "Gelato", "Dessert", "Sushi", "Pizza", "Pesce", "Carne", "Internazionale", "Cinese", "Giapponese", "Messicano", "Indiano", "Street Food", "BBQ", "Poke", "Vegetariano"];
 
         for ($i = 0; $i < count($categories); $i++) {
             $new_category = new Category();
