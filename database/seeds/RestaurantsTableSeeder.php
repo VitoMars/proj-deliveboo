@@ -18,16 +18,9 @@ class RestaurantsTableSeeder extends Seeder
         // $delivery_costs = ["0.00", "1.00", "1.50", "2.00", "2.50", "3.00"];
 
         $new_restaurant = new Restaurant();
-        $new_restaurant->name = "Ristorante " . $faker->sentence(2);
+        $new_restaurant->name = "Ristorante creato tramite seed";
         $new_restaurant->address = $faker->address(50);
         $new_restaurant->description = $faker->paragraph();
-        $new_restaurant->user_id = 1;
-        // RandomFloat
-        // 1* numero = cifre dopo la virgola
-        // 2* e 3* numero = il range di valori
-        // $new_restaurant->categories =  $category_list[array_rand($category_list, 1)];
-        // $new_restaurant->slug = Str::slug($new_restaurant->name, '-');
-        // $new_restaurant->user_id = $faker->numberBetween(1, 10);
 
         //Metodo per creare lo slug in automatico
         $slug = Str::slug($new_restaurant->name, '-');
