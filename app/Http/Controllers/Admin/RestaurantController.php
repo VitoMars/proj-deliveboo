@@ -8,6 +8,7 @@ use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class RestaurantController extends Controller
 {
@@ -16,10 +17,12 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $restaurants = Restaurant::all();
-        return view('admin.restaurants.index', compact('restaurants'));
+        
+                return view('admin.restaurants.index', compact('restaurants'));
+        
     }
 
     /**

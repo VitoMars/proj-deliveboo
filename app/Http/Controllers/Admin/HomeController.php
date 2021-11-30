@@ -4,11 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Restaurant;
+use App\Category;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        // $restaurants = Restaurant::all();
+
+        $restaurants = Restaurant::all()->where('user_id', '=', Auth::user()->id);
+
+        return view('admin.index', compact('restaurants'));
     }
 }
