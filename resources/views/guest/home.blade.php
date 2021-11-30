@@ -120,7 +120,7 @@
                     <div class="left d-flex flex-column justify-content-center">
                         <span class="fw-bold">I piatti che ami, a domicilio</span>
                         <div class="restaurants">
-                            <a href="{{ route('guest.restaurants') }}">
+                            <a href="">
                                 <button type="button" class="btn btn-success w-75">Vedi tutti i ristoranti</button>
                             </a>
                         </div>
