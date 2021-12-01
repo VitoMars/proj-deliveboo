@@ -29,4 +29,3 @@ class RestaurantController extends Controller
         return view('guest.restaurants.show', compact('restaurant'));
     }
 }
-

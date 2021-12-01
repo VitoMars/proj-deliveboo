@@ -19,8 +19,7 @@ class PlateController extends Controller
      */
     public function index()
     {
-        // $plates = Plate::all();
-        $plates = Plate::all()->where('restaurant_id', '=', Auth::user()->id);
+        $plates = Restaurant::where('user_id', '=', Auth::user()->id)->get();
         return view('admin.plates.index', compact('plates'));
     }
 
@@ -31,8 +30,6 @@ class PlateController extends Controller
      */
     public function create()
     {
-        // $plates = Plate::all();
-        // return view("admin.plates.create", compact("plates"));
         return view("admin.plates.create");
     }
 
@@ -66,10 +63,6 @@ class PlateController extends Controller
             $form_data["cover"] = $cover_path;
         }
 
-        // $userRestaurant = Restaurant::all()->id;
-        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
-        $new_plate->restaurant_id = $userRestaurant->id;
-        
         $new_plate->fill($form_data);
 
         $new_plate->save();

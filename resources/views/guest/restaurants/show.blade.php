@@ -33,9 +33,14 @@
                         <a href="" class="mx-2">{{$category['name']}}</a>
                         @endforeach
                     </li>
-                    @foreach ($restaurant->plates as $plate)
-                        <p>{{$plate->name}}</p>
+                    {{-- @foreach ($restaurants as $restaurant)
+                    @foreach ($plates as $key => $plate)
+                    <p>{{$key}}</p>
                     @endforeach
+                    @endforeach --}}
+                    {{-- {{$restaurant->plates}}
+
+                    @dump($restaurant) --}}
                 </ul>
             </div>
         </div>

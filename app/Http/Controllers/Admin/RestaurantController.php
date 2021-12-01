@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Plate;
 
 class RestaurantController extends Controller
 {
@@ -19,8 +20,9 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
+        $plates = Plate::where('user_id', '=', Auth::user()->id)->get();
         $restaurants = Restaurant::all();
-        return view('admin.restaurants.index', compact('restaurants'));
+        return view('admin.restaurants.index', compact('restaurants', 'plates'));
     }
 
     /**
@@ -47,7 +49,6 @@ class RestaurantController extends Controller
             'city' => 'nullable|max:20',
             'address' => 'required',
             'description' => 'required',
-            // 'categories' => 'required',
             'delivery_cost' => 'nullable',
             'category_id' => 'exists:categories,id',
             'user_id' => 'nullable|exists:users,id',
