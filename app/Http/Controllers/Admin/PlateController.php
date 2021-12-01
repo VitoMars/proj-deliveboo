@@ -19,8 +19,12 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::all()->where('restaurant_id', '=', Auth::user()->id);
-        // $plates = Restaurant::where('user_id', '=', Auth::user()->id)->get();
+        $plates = Plate::where('restaurant_id', '=', Auth::user()->id)->get();
+        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        if ($userRestaurant) {
+            $plates = Plate::where('restaurant_id', $userRestaurant->id)->orderBy('name', 'ASC')->get();
+            return view('admin.plates.index', compact("plates"));
+        }
         return view('admin.plates.index', compact('plates'));
     }
 
@@ -65,7 +69,11 @@ class PlateController extends Controller
         }
 
         $new_plate->fill($form_data);
-        $new_plate->restaurant_id = Auth::user()->id;
+        // $new_plate->restaurant_id = Restaurant::all()->13;
+        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        $new_plate->restaurant_id = $userRestaurant->id;
+
+
 
         $new_plate->save();
 
