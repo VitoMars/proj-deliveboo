@@ -33,6 +33,11 @@
                         <a href="" class="mx-2">{{$category['name']}}</a>
                         @endforeach
                     </li>
+                    <li>
+                        @foreach ($restaurant->plates as $plate)
+                        <a href="" class="mx-2">{{$plate['name']}}</a>
+                        @endforeach
+                    </li>
                     {{-- @foreach ($restaurants as $restaurant)
                     @foreach ($plates as $key => $plate)
                     <p>{{$key}}</p>

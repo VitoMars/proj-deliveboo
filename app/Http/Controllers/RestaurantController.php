@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\Plate;
 
 class RestaurantController extends Controller
 {
     public function index()
     {
-        // $restaurants = Restaurant::all();
+
+        $plates = Plate::all();
         $restaurants = Restaurant::all();
-        return view('guest.restaurants.index', compact('restaurants'));
+        return view('guest.restaurants.index', compact('restaurants', 'plates'));
     }
 
     /**
@@ -25,7 +27,7 @@ class RestaurantController extends Controller
         if (!$restaurant) {
             abort(404);
         }
-
+        // dd(Restaurant::find(2)->load('plates', 'categories'));
         return view('guest.restaurants.show', compact('restaurant'));
     }
 }
