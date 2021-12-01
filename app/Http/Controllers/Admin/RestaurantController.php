@@ -83,7 +83,7 @@ class RestaurantController extends Controller
         $new_restaurant->categories()->attach($form_data['categories']);
 
         // return redirect()->route('admin.restaurants.index')->with('status', 'Il ristorante è stato inserito correttamente.');
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.index');
     }
 
     /**

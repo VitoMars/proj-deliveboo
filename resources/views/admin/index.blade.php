@@ -32,6 +32,11 @@
 
         {{-- Lista Ristoranti --}}
         <div class="col-md-12">
+
+            <a href="{{ route('admin.restaurants.create') }}">
+                <button type="button" class="btn btn-primary my-4 text-white">Aggiungi Ristorante</button>
+            </a>
+
             <div class="card mb-3">
                 <div class="card-header pr-0 pl-0">
                     I tuoi ristoranti
