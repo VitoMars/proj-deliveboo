@@ -120,10 +120,12 @@
                     <div class="left d-flex flex-column justify-content-center">
                         <span class="fw-bold">I piatti che ami, a domicilio</span>
                         <div class="restaurants">
-                            {{-- <a href="{{ route('guest.restaurants') }}"> --}}
-                                <a href="">
-                                    <button type="button" class="btn btn-success w-75">Vedi tutti i ristoranti</button>
-                                </a>
+                            <a href="{{ route('restaurants.index') }}">
+                                <button type="button" class="btn btn-success w-75">Vedi tutti i ristoranti</button>
+                            </a>
+                            <a href="{{ route('categories.index') }}">
+                                <button type="button" class="btn btn-success w-75 my-4">Vedi tutti le categorie</button>
+                            </a>
                         </div>
                     </div>
                 </div>

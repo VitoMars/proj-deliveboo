@@ -24,6 +24,7 @@ Route::get('/', 'HomeController@index')->name('index');
 
 // Rotta per i ristoranti
 Route::resource('/restaurants', 'RestaurantController');
+Route::resource('/categories', 'CategoryController');
 
 /* Serie di rotte che gestiscono il meccanismo di autenticazione */
 Auth::routes();

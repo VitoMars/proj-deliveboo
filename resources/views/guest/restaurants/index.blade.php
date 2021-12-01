@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
 @section('content')
 <div class="container-fluid mt-100">
@@ -12,7 +12,7 @@
             <ul>
                @foreach ($restaurants as $restaurant)
                <li class="my-3">
-                  <a href="">{{$restaurant["name"]}}</a>
+                  <a href="{{ route('restaurants.show', $restaurant->id) }}">{{$restaurant["name"]}}</a>
                </li>
                @endforeach
             </ul>

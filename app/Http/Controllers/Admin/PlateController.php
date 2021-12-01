@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Plate;
+use App\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 class PlateController extends Controller
 {
@@ -17,7 +19,8 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::all();
+        // $plates = Plate::all();
+        $plates = Plate::all()->where('restaurant_id', '=', Auth::user()->id);
         return view('admin.plates.index', compact('plates'));
     }
 
@@ -63,6 +66,10 @@ class PlateController extends Controller
             $form_data["cover"] = $cover_path;
         }
 
+        // $userRestaurant = Restaurant::all()->id;
+        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        $new_plate->restaurant_id = $userRestaurant->id;
+        
         $new_plate->fill($form_data);
 
         $new_plate->save();
