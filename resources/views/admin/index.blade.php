@@ -28,7 +28,10 @@
         <div class="col-md-12">
 
             <a href="{{ route('admin.restaurants.create') }}">
-                <button type="button" class="my-btn-blue btn my-4 text-white">Aggiungi Ristorante</button>
+                <button type="button" class="my-btn-blue btn my-4 text-white d-flex align-items-center">
+                    <i class="fas fa-plus pe-2" style=""></i>
+                    Aggiungi Ristorante
+                </button>
             </a>
 
             <div class="card mb-3">
