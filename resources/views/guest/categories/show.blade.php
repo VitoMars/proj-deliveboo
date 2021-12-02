@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid mt-100">
+<div class="container mt-3">
     <div class="row">
         {{-- Alert Modifica --}}
         @if (session('status'))

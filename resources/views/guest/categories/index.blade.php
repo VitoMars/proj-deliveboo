@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid mt-100">
+<div class="container mt-3">
     <div class="row">
         {{-- Alert Modifica --}}
         @if (session('status'))
@@ -16,14 +16,14 @@
                 <div class="card-header pr-0 pl-0">
                     Lista categorie
                 </div>
-                <ul>
+                <ol class="m-2">
                     @foreach ($categories as $category)
                     <li class="my-3">
                         {{-- Show --}}
                         <a href="{{ route('categories.show', $category['id']) }}">{{$category["name"]}}</a>
                     </li>
                     @endforeach
-                </ul>
+                </ol>
             </div>
         </div>
     </div>

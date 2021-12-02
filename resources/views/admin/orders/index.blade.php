@@ -13,15 +13,15 @@
                 <div class="card-header pr-0 pl-0">
                     Lista ordini
                 </div>
-                <ul>
+                <ol>
                     @foreach ($orders as $order)
-                    <li>
+                    <li class="m-2">
                         <a href="{{ route('admin.orders.show', $order['id']) }}">
                             {{$order["guest_name"] ." - ".$order["address"]}}
                         </a>
                     </li>
                     @endforeach
-                </ul>
+                </ol>
             </div>
         </div>
     </div>

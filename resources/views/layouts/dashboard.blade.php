@@ -18,10 +18,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     {{-- FontAwesome --}}
-    {{--
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -64,7 +64,7 @@
                                     <i class="fas fa-house-user fs-4"></i>
                                 </div>
 
-                                <p class="m-0">Dashboarda</p>
+                                <p class="h5 m-0">Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item d-flex my-2 ">
@@ -73,7 +73,7 @@
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-utensils fs-4"></i>
                                 </div>
-                                <p class="m-0">Lista Piatti</p>
+                                <p class="h5 m-0">Lista Piatti</p>
                             </a>
                         </li>
                         {{-- Categories --}}
@@ -83,7 +83,7 @@
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-hashtag fs-4"></i>
                                 </div>
-                                <p class="m-0">Lista Categorie</p>
+                                <p class="h5 m-0">Lista Categorie</p>
                             </a>
                         </li>
                         {{-- Orders --}}
@@ -93,7 +93,7 @@
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-shopping-cart fs-4"></i>
                                 </div>
-                                <p class="m-0">Lista Ordini</p>
+                                <p class="h5 m-0">Lista Ordini</p>
                             </a>
                         </li>
                     </ul>

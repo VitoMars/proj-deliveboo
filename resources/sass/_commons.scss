@@ -1,16 +1,25 @@
 // Variables
 @import "variables";
 
-html, body {
+html,
+body {
     height: 100% !important;
 }
-
-
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 20px;
 }
 
 .my-bg-blue {
@@ -54,7 +63,7 @@ header {
     .logo-home {
         height: 100%;
     }
-    
+
     .my-navbar {
         height: 70px;
     }
@@ -65,7 +74,7 @@ main {
         height: 400px;
         width: 100%;
         background-image: url(https://i.ibb.co/tcMknJF/bg-banner3.png);
-        
+
         .banner-top-image {
             position: absolute;
             top: 0;

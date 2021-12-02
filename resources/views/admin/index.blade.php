@@ -1,10 +1,10 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12">
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class="container mt-100 mt-5">
+<div class="container-fluid mt-2">
     <div class="row">
         {{-- Alert Modifica --}}
         @if (session('status'))
@@ -35,14 +35,17 @@
                 <div class="card-header pr-0 pl-0">
                     I tuoi ristoranti
                 </div>
-                <ul>
-                    <li class="my-3">
+                <ul class="m-0">
+                    <li class="m-3">
                         {{-- Show --}}
-                        <a href="{{route('admin.restaurants.show', $restaurant['id'])}}">{{$restaurant["name"]}}</a>
+                        <div class="h5 d-flex">
+
+                            <a href="{{route('admin.restaurants.show', $restaurant['id'])}}">{{$restaurant["name"]}}</a>
+                        </div>
                         {{-- Edit --}}
-                        <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark"
+                        <a class="btn btn-outline-info" data-mdb-ripple-color="dark"
                             href="{{ route('admin.restaurants.edit', $restaurant['id']) }}" class="card-link">
-                            <i class="far fa-edit"></i>
+                            <i class="far fa-edit me-2"></i>Modifica
                         </a>
                     </li>
                 </ul>

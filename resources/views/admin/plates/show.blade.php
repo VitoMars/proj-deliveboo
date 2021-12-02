@@ -12,24 +12,22 @@
 
         {{-- Dettaglio Piatti --}}
         <div class="col-md-12">
-            <div class="card mb-3">
-                {{-- Detete --}}
-                <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
+            {{-- Detete Button --}}
+            <button type="button" class="btn my-btn-red my-3" data-bs-toggle="modal"
                 data-bs-target="#deletePlate{{$plate->id}}">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-
+                <i class="far fa-trash-alt pe-2"></i>Cancella piatto
+            </button>
+            <div class="card mb-3">
                 {{-- Modal Button Delete --}}
-                <div class="modal fade" id="deletePlate{{$plate->id}}" tabindex="-1"
-                    aria-labelledby="deletePlateLabel" aria-hidden="true">
+                <div class="modal fade" id="deletePlate{{$plate->id}}" tabindex="-1" aria-labelledby="deletePlateLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="deletePlateLabel">
                                     Eliminazione piatto: {{$plate->name}}
                                 </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 </button>
                             </div>
                             <div class="modal-body">
@@ -51,9 +49,10 @@
                 <div class="card-header pr-0 pl-0">
                     Dettaglio Piatti
                 </div>
-                <ul>
+                <ul class="list-unstyled m-3">
                     @if($plate->cover)
-                    <img class="img-thumbnail my-3" style="max-height: 300px" src="{{ asset('storage/'. $plate->cover)}}">
+                    <img class="img-thumbnail my-3" style="max-height: 300px"
+                        src="{{ asset('storage/'. $plate->cover)}}">
                     @endif
                     <li><strong>Nome Piatto: </strong>{{$plate["name"]}}</li>
                     <li><strong>Descrizione: </strong>{{$plate["description"]}}</li>
