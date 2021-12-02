@@ -14,7 +14,8 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{-- {{ __('You are logged in!') }} --}}
+                    Bentornato, {{ Auth::user()->name }}.
                 </div>
             </div>
         </div>
@@ -34,7 +35,7 @@
         <div class="col-md-12">
 
             <a href="{{ route('admin.restaurants.create') }}">
-                <button type="button" class="btn btn-primary my-4 text-white">Aggiungi Ristorante</button>
+                <button type="button" class="my-btn-blue btn my-4 text-white">Aggiungi Ristorante</button>
             </a>
 
             <div class="card mb-3">
