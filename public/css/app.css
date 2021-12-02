@@ -11273,8 +11273,22 @@ html, body {
   color: #00e267;
 }
 
+.my-link-green {
+  color: #00e267;
+}
+.my-link-green:hover {
+  color: white;
+}
+
 .my-text-blue {
   color: #012e89;
+}
+
+.my-link-blue {
+  color: #012e89;
+}
+.my-link-blue:hover {
+  color: white;
 }
 
 /* Guest Home */
@@ -11304,6 +11318,14 @@ main .banner .banner-top-image {
 
 /* Guest Home */
 /*Admin Home */
+.sidebar-angle {
+  position: absolute;
+  top: -50%;
+  transform: translateY(50%);
+  left: 100%;
+  z-index: 999;
+}
+
 /*Admin Home */
 .my-btn-green {
   font-size: 18px;

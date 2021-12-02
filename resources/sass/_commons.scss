@@ -29,8 +29,22 @@ html, body {
     color: $my-green;
 }
 
+.my-link-green {
+    color: $my-green;
+    &:hover {
+        color: white;
+    }
+}
+
 .my-text-blue {
     color: $my-blue;
+}
+
+.my-link-blue {
+    color: $my-blue;
+    &:hover {
+        color: white;
+    }
 }
 
 /* Guest Home */
@@ -66,7 +80,12 @@ main {
 /* Guest Home */
 
 /*Admin Home */
-
-
+.sidebar-angle {
+    position: absolute;
+    top: -50%;
+    transform: translateY(50%);
+    left: 100%;
+    z-index: 999;
+}
 
 /*Admin Home */
