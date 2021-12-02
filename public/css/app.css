@@ -11248,13 +11248,17 @@ textarea.form-control-lg {
   }
 }
 html, body {
-  height: 100vh;
+  height: 100vh !important;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.my-bg-orange {
+  background-color: #ffa103;
 }
 
 /* Guest Home */
@@ -11283,6 +11287,8 @@ main .banner .banner-top-image {
 }
 
 /* Guest Home */
+/*Admin Home */
+/*Admin Home */
 .my-btn-green {
   font-size: 18px;
   font-weight: bold;

@@ -18,14 +18,11 @@ class PlateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $plates = Plate::where('restaurant_id', '=', Auth::user()->id)->get();
+    {      
+
         $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
-        if ($userRestaurant) {
-            $plates = Plate::where('restaurant_id', $userRestaurant->id)->orderBy('name', 'ASC')->get();
-            return view('admin.plates.index', compact("plates"));
-        }
-        return view('admin.plates.index', compact('plates'));
+
+        return view('admin.plates.index')->with('plates', $userRestaurant->plates );
     }
 
     /**
@@ -146,6 +143,9 @@ class PlateController extends Controller
     {
         $plate->delete();
 
-        return redirect()->route('admin.plates.index')->with('status', 'Piatto eliminato.');
+        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+
+
+        return redirect()->route('admin.restaurants.show', $userRestaurant['id'])->with('status', 'Piatto eliminato.');
     }
 }

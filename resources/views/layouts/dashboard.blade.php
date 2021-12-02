@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Admin, Dashboard') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
 <body>
     <header>
 
-        <nav class="my-navbar w-75 mx-auto px-3 nav-bar d-flex align-items-center justify-content-between">
+        <nav class="my-navbar w-100 mx-auto px-3 nav-bar d-flex align-items-center justify-content-between">
             <a class="h-100" href=""><img class="logo-home" src="{{ asset('images/deliveboo-logoo.png') }}" alt="DeliveBoo Logo"></a>
             <div class="top-right links">                
                     <a class="my-btn-green btn" href="{{ route('index') }}">
@@ -45,46 +45,43 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar py-4">
+            <nav class="col-md-2 d-none d-md-block my-bg-orange sidebar py-4">
                 <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
+                    <ul class="nav flex-column h-100">
                         {{-- Dashboard --}}
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('admin.index') }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-home">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                                Dashboard
+                        <li class="nav-item d-flex my-2 ">
+                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.index') }}">
+                                <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
+                                    <i class="fas fa-house-user fs-4"></i>
+                                </div>
+                                
+                                <p class="m-0">Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex my-2 ">
+                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.index') }}">
+                                <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
+                                    <i class="fas fa-utensils fs-4"></i>
+                                </div>
+                                <p class="m-0">Lista Piatti</p>
                             </a>
                         </li>
                         {{-- Categories --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.categories.index') }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-activity">
-                                    <polyline points="4 7 4 4 20 4 20 7"></polyline>
-                                    <line x1="9" y1="20" x2="15" y2="20"></line>
-                                    <line x1="12" y1="4" x2="12" y2="20"></line>
-                                </svg>
-                                Lista Categorie
+                        <li class="nav-item d-flex my-2 ">
+                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.categories.index') }}">
+                                <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
+                                    <i class="fas fa-hashtag fs-4"></i>
+                                </div>
+                                <p class="m-0">Lista Categorie</p>
                             </a>
                         </li>
                         {{-- Orders --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.orders.index') }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-activity">
-                                    <path
-                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
-                                    </path>
-                                    <line x1="7" y1="7" x2="7" y2="7"></line>
-                                </svg>
-                                Lista Ordini
+                        <li class="nav-item d-flex my-2 ">
+                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.orders.index') }}">
+                                <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
+                                    <i class="fas fa-shopping-cart fs-4"></i>
+                                </div>
+                                <p class="m-0">Lista Ordini</p>
                             </a>
                         </li>
                     </ul>

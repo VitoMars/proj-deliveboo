@@ -161,7 +161,7 @@ class RestaurantController extends Controller
         } else {
             $restaurant->categories()->sync([]);
         }
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -175,6 +175,6 @@ class RestaurantController extends Controller
         $restaurant->categories()->detach($restaurant->id);
         $restaurant->delete();
 
-        return redirect()->route('admin.restaurants.index')->with('status', 'Ristorante eliminato');
+        return redirect()->route('admin.index')->with('status', 'Ristorante eliminato');
     }
 }

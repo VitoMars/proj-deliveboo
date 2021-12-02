@@ -13,6 +13,41 @@
         {{-- Dettaglio Piatti --}}
         <div class="col-md-12">
             <div class="card mb-3">
+                {{-- Detete --}}
+                <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
+                data-bs-target="#deletePlate{{$plate->id}}">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+
+                {{-- Modal Button Delete --}}
+                <div class="modal fade" id="deletePlate{{$plate->id}}" tabindex="-1"
+                    aria-labelledby="deletePlateLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deletePlateLabel">
+                                    Eliminazione piatto: {{$plate->name}}
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Sei sicuro di voler elimanare il piatto?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Annulla
+                                </button>
+                                <form method="POST" action="{{ route('admin.plates.destroy', $plate['id']) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger text-white">Elimina</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-header pr-0 pl-0">
                     Dettaglio Piatti
                 </div>

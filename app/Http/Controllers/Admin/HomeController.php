@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         // $restaurants = Restaurant::all();
-        $restaurants = Restaurant::all()->where('user_id', '=', Auth::user()->id);
-        return view('admin.index', compact('restaurants'));
+        $restaurant = Restaurant::where('user_id', '=', Auth::user()->id)->first();
+        return view('admin.index', compact('restaurant'));
     }
 }
