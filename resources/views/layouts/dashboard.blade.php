@@ -43,14 +43,14 @@
 
 
 
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block my-bg-orange sidebar py-4">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <nav class=" h-100 col-md-2 d-none d-md-block my-bg-blue sidebar py-4">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         {{-- Dashboard --}}
                         <li class="nav-item d-flex my-2 ">
-                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.index') }}">
+                            <a class="nav-link d-flex justify-content-center align-items-center my-text-green" href="{{ route('admin.index') }}">
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-house-user fs-4"></i>
                                 </div>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item d-flex my-2 ">
-                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.index') }}">
+                            <a class="nav-link d-flex justify-content-center align-items-center my-text-green" href="{{ route('admin.index') }}">
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-utensils fs-4"></i>
                                 </div>
@@ -68,7 +68,7 @@
                         </li>
                         {{-- Categories --}}
                         <li class="nav-item d-flex my-2 ">
-                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.categories.index') }}">
+                            <a class="nav-link d-flex justify-content-center align-items-center my-text-green" href="{{ route('admin.categories.index') }}">
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-hashtag fs-4"></i>
                                 </div>
@@ -77,7 +77,7 @@
                         </li>
                         {{-- Orders --}}
                         <li class="nav-item d-flex my-2 ">
-                            <a class="nav-link d-flex justify-content-center align-items-center" href="{{ route('admin.orders.index') }}">
+                            <a class="nav-link d-flex justify-content-center align-items-center my-text-green" href="{{ route('admin.orders.index') }}">
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-shopping-cart fs-4"></i>
                                 </div>
@@ -89,7 +89,7 @@
                 </div>
             </nav>
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 pt-4">
                 @yield('content')
             </main>
         </div>

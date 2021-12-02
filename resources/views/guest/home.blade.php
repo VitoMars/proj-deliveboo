@@ -42,21 +42,21 @@
         <main>
             <div class="container-fluid w-100 banner">
                 <div class="container w-75 h-100 position-relative">
-                    <img class="banner-top-image w-100" src="{{ asset('images/banner-top-image.png') }}" alt="">
+                    <img class="banner-top-image w-100" src="{{ asset('images/banner-top-image2.png') }}" alt="">
                     <div class="row px-5 d-flex justify-content-center align-items-center w-100 h-100">
                         <div class="col-6 h-100 d-flex flex-column justify-content-center">
-                            <span class="fw-bold text-white fs-2 mb-5 mx-3">I piatti che ami, a domicilio.</span>
+                            <span class="fw-bold text-white fs-2 mb-5 mx-3 my-text-shadow">I piatti che ami, a domicilio.</span>
                             <div class="buttons-wrap w-100 d-flex flex-column justify-content-center">
                                 <a href="{{ route('restaurants.index') }}">
-                                    <button type="button" class="my-btn-orange btn w-75 my-2">Vedi tutti i ristoranti</button>
+                                    <button type="button" class="my-btn-blue btn w-75 my-2">Vedi tutti i ristoranti</button>
                                 </a>
                                 <a href="{{ route('categories.index') }}">
-                                    <button type="button" class="my-btn-orange btn w-75 my-2">Vedi tutti le categorie</button>
+                                    <button type="button" class="my-btn-blue btn w-75 my-2">Vedi tutti le categorie</button>
                                 </a>
                             </div>
                         </div>
                         <div class="right col-6 h-100 d-flex justify-content-center align-items-center">
-                            <img class="h-100" src="{{ asset('images/rider-home.png') }}" alt="Rider Image">
+                            <img class="rider-banner slideInRight h-100" src="{{ asset('images/rider-home.png') }}" alt="Rider Image">
                         </div>
 
                     </div>

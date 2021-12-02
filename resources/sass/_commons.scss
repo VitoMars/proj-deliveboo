@@ -2,7 +2,7 @@
 @import "variables";
 
 html, body {
-    height: 100vh !important;
+    height: 100% !important;
 }
 
 
@@ -13,14 +13,30 @@ html, body {
     box-sizing: border-box;
 }
 
-.my-bg-orange {
-    background-color: $my-orange;
+.my-bg-blue {
+    background-color: $my-blue;
+}
+
+.my-shadow {
+    box-shadow: 0px 0px 15px 5px #000000;
+}
+
+.my-text-shadow {
+    text-shadow: 3px 5px 2px $my-blue;
+}
+
+.my-text-green {
+    color: $my-green;
+}
+
+.my-text-blue {
+    color: $my-blue;
 }
 
 /* Guest Home */
 
 header {
-    background-color: #ffa103;
+    background-color: $my-blue;
     .logo-home {
         height: 100%;
     }
@@ -34,7 +50,6 @@ main {
     .banner {
         height: 400px;
         width: 100%;
-        // background-image: url(../../public/images/bg-banner2.png);
         background-image: url(https://i.ibb.co/tcMknJF/bg-banner3.png);
         
         .banner-top-image {

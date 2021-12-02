@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -72,43 +72,7 @@
                     </ul>
                 </div>
             </div>
-        </nav> --}}
-
-        <header class="my-bg-blue">
-            <div class="my-navbar w-75 mx-auto px-3 nav-bar d-flex align-items-center justify-content-between">
-                {{-- <div class="logo px-3">DeliveBoo Logo</div> --}}
-                <a class="h-100" href=""><img class="logo-home" src="{{ asset('images/deliveboo-logoo.png') }}" alt="DeliveBoo Logo"></a>
-                @if (Route::has('login'))
-                <div class="top-right links d-flex">
-                    @auth
-                    <a class="my-btn-green btn" href="{{ url('/') }}">Home</a>
-                    <div class="dropdown">
-                        <a class="my-btn-green btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ Auth::user()->name }}
-                        </a>
-                    
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('admin.index') }}">Dashboard</a></li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();">Logout</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                            </li>
-                        </ul>
-                    </div>
-                    @else
-                    <a class="my-btn-green btn" href="{{ route('login') }}">Login</a>
-    
-                    @if (Route::has('register'))
-                    <a class="my-btn-green btn" href="{{ route('register') }}">Register</a>
-                    @endif
-                    @endauth
-                </div>
-                @endif
-            </div>
-        </header>
+        </nav>
 
         <main class="py-4">
             @yield('content')
