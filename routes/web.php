@@ -39,3 +39,6 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
         Route::resource('/plates', 'PlateController');
         Route::resource('/orders', 'OrderController');
     });
+
+// Rotte vue
+Route::get('/vue-posts', 'HomeController@listPostsApi')->name('list-posts-api');

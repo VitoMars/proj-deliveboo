@@ -51,8 +51,12 @@
         </div>
 
         <div id="app" class="container">
-            <div class="text-right"><button class="btn btn-primary" data-toggle="modal" data-target="#cartModal">Cart
-                    ()</button></div>
+            <div class="text-right">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
+                    {{-- Cart ({{totalItems}}) --}}
+                    Cart ()
+                </button>
+            </div>
         </div>
 
         {{-- Card Piatti --}}
@@ -63,9 +67,12 @@
                 <h5 class="card-title">{{$plate['name']}}</h5>
                 <li><strong>Descrizione piatto: </strong>{{ $plate['description'] }}</li>
                 <li><strong>Prezzo: </strong>{{ $plate['price'] }}€</li>
+                <p class="text-center my-3">
+                    <input type="number" class="form-control" placeholder="Quantità" min="1" />
+                </p>
                 {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p> --}}
-                <a href="#" class="btn btn-primary mt-3">Aggiungi al carrello</a>
+                <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
             </div>
         </div>
         @endforeach

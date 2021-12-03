@@ -10,6 +10,10 @@
         </div>
         @endif
 
+        <a href="{{ route('admin.plates.create') }}">
+            <button type="button" class="my-btn-blue btn my-4 text-white">Aggiungi Piatto</button>
+        </a>
+
         {{-- Lista Piatti --}}
         <div class="col-md-12">
             <div class="card mb-3">

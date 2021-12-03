@@ -69,7 +69,7 @@
                         </li>
                         <li class="nav-item d-flex my-2 ">
                             <a class="nav-link d-flex justify-content-center align-items-center my-link-green"
-                                href="{{ route('admin.index') }}">
+                                href="{{ route('admin.plates.index') }}">
                                 <div style="width: 27px" class="d-flex justify-content-center align-items-center me-3">
                                     <i class="fas fa-utensils fs-4"></i>
                                 </div>

@@ -36,7 +36,7 @@
 
             <div class="card mb-3">
                 <div class="card-header pr-0 pl-0">
-                    I tuoi ristoranti
+                    Il tuo ristorante
                 </div>
                 <ul class="m-0">
                     <li class="m-3">
