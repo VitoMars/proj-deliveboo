@@ -38,20 +38,27 @@
                 <div class="card-header pr-0 pl-0">
                     Il tuo ristorante
                 </div>
-                <ul class="m-0">
-                    <li class="m-3">
-                        {{-- Show --}}
-                        <div class="h5 d-flex">
 
-                            <a href="{{route('admin.restaurants.show', $restaurant['id'])}}">{{$restaurant["name"]}}</a>
-                        </div>
-                        {{-- Edit --}}
-                        <a class="btn btn-outline-info" data-mdb-ripple-color="dark"
-                            href="{{ route('admin.restaurants.edit', $restaurant['id']) }}" class="card-link">
-                            <i class="far fa-edit me-2"></i>Modifica
-                        </a>
-                    </li>
-                </ul>
+                @if( $restaurant )
+
+                    <ul class="m-0">
+                        <li class="m-3">
+                            {{-- Show --}}
+                            <div class="h5 d-flex">
+
+                                <a href="{{route('admin.restaurants.show', $restaurant['id'])}}">{{$restaurant["name"]}}</a>
+                            </div>
+                            {{-- Edit --}}
+                            <a class="btn btn-outline-info" data-mdb-ripple-color="dark"
+                                href="{{ route('admin.restaurants.edit', $restaurant['id']) }}" class="card-link">
+                                <i class="far fa-edit me-2"></i>Modifica
+                            </a>
+                        </li>
+                    </ul>
+                @else 
+
+                    Non hai ancora creato un ristorante! 
+                @endif
             </div>
         </div>
     </div>
