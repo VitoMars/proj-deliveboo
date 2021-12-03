@@ -50,6 +50,11 @@
             </div>
         </div>
 
+        <div id="app" class="container">
+            <div class="text-right"><button class="btn btn-primary" data-toggle="modal" data-target="#cartModal">Cart
+                    ()</button></div>
+        </div>
+
         {{-- Card Piatti --}}
         @foreach ($restaurant->plates as $plate)
         <div class="card m-2" style="width: 18rem;">
@@ -65,6 +70,6 @@
         </div>
         @endforeach
 
+
     </div>
-</div>
-@endsection
+    @endsection
