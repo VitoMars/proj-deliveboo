@@ -44,7 +44,7 @@
         <main>
             <div class="container-fluid w-100 banner">
                 <div class="container w-75 h-100 position-relative">
-                    <img class="banner-top-image w-100" src="{{ asset('images/banner-top-image2.png') }}" alt="">
+                    <img class="banner-top-image w-100" src="{{ asset('images/banner-top-image.png') }}" alt="">
                     <div class="row px-5 d-flex justify-content-center align-items-center w-100 h-100">
                         <div class="col-6 h-100 d-flex flex-column justify-content-center">
                             <span class="fw-bold text-white fs-2 mb-5 mx-3 my-text-shadow">I piatti che ami, a
