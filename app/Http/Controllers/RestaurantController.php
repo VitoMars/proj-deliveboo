@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Plate;
+use App\Category;
 
 class RestaurantController extends Controller
 {
@@ -13,7 +14,8 @@ class RestaurantController extends Controller
 
         $plates = Plate::all();
         $restaurants = Restaurant::all();
-        return view('guest.restaurants.index', compact('restaurants', 'plates'));
+        $categories = Category::all();
+        return view('guest.restaurants.index', compact('restaurants', 'plates', 'categories'));
     }
 
     /**

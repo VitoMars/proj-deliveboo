@@ -1,15 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid mt-0">
     <div class="row justify-content-center">
         <div class="col-12">
-            <div class="card mt-3">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    Bentornato, {{ Auth::user()->name }}.
-                </div>
+            <div class="welcome-wrap py-4 px-3 fs-5">
+                Bentornato, <span class="my-text-green text-capitalize fw-bold">{{ Auth::user()->name }}</span>.
             </div>
         </div>
     </div>
