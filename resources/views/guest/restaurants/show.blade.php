@@ -54,9 +54,16 @@
             <div class="text-right">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
                     {{-- Cart ({{totalItems}}) --}}
-                    Cart ()
+            Cart
                 </button>
             </div>
+
+            {{-- @include('layouts.nav') --}}
+
+            @yield('content')
+            <shopping-cart><ul>ciao</ul></shopping-cart>
+
+            {{-- <script src="{{ mix('src/main.js') }}"></script> --}}
         </div>
 
         {{-- Card Piatti --}}
