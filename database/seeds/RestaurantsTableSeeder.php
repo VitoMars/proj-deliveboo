@@ -14,14 +14,11 @@ class RestaurantsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // $category_list = ["Italiano", "Internazionale", "Cinese", "Giapponese", "Messicano", "Indiano", "Pesce", "Carne", "Pizza"];
-        // $delivery_costs = ["0.00", "1.00", "1.50", "2.00", "2.50", "3.00"];
-
         $new_restaurant = new Restaurant();
-        $new_restaurant->name = "Ristorante creato tramite seed";
+        $new_restaurant->name = "Ristorante dell'Admin";
         $new_restaurant->address = $faker->address(50);
         $new_restaurant->description = $faker->paragraph();
-
+        $new_restaurant->user_id = 1;
         //Metodo per creare lo slug in automatico
         $slug = Str::slug($new_restaurant->name, '-');
         $slug_base = $slug;
