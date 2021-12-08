@@ -12,18 +12,24 @@
 
         {{-- Lista Categorie --}}
         <div class="col-md-12">
-            <div class="card mb-3">
-                <div class="card-header pr-0 pl-0">
-                    Lista categorie
+            <div class="mb-3">
+                <div class="text-white fw-bold fs-1 mb-4 my-text-shadow pr-0 pl-0">
+                    Categorie
                 </div>
-                <ol class="m-2">
-                    @foreach ($categories as $category)
-                    <li class="my-3">
-                        {{-- Show --}}
-                        <a href="{{ route('categories.show', $category['id']) }}">{{$category["name"]}}</a>
-                    </li>
-                    @endforeach
-                </ol>
+                <div class="w-100">
+                    <div class="row py-2 g-3">
+                        @foreach ($categories as $category)
+                        {{-- <li class="my-3">
+                            <a href="{{ route('categories.show', $category['id']) }}">{{$category["name"]}}</a>
+                        </li> --}}
+                        <a href="{{ route('categories.show', $category['id']) }}" class="card my-card my-col-3 p-0 border-0 overflow-hidden d-flex flex-column justify-content-center align-items-center">
+                            <img class="category-img w-100 p-0 m-0" src="{{ asset('images/categories/' . $category->slug . '.png') }}" alt="{{$category->name}} Image">
+                            <div class="category-name d-flex justify-content-center align-items-center"><span class="p-0 m-0">{{$category->name}}</span></div>
+
+                        </a>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
