@@ -12,7 +12,6 @@
 </head>
 
 <body class="m-0">
-    ciaoooo
     <div class="position-ref full-height w-100">
         {{-- Navbar --}}
         <header>
