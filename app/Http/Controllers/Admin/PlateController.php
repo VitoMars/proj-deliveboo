@@ -122,7 +122,7 @@ class PlateController extends Controller
             'price' => 'required',
             'visibility' => 'required',
             'rating' => 'nullable',
-            'img' => 'nullable',
+            'cover' => 'nullable',
             'restaurant_id' => 'nullable|exists:restaurant,id',
         ]);
 

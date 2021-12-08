@@ -18400,8 +18400,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\boolean #39\Laravel\PROGETTO FINALE\proj-deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\boolean #39\Laravel\PROGETTO FINALE\proj-deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Antonio\Desktop\PROGETTO FINALE\FILE ORIGINALE\proj-deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Antonio\Desktop\PROGETTO FINALE\FILE ORIGINALE\proj-deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

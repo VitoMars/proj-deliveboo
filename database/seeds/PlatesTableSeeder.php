@@ -27,7 +27,7 @@ class PlatesTableSeeder extends Seeder
         $new_plate->visibility = true;
         $new_plate->rating = $faker->randomFloat(1, 1, 5);
         // $new_plate->slug = Str::slug($new_plate->name, '-');
-        // $new_plate->restaurant_id = $faker->numberBetween(1, 10);
+        $new_plate->restaurant_id = 1;
 
         //Metodo per creare lo slug in automatico
         $slug = Str::slug($new_plate->name, '-');
