@@ -38,14 +38,6 @@
                         <a href="" class="mx-2">{{$plate['name']}}</a>
                         @endforeach
                     </li>
-                    {{-- @foreach ($restaurants as $restaurant)
-                    @foreach ($plates as $key => $plate)
-                    <p>{{$key}}</p>
-                    @endforeach
-                    @endforeach --}}
-                    {{-- {{$restaurant->plates}}
-
-                    @dump($restaurant) --}}
                 </ul>
             </div>
         </div>
@@ -60,22 +52,35 @@
         </div>
 
         {{-- Card Piatti --}}
-        @foreach ($restaurant->plates as $plate)
-        <div class="card m-2" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">{{$plate['name']}}</h5>
-                <li><strong>Descrizione piatto: </strong>{{ $plate['description'] }}</li>
-                <li><strong>Prezzo: </strong>{{ $plate['price'] }}€</li>
-                <p class="text-center my-3">
-                    <input type="number" class="form-control" placeholder="Quantità" min="1" />
-                </p>
-                {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p> --}}
-                <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+        <div class="container mt-3">
+            <div class="row g-4">
+                @foreach ($restaurant->plates as $plate)
+                <div class="col-3">
+                    <div class="card scroll">
+                            @if ($plate->cover)
+                                <img class="img-thumbnail mt-3" style="height:250px; width:100%"
+                                    src="{{ asset('storage/'. $plate->cover)}}">
+                            @else
+                                <img src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                                    style="height:250px; width:100%" class="card-img-top mt-3 " alt="img">
+                            @endif
+                        <div class="card-body">
+                            <div>
+                                <h5 class="card-title">{{$plate['name']}}</h5>
+                                <span class="fw-bold">Descrizione: </span>
+                                <div class="overflow">{{ $plate['description'] }}</div>
+                                <div><strong>Prezzo: </strong>{{ $plate['price'] }}€</div>
+                                <p class="text-center my-3 w-50">
+                                    <input type="number" class="form-control" placeholder="Quantità" min="1" />
+                                </p>
+                                <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
-        @endforeach
 
 
     </div>
