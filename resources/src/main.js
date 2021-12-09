@@ -7,6 +7,9 @@ import Vue2Filters from 'vue2-filters' // Allows use of currency
 import VueRouter from 'vue-router'
 import App from './App'
 import Home from './components/Home'
+import vueBraintree from 'vue-braintree'
+
+Vue.use(vueBraintree)
 
 Vue.use(vueResource)
 Vue.use(Vue2Filters)

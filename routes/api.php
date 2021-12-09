@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/products', 'Api\RestaurantController@index');
+Route::post('/products/plate', 'Api\PlateController@show');
+Route::get('/generate', 'Api\PaymentController@generate');
 // Route::post('/post/{slug}', 'Api\PostController@show')->middleware('api_token_check');

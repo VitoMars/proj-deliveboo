@@ -6,7 +6,7 @@
     
         <div id="app">
             <vue-App></vue-App>
-            <div>{{ $restaurant }}</div>
+          
         </div>
             <script src="{{ mix('js/main.js') }}"></script>
     </div>

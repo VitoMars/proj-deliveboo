@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    ciao
     <Home />
-    <!-- <Cart  /> -->
   </div>
 </template>
 
@@ -13,7 +11,6 @@ export default {
   name: "app",
   components: {
     Home,
-    Cart
   }
 };
 </script>
