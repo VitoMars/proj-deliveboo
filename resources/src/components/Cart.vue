@@ -25,10 +25,12 @@ export default {
         dataClient: [],
         token: "",
         food: [],
+        
       },
       showCart: [],
       brain: false,
-      token: ''
+      token: '',
+      url: 'http://127.0.0.1:8000/api/generate'
     };
   },
   watch: {
@@ -61,7 +63,15 @@ export default {
       this.$forceUpdate();
     },
     getToken() {
-      
+     axios
+        .get(this.url)
+        .then((response) => {
+          // console.log(response.data.results);
+          this.brain = true;
+          this.token = response.data.token;
+        })
+        .catch((reject) => {
+        });
     }
   },
 };

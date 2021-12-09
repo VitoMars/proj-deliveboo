@@ -2328,7 +2328,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       showCart: [],
       brain: false,
-      token: ''
+      token: '',
+      url: 'http://127.0.0.1:8000/api/generate'
     };
   },
   watch: {
@@ -2361,7 +2362,15 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$forceUpdate();
     },
-    getToken: function getToken() {}
+    getToken: function getToken() {
+      var _this = this;
+
+      axios.get(this.url).then(function (response) {
+        // console.log(response.data.results);
+        _this.brain = true;
+        _this.token = response.data.token;
+      })["catch"](function (reject) {});
+    }
   }
 });
 
