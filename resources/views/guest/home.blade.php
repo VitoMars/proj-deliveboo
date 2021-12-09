@@ -12,6 +12,7 @@
 </head>
 
 <body class="m-0">
+    <img onclick="topFunction()" id="scrollUp" title="Vai sopra" src="{{asset('images/up-arrow.png')}}" alt="up arrow">
     <div class="position-ref full-height w-100">
         {{-- Navbar --}}
         <header>
@@ -45,10 +46,10 @@
             {{-- Banner --}}
             <div class="container-fluid w-100 banner">
                 <div class="container w-75 h-100 position-relative">
-                    <img class="banner-top-image w-100" src="{{ asset('images/banner-top-image.png') }}" alt="">
+                    <img class="banner-top-image w-100" src="{{ asset('images/banner-top-image-christmas.png') }}" alt="">
                     <div class="row px-5 d-flex justify-content-center align-items-center w-100 h-100">
                         <div class="col-6 h-100 d-flex flex-column justify-content-center">
-                            <span class="fw-bold text-white fs-2 mb-5 mx-3 my-text-shadow">I piatti che ami, a
+                            <span class="fw-bold text-white fs-2 mb-5 mx-3 mt-4 my-text-shadow">I piatti che ami, a
                                 domicilio.</span>
                             <div class="buttons-wrap w-100 d-flex flex-column justify-content-center">
                                 <a href="{{ route('restaurants.index') }}">
@@ -62,7 +63,7 @@
                             </div>
                         </div>
                         <div class="right col-6 h-100 d-flex justify-content-center align-items-center">
-                            <img class="rider-banner slideInRight h-100" src="{{ asset('images/rider-home.png') }}"
+                            <img class="rider-banner slideInRight h-100" src="{{ asset('images/rider-home-christmas.png') }}"
                                 alt="Rider Image">
                         </div>
                     </div>
@@ -70,7 +71,7 @@
             </div>
             {{-- Banner --}}
 
-            {{-- Section 1 --}}
+            {{-- Section 1 / La selezione di Deliveboo--}}
 
             <div class="container-fluid w-75 la-selezione px-5 py-5">
                 <h1 class="mb-5">La selezione di Deliveboo</h1>
@@ -127,8 +128,89 @@
 
             {{-- Section 1 --}}
 
+            {{-- Sezione 2 / Cosa cerchi?--}}
+
+            <div class="container-fluid w-75 cosa-cerchi px-5 py-5">
+                <h1>Cosa cerchi?</h1>
+                <ul class="d-flex flex-wrap">
+                    @foreach ($categories as $category)
+                        <a href="{{route('categories.show', $category->id)}}" class="my-link-blue fs-2 fw-bold mx-3 text-uppercase">{{ $category->name }}</a>
+                    @endforeach
+                </ul>
+            </div>
+
+            {{-- Sezione 2 --}}
+
+            {{-- Section 3 / Lavora con Deliveboo--}}
+
+            <div class="container-fluid w-75 lavora px-5 py-5">
+                <h1 class="mb-5">Lavora con Deliveboo</h1>
+                <div class="row gx-5">
+                    <div class="col-4 lavora-rider">
+                        <div class="card lavora-card m-2 pb-2 border-0 d-flex flex-column">
+                            <img class="w-100" src="{{ asset('images/lavora-rider.png') }}" alt="Lavora con Noi Rider image">
+                            <div class="lavora-text-area p-4">
+                                <h1>Rider</h1>
+                                <p>Diventa un rider: flessibilità, ottimi guadagni e un mondo di vantaggi per te.</p>
+                                <a class="my-btn-green btn my-2" href="">Unisciti a noi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 lavora-ristorante">
+                        <div class="card lavora-card m-2 pb-2 border-0 d-flex flex-column">
+                            <img class="w-100" src="{{ asset('images/lavora-restaurant.png') }}" alt="Lavora con Noi Restaurant image">
+                            <div class="lavora-text-area p-4">
+                                <h1>Ristorante</h1>
+                                <p>Diventa partner di Deliveroo e raggiungi sempre più clienti. Ci occupiamo noi della consegna, così che la tua unica preoccupazione sia continuare a preparare il miglior cibo.</p>
+                                <a class="my-btn-green btn my-2" href="">Diventa nostro partner</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 lavora-con-noi">
+                        <div class="card lavora-card m-2 pb-2 border-0 d-flex flex-column">
+                            <img class="w-100" src="{{ asset('images/lavora-con-noi.png') }}" alt="Lavora con Noi image">
+                            <div class="lavora-text-area p-4">
+                                <h1>Lavora con noi</h1>
+                                <p>La nostra missione è trasformare il modo in cui le persone mangiano. È un obiettivo ambizioso, come noi, e ci servono persone che ci aiutino a raggiungerlo.</p>
+                                <a class="my-btn-green btn my-2" href="">Scopri di più</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {{-- Section 3 --}}
+
         </main>
         @include('partials.footer')
+        
+
+        <script>
+        /* Button per tornare su */
+
+        //Prendo il bottone
+        var mybutton = document.getElementById("scrollUp");
+
+        //Quando lìutende "scrolla" giù di 20px dall'inizio della pagina, il bottone spunta fuori
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+
+        // Quando l'utente fa "click" sul bottone, viene effettuanto in automatico un scroll verso l'alto
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+
+        /* Button per tornare su */
+        </script>
 </body>
 
 </html>
