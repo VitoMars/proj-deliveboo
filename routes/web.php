@@ -38,7 +38,14 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
         Route::resource('/categories', 'CategoryController');
         Route::resource('/plates', 'PlateController');
         Route::resource('/orders', 'OrderController');
+
+        Route::get('/profile' , 'HomeController@profile')->name('profile');
+        Route::post('/generate-token' , 'HomeController@generate-token')->name('generate-token');
     });
 
 // Rotte vue
-Route::get('/vue-posts', 'HomeController@listPostsApi')->name('list-posts-api');
+Route::middleware('auth')
+    ->group(function () {
+        Route::get('/profile' , 'HomeController@profile')->name('profile');
+        Route::post('/generate-token' , 'HomeController@generate-token')->name('generate-token');
+    });

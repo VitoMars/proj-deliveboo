@@ -1,29 +1,30 @@
 <template>
   <div id="app">
-    <h1>Shopping Cart Example</h1>
-    <router-link :class="{active: $route.name === 'Home'}" to="/">Home</router-link>
-    <router-link :class="{active: $route.name === 'Cart'}" to="/cart">Cart</router-link>
-    <hr>
-    <h2>Products</h2>
-    <ProductList/>
-    <hr>
-    <CartItemCard/>
+    ciao
+    <Home />
+    <!-- <Cart  /> -->
   </div>
 </template>
 
 <script>
-
-import ProductList from '../src/components/products/ProductList.vue'
-import CartItemCard from '../src/components/cart/CartItemCard.vue'
- export default {
-
-   mounted() {
-        this.$store.commit('updateCartFromLocalStorage')
-    },
-      name: 'App',
-      components: {
-        ProductList,
-        CartItemCard
-      }
-    }
+import Home from "./components/Home.vue";
+import Cart from "./components/Cart";
+export default {
+  name: "app",
+  components: {
+    Home,
+    Cart
+  }
+};
 </script>
+
+<style lang='scss'>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

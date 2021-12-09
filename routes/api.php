@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/products', 'Api\RestaurantController@index');
+// Route::post('/post/{slug}', 'Api\PostController@show')->middleware('api_token_check');
