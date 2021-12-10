@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::post('/products', 'Api\RestaurantController@index');
 Route::post('/products/plate', 'Api\PlateController@show');
 Route::get('/generate', 'Api\PaymentController@generate');
+Route::post('/makepayment', 'Api\PaymentController@makePayment');

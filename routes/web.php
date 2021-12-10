@@ -29,6 +29,9 @@ Route::resource('/categories', 'CategoryController');
 /* Serie di rotte che gestiscono il meccanismo di autenticazione */
 Auth::routes();
 
+Route::get('/pay', "PayController@payment")->name('pay');
+Route::get('/checkout', "PayController@checkout")->name('checkout');
+
 /* Rotte per gli admin */
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
     ->group(function () {
