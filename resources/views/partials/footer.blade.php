@@ -59,9 +59,6 @@
                     <li>
                         <a href="https://www.linkedin.com/in/michele-ierniero-7671a7162/" target="_blank">Michele Ierniero</a>
                     </li>
-                    <li>
-                        <a href="#">Luca Cipriani</a>
-                    </li>
                 </ul>
             </div>
 

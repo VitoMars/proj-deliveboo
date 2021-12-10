@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title',' | ' . $order->guest_name)
+
 @section('content')
-<div class="container-fluid mt-100">
+<div class="container-fluid mt-5">
     <div class="row">
         {{-- Alert Modifica --}}
         @if (session('status'))

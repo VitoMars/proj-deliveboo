@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title',' | Ordini')
+
 @section('content')
-<div class="container-fluid mt-100">
+<div class="container-fluid mt-5">
     <div class="row">
         @if (session('status'))
         <div class="alert alert-success w-100">

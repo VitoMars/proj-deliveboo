@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title',' | Ristoranti')
+
 @section('content')
-<div class="container-fluid mt-100">
+<div class="container-fluid mt-5">
     <div class="row">
         {{-- Lista Ristoranti --}}
         <div class="col-md-12">

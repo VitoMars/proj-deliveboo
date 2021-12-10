@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title',' | ' . $plate->name)
+
 @section('content')
 <div class="container-fluid mt-100">
     <div class="row">
