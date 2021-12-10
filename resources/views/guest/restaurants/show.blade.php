@@ -3,10 +3,10 @@
 @section('content')
 <div class="container mt-3">
     <div class="row">
-        {{-- Alert modifica --}}
-        @if (session('status'))
-        <div class="alert alert-success w-100">
-            {{ session('status') }}
+
+        <div id="app">
+            <vue-App></vue-App>
+
         </div>
         @endif
 
@@ -57,13 +57,13 @@
                 @foreach ($restaurant->plates as $plate)
                 <div class="col-3">
                     <div class="card scroll">
-                            @if ($plate->cover)
-                                <img class="img-thumbnail mt-3" style="height:250px; width:100%"
-                                    src="{{ asset('storage/'. $plate->cover)}}">
-                            @else
-                                <img src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
-                                    style="height:250px; width:100%" class="card-img-top mt-3 " alt="img">
-                            @endif
+                        @if ($plate->cover)
+                        <img class="img-thumbnail mt-3" style="height:250px; width:100%"
+                            src="{{ asset('storage/'. $plate->cover)}}">
+                        @else
+                        <img src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                            style="height:250px; width:100%" class="card-img-top mt-3 " alt="img">
+                        @endif
                         <div class="card-body">
                             <div>
                                 <h5 class="card-title">{{$plate['name']}}</h5>
@@ -83,5 +83,7 @@
         </div>
 
 
+        <script src="{{ mix('js/main.js') }}"></script>
     </div>
+
     @endsection
