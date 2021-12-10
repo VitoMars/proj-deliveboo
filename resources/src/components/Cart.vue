@@ -1,7 +1,8 @@
 <template>
   <div class="cart text-dark">
-    <div v-for="(food, index) in showCart" :key="food.id">
+    <div v-for="(food, index) in showCart" :key="food.index">
       <span class="text-dark">{{ food.name }}</span>
+      <div><span class="cart_food_name">Total:</span><span class="cart_food_price"> {{total}}€</span></div>
       <button class="btn circle btn-secondary" @click="minus(index)">-</button>
       <button class="btn circle btn-secondary" @click="plus(index)">+</button>
       {{ food.quantity }}
@@ -25,12 +26,14 @@ export default {
         dataClient: [],
         token: "",
         food: [],
+        total:0,
         
       },
       showCart: [],
       brain: false,
       token: '',
-      url: 'http://127.0.0.1:8000/api/generate'
+      url: 'http://127.0.0.1:8000/api/generate',
+      paymentOnSuccess: []
     };
   },
   watch: {

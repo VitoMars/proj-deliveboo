@@ -2312,6 +2312,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Cart",
@@ -2324,12 +2325,14 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         dataClient: [],
         token: "",
-        food: []
+        food: [],
+        total: 0
       },
       showCart: [],
       brain: false,
       token: '',
-      url: 'http://127.0.0.1:8000/api/generate'
+      url: 'http://127.0.0.1:8000/api/generate',
+      paymentOnSuccess: []
     };
   },
   watch: {
@@ -2459,7 +2462,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -27216,8 +27218,15 @@ var render = function () {
     { staticClass: "cart text-dark" },
     [
       _vm._l(_vm.showCart, function (food, index) {
-        return _c("div", { key: food.id }, [
+        return _c("div", { key: food.index }, [
           _c("span", { staticClass: "text-dark" }, [_vm._v(_vm._s(food.name))]),
+          _vm._v(" "),
+          _c("div", [
+            _c("span", { staticClass: "cart_food_name" }, [_vm._v("Total:")]),
+            _c("span", { staticClass: "cart_food_price" }, [
+              _vm._v(" " + _vm._s(_vm.total) + "€"),
+            ]),
+          ]),
           _vm._v(" "),
           _c(
             "button",
@@ -27432,8 +27441,6 @@ var staticRenderFns = [
       _c("td"),
       _vm._v(" "),
       _c("td"),
-      _vm._v(" "),
-      _c("td", [_vm._v("Total:")]),
     ])
   },
 ]

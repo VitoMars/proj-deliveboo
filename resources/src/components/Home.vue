@@ -16,7 +16,6 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>Total:</td>
           </tr>
         </tbody>
       </table>
