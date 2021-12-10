@@ -8,9 +8,7 @@
 
         <div id="app">
             <vue-App></vue-App>
-
         </div>
-        @endif
 
         {{-- Dettaglio Ristorante --}}
         <div class="col-md-12">
@@ -111,8 +109,6 @@
                 @endforeach
             </div>
         </div>
-
-
         <script src="{{ mix('js/main.js') }}"></script>
     </div>
 

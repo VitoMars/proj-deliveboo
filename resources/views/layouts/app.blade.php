@@ -35,7 +35,8 @@
             <div class="my-navbar w-75 mx-auto px-3 nav-bar d-flex align-items-center justify-content-between">
                 {{-- <div class="logo px-3">DeliveBoo Logo</div> --}}
                 <a class="h-100" href="{{ route('index') }}">
-                    <img class="logo-home" src="{{ asset('images/deliveboo-logo-christmas.png') }}" alt="DeliveBoo Logo">
+                    <img class="logo-home" src="{{ asset('images/deliveboo-logo-christmas.png') }}"
+                        alt="DeliveBoo Logo">
                 </a>
                 @if (Route::has('login'))
                 <div class="top-right links d-flex">
@@ -72,7 +73,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-            @include('partials.footer')
+        @include('partials.footer')
     </div>
 
     <script>
