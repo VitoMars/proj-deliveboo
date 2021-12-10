@@ -10,6 +10,7 @@
         </div>
             <script src="{{ mix('js/main.js') }}"></script>
     </div>
+    
     @endsection
 
    

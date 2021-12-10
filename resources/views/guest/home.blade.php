@@ -12,9 +12,6 @@
 </head>
 
 <body>
-    <div id="app">
-        @yield('content')
-    </div>
     <div class="position-ref full-height w-100">
         {{-- Navbar --}}
         <header>
