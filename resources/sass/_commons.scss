@@ -3,6 +3,8 @@
 
 html,
 body {
+
+
     height: 100% !important;
 
     ::-webkit-scrollbar{
@@ -98,6 +100,11 @@ ul {
         border-radius: 0px;
         box-shadow: inset 0px 0px 0px 0px #f0f0f0;
     }
+}
+
+.visibility-off {
+    opacity: 50%;
+    background-color: rgb(173, 173, 173);
 }
 
 /* Guest Home */
@@ -258,6 +265,29 @@ main {
         &:hover {
             color: $my-green;
         }
+    }
+}
+
+.novita-cucina {
+    background-color: #f9fbfa;
+    h1 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .delivery-for-work {
+        background-color: white;
+        
+        .right {
+            h3 {
+                font-size: 28px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .prova-app {
+        background-color: white;
     }
 }
 

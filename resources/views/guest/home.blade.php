@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
     <title>DeliveBoo | Consegna a domicilio</title>
     {{-- Fonts --}}
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet"> --}}
 </head>
 
 <body class="m-0">
@@ -131,7 +133,7 @@
             {{-- Sezione 2 / Cosa cerchi?--}}
 
             <div class="container-fluid w-75 cosa-cerchi px-5 py-5">
-                <h1>Cosa cerchi?</h1>
+                <h1 class="mb-5">Cosa cerchi?</h1>
                 <ul class="d-flex flex-wrap">
                     @foreach ($categories as $category)
                         <a href="{{route('categories.show', $category->id)}}" class="my-link-blue fs-2 fw-bold mx-3 text-uppercase">{{ $category->name }}</a>
@@ -141,7 +143,51 @@
 
             {{-- Sezione 2 --}}
 
-            {{-- Section 3 / Lavora con Deliveboo--}}
+            {{-- Section 3 --}}
+
+            <div class="container-fluid w-100 novita-cucina px-5 py-5">
+                <div class="container-fluid w-75 ">
+                    <h1 class="mb-5">Novità dalla nostra cucina</h1>
+                    <div class="row">
+                        <div class="col-12 delivery-for-work mb-4">
+                            <div class="row">
+                                <div class="col-6 mx-0 p-0 left">
+                                    <img class="w-100" src="{{ asset('images/delivery-for-work.png') }}" alt="Delivery For Work image">
+                                </div>
+                                <div class="col-6 mx-0 px-3 py-5 right d-flex flex-column ">
+                                    <h3 class="mb-3">Deliveboo for Work</h3>
+                                    <p>Clienti o colleghi affamati? il nostro team Corporate ti può aiutare.</p>
+                                    <a class="my-btn-green btn my-2 w-25" href="">Contattaci</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 prova-app">
+                            <div class="row">
+                                <div class="col-6 mx-0 px-3 py-5 left d-flex flex-column ">
+                                    <h3 class="mb-3">Hai già la nostra app?</h3>
+                                    <p>Scaricala ora - disponibile su Apple store e Google Play!</p>
+                                    <div style="height: 60px" class="social-wrap w-50 d-flex">
+                                        <div class="download-button h-100">
+                                            <a href="https://apps.apple.com/it/app/deliveroo-piatti-a-domicilio/id1001501844"  target="_blank"><img class="h-100" src="{{ asset('images/download-apple.svg') }}" alt="Download on App Store"></a>
+                                        </div>
+                                        <div class="download-button h-100">
+                                            <a href="https://play.google.com/store/apps/details?id=com.deliveroo.orderapp&hl=it&gl=US"  target="_blank"><img class="h-100" src="{{ asset('images/download-google.svg') }}" alt="Download on Google Play"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 mx-0 p-0 right">
+                                    <img class="w-100" src="{{ asset('images/sezione-app.png') }}" alt="Sezione app image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Section 3 --}}
+
+            {{-- Section 4 / Lavora con Deliveboo--}}
 
             <div class="container-fluid w-75 lavora px-5 py-5">
                 <h1 class="mb-5">Lavora con Deliveboo</h1>
@@ -180,11 +226,10 @@
 
             </div>
 
-            {{-- Section 3 --}}
+            {{-- Section 4 --}}
 
         </main>
         @include('partials.footer')
-        
 
         <script>
         /* Button per tornare su */

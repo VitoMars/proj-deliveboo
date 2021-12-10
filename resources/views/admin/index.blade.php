@@ -32,29 +32,46 @@
             </a>
             @endif
 
-            <div class="card mb-3">
-                <div class="card-header pr-0 pl-0">
-                    Il tuo ristorante
-                </div>
-
-                @if( $restaurant )
-                <ul class="m-0">
-                    <li class="m-3">
-                        {{-- Show --}}
-                        <div class="h5 d-flex">
-                            <a href="{{route('admin.restaurants.show', $restaurant['id'])}}">{{$restaurant["name"]}}</a>
-                        </div>
-                        {{-- Edit --}}
-                        <a class="btn btn-outline-info" data-mdb-ripple-color="dark"
-                            href="{{ route('admin.restaurants.edit', $restaurant['id']) }}" class="card-link">
-                            <i class="far fa-edit me-2"></i>Modifica
-                        </a>
-                    </li>
-                </ul>
-                @else
-                <div class="m-2">Non hai ancora creato un ristorante!</div>
-                @endif
+            
+            <div class="my-text-blue fw-bold fs-2 mb-3 pr-0 pl-0">
+                Il tuo Ristorante
+                <a class="btn btn-outline-info btn-edit-restaurant" data-mdb-ripple-color="dark"
+                    href="{{ route('admin.restaurants.edit', $restaurant['id']) }}" class="card-link">
+                    <i class="far fa-edit me-2"></i>Modifica
+                </a>
             </div>
+
+            @if( $restaurant )
+            
+
+            <div class="col-3">
+                <a style="height: 350px" href="{{ route('admin.restaurants.show', $restaurant->id) }}" class="card my-card py-2 d-flex flex-column justify-content-center align-items-center">
+                    <div class="card-logo d-flex align-items-center justify-content-center">
+                        @if ($restaurant->cover)
+                            <img class="w-100"
+                                src="{{ asset('storage/'. $restaurant->cover)}}">
+                        @else
+                        <img class="w-100" src="{{ asset('images/logo-restaurant-default.png') }}" alt="{{ $restaurant->name}} Logo">
+                        @endif
+                        {{-- <img class="w-100" src="{{ asset('images/logo-restaurant-default.png') }}" alt="{{ $restaurant->name}} Logo"> --}}
+                    </div>
+                    <div class="card-body w-100 d-flex flex-column">
+                        <h3 class="fs-4">{{$restaurant->name}}</h3>
+                            <p class="restaurant-description text-dark">{{$restaurant->description}}</p>
+                            <div class="restaurant-category-list">
+
+                            @foreach ($restaurant->categories as $category)
+                            <span class="mx-2">{{$category->name}}  </span>
+                            @endforeach
+                            </div>
+                            {{-- Edit --}}
+                    </div>
+                </a>
+                </div>
+            @else
+            <div class="m-2">Non hai ancora creato un ristorante!</div>
+            @endif
+            
         </div>
     </div>
 </div>

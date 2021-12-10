@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title',' | I Piatti')
+
 @section('content')
 <div class="container-fluid mt-100">
     <div class="row">

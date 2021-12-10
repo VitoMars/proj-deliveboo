@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title',' | I Ristoranti')
+
+
 @section('content')
 <div class="container mt-3">
 

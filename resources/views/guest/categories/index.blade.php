@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title',' | Categorie')
+
 @section('content')
 <div class="container mt-3">
     <div class="row">

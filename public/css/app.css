@@ -12286,6 +12286,11 @@ ul {
   box-shadow: inset 0px 0px 0px 0px #f0f0f0;
 }
 
+.visibility-off {
+  opacity: 50%;
+  background-color: #adadad;
+}
+
 /* Guest Home */
 
 header {
@@ -12448,6 +12453,30 @@ main .banner .banner-top-image {
 
 .cosa-cerchi .my-link-blue:hover {
   color: #0cd977;
+}
+
+.novita-cucina {
+  background-color: #f9fbfa;
+}
+
+.novita-cucina h1,
+.novita-cucina .h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.novita-cucina .delivery-for-work {
+  background-color: white;
+}
+
+.novita-cucina .delivery-for-work .right h3,
+.novita-cucina .delivery-for-work .right .h3 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.novita-cucina .prova-app {
+  background-color: white;
 }
 
 .lavora h1,

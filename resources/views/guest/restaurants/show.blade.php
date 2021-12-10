@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title',' | ' . $restaurant->name)
+
 @section('content')
 <div class="container mt-3">
     <div class="row">
@@ -55,29 +57,57 @@
         <div class="container mt-3">
             <div class="row g-4">
                 @foreach ($restaurant->plates as $plate)
-                <div class="col-3">
-                    <div class="card scroll">
-                            @if ($plate->cover)
-                                <img class="img-thumbnail mt-3" style="height:250px; width:100%"
-                                    src="{{ asset('storage/'. $plate->cover)}}">
-                            @else
-                                <img src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
-                                    style="height:250px; width:100%" class="card-img-top mt-3 " alt="img">
-                            @endif
-                        <div class="card-body">
-                            <div>
-                                <h5 class="card-title">{{$plate['name']}}</h5>
-                                <span class="fw-bold">Descrizione: </span>
-                                <div class="overflow">{{ $plate['description'] }}</div>
-                                <div><strong>Prezzo: </strong>{{ $plate['price'] }}€</div>
-                                <p class="text-center my-3 w-50">
-                                    <input type="number" class="form-control" placeholder="Quantità" min="1" />
-                                </p>
-                                <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                
+                @if ($plate->visibility == 1)
+
+                    <div class="col-3">
+                        <div class="card scroll">
+                                @if ($plate->cover)
+                                    <img class="img-thumbnail mt-3" style="height:250px; width:100%"
+                                        src="{{ asset('storage/'. $plate->cover)}}">
+                                @else
+                                    <img src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                                        style="height:250px; width:100%" class="card-img-top mt-3 " alt="img">
+                                @endif
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">{{$plate['name']}}</h5>
+                                    <span class="fw-bold">Descrizione: </span>
+                                    <div class="overflow">{{ $plate['description'] }}</div>
+                                    <div><strong>Prezzo: </strong>{{ $plate['price'] }}€</div>
+                                    <p class="text-center my-3 w-50">
+                                        <input type="number" class="form-control" placeholder="Quantità" min="1" />
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @else
+
+                    <div class="col-3">
+                        <div class="visibility-off card scroll">
+                                @if ($plate->cover)
+                                    <img class="img-thumbnail mt-3" style="height:250px; width:100%"
+                                        src="{{ asset('storage/'. $plate->cover)}}">
+                                @else
+                                    <img src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                                        style="height:250px; width:100%" class="card-img-top mt-3 " alt="img">
+                                @endif
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">{{$plate['name']}}</h5>
+                                    <span class="fw-bold">Descrizione: </span>
+                                    <div class="overflow">{{ $plate['description'] }}</div>
+                                    <div><strong>Prezzo: </strong>{{ $plate['price'] }}€</div>
+                                    <a href="#" class="btn btn-danger">Non Disponibile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @endif
+
                 @endforeach
             </div>
         </div>
