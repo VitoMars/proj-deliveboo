@@ -2327,6 +2327,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2352,7 +2354,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       oldLength: 0,
       total: 0,
       dataForm: true
-    }, _defineProperty(_ref, "token", ""), _defineProperty(_ref, "brain", false), _defineProperty(_ref, "cartArray", []), _defineProperty(_ref, "filteredProducts", []), _ref;
+    }, _defineProperty(_ref, "token", ""), _defineProperty(_ref, "brain", false), _defineProperty(_ref, "showOrder", []), _defineProperty(_ref, "filteredProducts", []), _ref;
   },
   watch: {
     cart: function cart() {
@@ -2393,18 +2395,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     this.getToken();
     this.getCartTotal();
+    this.$emit("TotalOrder", total);
   },
-  computed: {
-    cartSize: function cartSize() {
-      // Calculates the number of products in the Cart
-      var total = 0;
-
-      for (var i = 0; i < this.cartArray.length; i++) {
-        total += this.cartArray[i].quantity;
-      }
-
-      return total;
-    }
+  computed: {// cartSize: function () {
+    //   // Calculates the number of products in the Cart
+    //   this.showOrder = this.total;
+    // },
   },
   methods: {
     plus: function plus(index) {
@@ -2459,8 +2455,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.food.forEach(function (element) {
         _this2.total = element.price * element.quantity;
       });
-      console.log(this.form.food);
-      console.log(this.total);
     }
   }
 });
@@ -2482,53 +2476,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Checkout',
-  props: ['cartArr', 'cartTotal'],
+  props: ['TotalOrder', 'total'],
   data: function data() {
     return {};
-  },
-  methods: {
-    showCheckout: function showCheckout() {
-      this.$emit('showCheckout');
-    },
-    confirmation: function confirmation() {
-      this.showCheckout();
-      this.$emit('clearCart');
-    }
-  },
-  // End Methods
-  ready: function ready() {
-    $('.ui.modal').modal('show');
-  } // End Ready
-
+  }
 });
 
 /***/ }),
@@ -2606,6 +2559,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -27363,7 +27317,9 @@ var render = function () {
           _c("div", [
             _c("span", { staticClass: "cart_food_name" }, [_vm._v("Total:")]),
             _c("span", { staticClass: "cart_food_price text-dark" }, [
-              _vm._v(" " + _vm._s(_vm._f("currency")(_vm.total, "€")) + "€"),
+              _vm._v(
+                "\n        " + _vm._s(_vm._f("currency")(_vm.total, "€")) + "€"
+              ),
             ]),
           ]),
           _vm._v(" "),
@@ -27433,77 +27389,10 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "background" }, [
-    _c("div", { staticClass: "modal" }, [
-      _c("div", { staticClass: "modal-background" }, [
-        _c("p", { staticClass: "checkout" }, [_vm._v("Checkout Area")]),
-        _vm._v(" "),
-        _c("table", { staticClass: "ui single line table" }, [
-          _c(
-            "tbody",
-            [
-              _vm._l(_vm.cartArr, function (product) {
-                return _c("tr", { key: product, staticClass: "product" }, [
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.quantity))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.department))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm._f("currency")(product.price, "€"))),
-                  ]),
-                ])
-              }),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td", [_vm._v("Total: ")]),
-                _vm._v(" "),
-                _c("td", { staticClass: "alignRight" }, [
-                  _vm._v(_vm._s(_vm._f("currency")(_vm.cartTotal, "€"))),
-                ]),
-              ]),
-            ],
-            2
-          ),
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "ui button", on: { click: _vm.showCheckout } },
-          [_vm._v("Cancel")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "ui vertical animated button",
-            attrs: { tabindex: "0" },
-            on: { click: _vm.confirmation },
-          },
-          [
-            _c("div", { staticClass: "visible content" }, [_vm._v("Confirm")]),
-            _vm._v(" "),
-            _vm._m(0),
-          ]
-        ),
-      ]),
-    ]),
+    _c("div", [_vm._v(_vm._s(_vm.TotalOrder))]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "hidden content" }, [
-      _c("i", { staticClass: "credit card alternative icon" }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -27621,6 +27510,10 @@ var render = function () {
     "div",
     { attrs: { id: "app" } },
     [
+      _c("Checkout", {
+        attrs: { TotalOrder: _vm.TotalOrder, total: _vm.total },
+      }),
+      _vm._v(" "),
       _vm._l(_vm.products, function (product) {
         return _c("div", { key: product.id }, [
           _c("table", { staticClass: "ui single line table" }, [
@@ -27635,17 +27528,19 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("td", [
-                  _c(
-                    "button",
-                    {
-                      on: {
-                        click: function ($event) {
-                          return _vm.addToCart(product.id)
+                  _vm.cart == 0
+                    ? _c(
+                        "button",
+                        {
+                          on: {
+                            click: function ($event) {
+                              return _vm.addToCart(product.id)
+                            },
+                          },
                         },
-                      },
-                    },
-                    [_vm._v("addToCard")]
-                  ),
+                        [_vm._v("addToCard")]
+                      )
+                    : _vm._e(),
                 ]),
               ]),
               _vm._v(" "),

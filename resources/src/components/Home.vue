@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+       <Checkout :TotalOrder="TotalOrder" :total="total" />
     <div v-for="product in products" :key="product.id">
       <table class="ui single line table">
         <tbody>
@@ -9,7 +10,7 @@
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.price | currency("€") }}</td>
-            <td><button @click="addToCart(product.id)">addToCard</button></td>
+            <td><button v-if="cart == 0" @click="addToCart(product.id)">addToCard</button></td>
           </tr>
           <tr>
             <td></td>
