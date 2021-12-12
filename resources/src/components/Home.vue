@@ -64,17 +64,17 @@ export default {
         .then((response) => {
           // console.log(response.data.results);
           this.products = response.data.results;
-          console.log(this.products);
+          // console.log(this.products);
         })
         .catch((reject) => {
-          console.log(reject);
+          // console.log(reject);
         });
     },
 
     deleteCartItem(index) {
       console.log(this.cart)
       this.cart.splice(index, 1)
-        console.log(this.cart)
+        // console.log(this.cart)
     },
 
     addToCart(id) {
@@ -85,11 +85,11 @@ export default {
       axios
         .post("http://127.0.0.1:8000/api/products/plate", {...this.form})
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.cart.push(response.data.plates);
         })
         .catch((reject) => {
-          console.log(reject);
+          // console.log(reject);
         });
     },
   }, // End Methods

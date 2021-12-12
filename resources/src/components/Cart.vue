@@ -4,7 +4,7 @@
       <span class="text-dark">{{ food.name }}</span>
       <div>
         <span class="cart_food_name">Total:</span
-        ><span class="cart_food_price text-dark"> {{ total }}€</span>
+        ><span class="cart_food_price text-dark"> {{ total | currency('€') }}€</span>
       </div>
       <button class="btn circle btn-secondary" @click="minus(index)">-</button>
       <button class="btn circle btn-secondary" @click="plus(index)">+</button>
@@ -45,6 +45,8 @@ export default {
       dataForm: true,
       token: "",
       brain: false,
+       cartArray: [],
+          filteredProducts: [],
     };
   },
   watch: {
@@ -53,7 +55,7 @@ export default {
         this.form.food = this.cart;
         this.form.food[this.form.food.length - 1]["quantity"] = 1;
         this.showCart = this.form.food;
-        console.log(this.form.food);
+        // console.log(this.form.food);
         this.$forceUpdate();
       }
     },
@@ -83,21 +85,31 @@ export default {
   },
   created() {
     this.getToken();
+    this.getCartTotal();
   },
+       computed: {
+          cartSize: function () {// Calculates the number of products in the Cart
+            var total = 0;
+            for (var i = 0; i < this.cartArray.length; i++) {
+              total += this.cartArray[i].quantity;
+            }
+            return total;
+          }
+      },
   methods: {
     plus(index) {
       this.form.food[index]["quantity"] += 1;
-      this.savecart();
+      this.getCartTotal();
       this.$forceUpdate();
     },
     minus(index) {
       this.form.food[index]["quantity"] -= 1;
       if (this.form.food[index]["quantity"] < 1) {
         this.form.food.splice(index, 1);
-        console.log(index);
+        // console.log(index);
         this.$emit("deleteCartItem", index);
       }
-      this.savecart();
+      this.getCartTotal();
       this.$forceUpdate();
     },
     getToken() {
@@ -118,21 +130,29 @@ export default {
       axios
         .post("http://127.0.0.1:8000/api/makepayment", {...this.form})
         .then((response) => {
-          console.log(response);
+          // console.log(response);
         });
     },
     FormData(form) {
       this.form.dataClient = form;
       this.dataForm = false;
     },
-    savecart() {
-      let quantity = JSON.stringify(this.form.quantity);
-      localStorage.setItem("quantity", quantity);
-      let total = JSON.stringify(this.total);
-      localStorage.setItem("total", total);
-      let oldLength = JSON.stringify(this.oldLength);
-      localStorage.setItem("oldLength", oldLength);
-    },
+    // savecart() {
+    //   let quantity = JSON.stringify(this.form.quantity);
+    //   localStorage.setItem("quantity", quantity);
+    //   let total = JSON.stringify(this.total);
+    //   localStorage.setItem("total", total);
+    //   let oldLength = JSON.stringify(this.oldLength);
+    //   localStorage.setItem("oldLength", oldLength);
+    // },
+
+      getCartTotal: function () {
+          this.form.food.forEach(element => {
+           this.total = element.price * element.quantity
+          });
+          console.log(this.form.food)
+          console.log(this.total)
+        },
   },
 };
 </script>

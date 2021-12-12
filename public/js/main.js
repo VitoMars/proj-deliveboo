@@ -2352,15 +2352,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       oldLength: 0,
       total: 0,
       dataForm: true
-    }, _defineProperty(_ref, "token", ""), _defineProperty(_ref, "brain", false), _ref;
+    }, _defineProperty(_ref, "token", ""), _defineProperty(_ref, "brain", false), _defineProperty(_ref, "cartArray", []), _defineProperty(_ref, "filteredProducts", []), _ref;
   },
   watch: {
     cart: function cart() {
       if (this.cart.length > 0) {
         this.form.food = this.cart;
         this.form.food[this.form.food.length - 1]["quantity"] = 1;
-        this.showCart = this.form.food;
-        console.log(this.form.food);
+        this.showCart = this.form.food; // console.log(this.form.food);
+
         this.$forceUpdate();
       }
     }
@@ -2392,23 +2392,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   created: function created() {
     this.getToken();
+    this.getCartTotal();
+  },
+  computed: {
+    cartSize: function cartSize() {
+      // Calculates the number of products in the Cart
+      var total = 0;
+
+      for (var i = 0; i < this.cartArray.length; i++) {
+        total += this.cartArray[i].quantity;
+      }
+
+      return total;
+    }
   },
   methods: {
     plus: function plus(index) {
       this.form.food[index]["quantity"] += 1;
-      this.savecart();
+      this.getCartTotal();
       this.$forceUpdate();
     },
     minus: function minus(index) {
       this.form.food[index]["quantity"] -= 1;
 
       if (this.form.food[index]["quantity"] < 1) {
-        this.form.food.splice(index, 1);
-        console.log(index);
+        this.form.food.splice(index, 1); // console.log(index);
+
         this.$emit("deleteCartItem", index);
       }
 
-      this.savecart();
+      this.getCartTotal();
       this.$forceUpdate();
     },
     getToken: function getToken() {
@@ -2425,21 +2438,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.buy();
     },
     buy: function buy() {
-      axios.post("http://127.0.0.1:8000/api/makepayment", _objectSpread({}, this.form)).then(function (response) {
-        console.log(response);
+      axios.post("http://127.0.0.1:8000/api/makepayment", _objectSpread({}, this.form)).then(function (response) {// console.log(response);
       });
     },
     FormData: function FormData(form) {
       this.form.dataClient = form;
       this.dataForm = false;
     },
-    savecart: function savecart() {
-      var quantity = JSON.stringify(this.form.quantity);
-      localStorage.setItem("quantity", quantity);
-      var total = JSON.stringify(this.total);
-      localStorage.setItem("total", total);
-      var oldLength = JSON.stringify(this.oldLength);
-      localStorage.setItem("oldLength", oldLength);
+    // savecart() {
+    //   let quantity = JSON.stringify(this.form.quantity);
+    //   localStorage.setItem("quantity", quantity);
+    //   let total = JSON.stringify(this.total);
+    //   localStorage.setItem("total", total);
+    //   let oldLength = JSON.stringify(this.oldLength);
+    //   localStorage.setItem("oldLength", oldLength);
+    // },
+    getCartTotal: function getCartTotal() {
+      var _this2 = this;
+
+      this.form.food.forEach(function (element) {
+        _this2.total = element.price * element.quantity;
+      });
+      console.log(this.form.food);
+      console.log(this.total);
     }
   }
 });
@@ -2652,16 +2673,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       axios.post(this.url, config, bodyParameters).then(function (response) {
         // console.log(response.data.results);
-        _this.products = response.data.results;
-        console.log(_this.products);
-      })["catch"](function (reject) {
-        console.log(reject);
+        _this.products = response.data.results; // console.log(this.products);
+      })["catch"](function (reject) {// console.log(reject);
       });
     },
     deleteCartItem: function deleteCartItem(index) {
       console.log(this.cart);
-      this.cart.splice(index, 1);
-      console.log(this.cart);
+      this.cart.splice(index, 1); // console.log(this.cart)
     },
     addToCart: function addToCart(id) {
       var _this2 = this;
@@ -2671,11 +2689,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         key: 1
       };
       axios.post("http://127.0.0.1:8000/api/products/plate", _objectSpread({}, this.form)).then(function (response) {
-        console.log(response);
-
+        // console.log(response);
         _this2.cart.push(response.data.plates);
-      })["catch"](function (reject) {
-        console.log(reject);
+      })["catch"](function (reject) {// console.log(reject);
       });
     }
   },
@@ -27347,7 +27363,7 @@ var render = function () {
           _c("div", [
             _c("span", { staticClass: "cart_food_name" }, [_vm._v("Total:")]),
             _c("span", { staticClass: "cart_food_price text-dark" }, [
-              _vm._v(" " + _vm._s(_vm.total) + "€"),
+              _vm._v(" " + _vm._s(_vm._f("currency")(_vm.total, "€")) + "€"),
             ]),
           ]),
           _vm._v(" "),
