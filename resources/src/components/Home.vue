@@ -41,7 +41,7 @@
                                         >{{ product.price }}€
                                     </div>
                                     <a
-                                        href=""
+                                        href="#"
                                         class="btn btn-primary"
                                         @click="addToCart(product.id)"
                                         >Aggiungi al carrello</a

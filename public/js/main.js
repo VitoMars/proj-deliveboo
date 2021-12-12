@@ -27655,7 +27655,7 @@ var render = function () {
                         "a",
                         {
                           staticClass: "btn btn-primary",
-                          attrs: { href: "" },
+                          attrs: { href: "#" },
                           on: {
                             click: function ($event) {
                               return _vm.addToCart(product.id)
