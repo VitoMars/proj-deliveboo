@@ -71,6 +71,7 @@
         </header>
 
         <main class="py-4">
+            {{-- @yield('cart') --}}
             @yield('content')
         </main>
         @include('partials.footer')

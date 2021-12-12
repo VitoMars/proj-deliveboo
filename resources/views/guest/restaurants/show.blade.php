@@ -2,14 +2,20 @@
 
 @section('title',' | ' . $restaurant->name)
 
+{{-- @section('cart')
+<script src="{{ mix('js/main.js') }}"></script>
+@endsection --}}
+
 @section('content')
 <div class="container mt-3">
     <div class="row">
 
         <div id="app">
+            <cart-vue></cart-vue>
             <vue-App></vue-App>
         </div>
 
+        <script src="{{ mix('js/main.js') }}"></script>
         {{-- Dettaglio Ristorante --}}
         <div class="col-md-12">
             <div class="card mb-3">
@@ -73,9 +79,6 @@
                                 <span class="fw-bold">Descrizione: </span>
                                 <div class="overflow">{{ $plate['description'] }}</div>
                                 <div><strong>Prezzo: </strong>{{ $plate['price'] }}€</div>
-                                <p class="text-center my-3 w-50">
-                                    <input type="number" class="form-control" placeholder="Quantità" min="1" />
-                                </p>
                                 <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
                             </div>
                         </div>
@@ -109,7 +112,7 @@
                 @endforeach
             </div>
         </div>
-        <script src="{{ mix('js/main.js') }}"></script>
+
     </div>
 
     @endsection
