@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
+
+@section('title',' | Aggiungi Piatto')
+
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="col-12 d-flex flex-column">
             <div class="card mb-3">

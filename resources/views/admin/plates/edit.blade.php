@@ -1,11 +1,14 @@
 @extends('layouts.dashboard')
+
+@section('title',' | Modifica '. $plate->name)
+
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="col-12 d-flex flex-column">
             <div class="card mb-3">
                 <div class="card-header py-0 px-4">
-                    <h2 class="mt-3 mb-3">Aggiungi Piatto</h2>
+                    <h2 class="mt-3 mb-3">Modifica Piatto</h2>
                 </div>
                 <div class="card-body d-flex flex-column py-3 px-4">
                     <form action="{{ route('admin.plates.update', $plate->id)}}" method="post"

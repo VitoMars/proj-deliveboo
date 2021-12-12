@@ -1,7 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title',' | I tuoi Piatti')
+
 @section('content')
-<div class="container-fluid mt-100">
+<div class="container-fluid mt-5">
     <div class="row">
         {{-- Alert Modifica --}}
         @if (session('status'))
@@ -25,6 +27,14 @@
                     <li class="my-3">
                         {{-- Show --}}
                         <a href="{{ route('admin.plates.show', $plate['id']) }}"> {{$plate["name"]}}</a>
+
+                        {{-- Visibilty --}}
+                        <div class="form-check form-switch">
+                            <input onclick="MyFunction()" class="form-check-input" type="checkbox" role="switch" id="visibilitySwitch" checked>
+                            <label class="form-check-label" for="visibilitySwitch">Checked switch checkbox input</label>
+                          </div>
+
+
                         {{-- Edit --}}
                         <a class="btn btn-outline-info mx-2" data-mdb-ripple-color="dark"
                             href="{{ route('admin.plates.edit', $plate['id']) }}" class="card-link">
@@ -35,6 +45,7 @@
                             data-bs-target="#deletePlate{{$plate->id}}">
                             <i class="far fa-trash-alt"></i>
                         </button>
+                        
 
                         {{-- Modal Button Delete --}}
                         <div class="modal fade" id="deletePlate{{$plate->id}}" tabindex="-1"
@@ -72,4 +83,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+       var element = document.getElementById("visibility");
+       element.classList.toggle("visibility-off");
+    }
+</script>
 @endsection

@@ -5,10 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Deliveboo @yield('title')</title>
 
     <!-- Scripts -->
     {{-- <script src="{{ 'src/main.js' }}" defer></script> --}}
@@ -26,74 +29,21 @@
 </head>
 
 <body class="radial-gradient">
+    <img onclick="topFunction()" id="scrollUp" title="Vai sopra" src="{{asset('images/up-arrow.png')}}" alt="up arrow">
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <div class="dropdown">
-                            <a class="btn btn-outline-success dropdown-toggle" href="#" role="button"
-                                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">Logout</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Link 2</a></li>
-                                <li><a class="dropdown-item" href="#">Link 3</a></li>
-                            </ul>
-                        </div>
-
-
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
-
         <header class="my-bg-blue">
             <div class="my-navbar w-75 mx-auto px-3 nav-bar d-flex align-items-center justify-content-between">
                 {{-- <div class="logo px-3">DeliveBoo Logo</div> --}}
                 <a class="h-100" href="{{ route('index') }}">
-                    <img class="logo-home" src="{{ asset('images/deliveboo-logo-christmas.png') }}" alt="DeliveBoo Logo">
+                    <img class="logo-home" src="{{ asset('images/deliveboo-logo-christmas.png') }}"
+                        alt="DeliveBoo Logo">
                 </a>
                 @if (Route::has('login'))
                 <div class="top-right links d-flex">
                     @auth
                     <a class="my-btn-green btn" href="{{ url('/') }}">Home</a>
-                    <div class="dropdown">
-                        <a class="my-btn-green btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    {{-- <div class="dropdown">
+                        <a class="dropdown-toggle my-btn-green btn" href="#" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
@@ -106,7 +56,7 @@
                                     @csrf
                                 </form>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     @else
                     <a class="my-btn-green btn" href="{{ route('login') }}">Login</a>
@@ -123,8 +73,34 @@
         <main class="py-4">
             @yield('content')
         </main>
-            @include('partials.footer')
+        @include('partials.footer')
     </div>
+
+    <script>
+        /* Button per tornare su */
+
+        //Prendo il bottone
+        var mybutton = document.getElementById("scrollUp");
+
+        //Quando lìutende "scrolla" giù di 20px dall'inizio della pagina, il bottone spunta fuori
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+
+        // Quando l'utente fa "click" sul bottone, viene effettuanto in automatico un scroll verso l'alto
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+
+        /* Button per tornare su */
+    </script>
 </body>
 
 </html>
