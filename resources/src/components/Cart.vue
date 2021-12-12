@@ -13,6 +13,21 @@
       {{ food.quantity }}
     </div>
     <FormClient v-if="dataForm" @updateForm="FormData" />
+    <div class="cartOrder">
+      <div v-for="(food, index) in showCart" :key="food.index">
+        <h3>Il tuo Ordine</h3>
+        <span class="text-dark">{{ food.name }}</span>
+        <div><p class="cart_food_price text-dark">
+            <p>Spese di consegna 10€</p>
+            <p>Spese di servizio 2€</p>
+            <span>Mancia per il Raider:</span>
+            <button class="btn circle btn-secondary" @click="minus(index)">-</button>
+      <button class="btn circle btn-secondary" @click="plus(index)">+</button>
+            <p>Totale: {{ total | currency("€") }}€</p>
+        </div>
+      </div>
+    </div>
+
     <Payment
       v-if="brain"
       :authorization="token"
@@ -88,7 +103,6 @@ export default {
   created() {
     this.getToken();
     this.getCartTotal();
-    this.$emit("TotalOrder", total);
   },
   computed: {
     // cartSize: function () {

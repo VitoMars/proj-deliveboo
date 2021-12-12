@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-       <Checkout :TotalOrder="TotalOrder" :total="total" />
     <div v-for="product in products" :key="product.id">
       <table class="ui single line table">
         <tbody>
@@ -10,7 +9,7 @@
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.price | currency("€") }}</td>
-            <td><button v-if="cart == 0" @click="addToCart(product.id)">addToCard</button></td>
+            <td><button @click="addToCart(product.id)">addToCard</button></td>
           </tr>
           <tr>
             <td></td>
@@ -27,7 +26,6 @@
 
 <script>
 import Cart from "../components/Cart.vue";
-import Checkout from "./Checkout.vue";
 export default {
   name: "Home",
   data() {
@@ -44,7 +42,6 @@ export default {
   }, // End data
   components: {
     Cart,
-    Checkout,
   },
   mounted: function () {
     // When the app is ready load the products
