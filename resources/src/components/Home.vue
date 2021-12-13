@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-3">
       
-        <div id="app">
+        <div>
             <div class="row g-4">
                 <Checkout :TotalOrder="TotalOrder" :total="total" />
                 <div v-for="product in products" :key="product.id" class="col-3">
@@ -40,12 +40,12 @@
                                         <strong>Prezzo: </strong
                                         >{{ product.price }}€
                                     </div>
-                                    <a
-                                        href="#"
+                                    <button
                                         class="btn btn-primary"
                                         @click="addToCart(product.id)"
-                                        >Aggiungi al carrello
-                                    </a>
+                                    >
+                                        Aggiungi al carrello
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -131,9 +131,6 @@ export default {
 
         addToCart(id) {
             this.form.id = id;
-            const bodyParameter = {
-                key: 1,
-            };
             axios
                 .post("http://127.0.0.1:8000/api/products/plate", {
                     ...this.form,

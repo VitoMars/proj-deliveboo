@@ -14,7 +14,7 @@
     <title>Deliveboo @yield('title')</title>
 
     <!-- Scripts -->
-    {{-- <script src="{{ 'src/main.js' }}" defer></script> --}}
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,7 +30,7 @@
 
 <body class="radial-gradient">
     <img onclick="topFunction()" id="scrollUp" title="Vai sopra" src="{{asset('images/up-arrow.png')}}" alt="up arrow">
-    <div id="app">
+    <div>
         <header class="my-bg-blue">
             <div class="my-navbar w-75 mx-auto px-3 nav-bar d-flex align-items-center justify-content-between">
                 {{-- <div class="logo px-3">DeliveBoo Logo</div> --}}

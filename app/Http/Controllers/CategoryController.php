@@ -15,11 +15,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        
-        return response()->json([
-            'success' => true,
-            'results' => $categories
-        ]);
+
+        return view('guest.categories.index', compact('categories'));
+
+        // return response()->json([
+        //     'success' => true,
+        //     'results' => $categories
+        // ]);
     }
 
     /**
@@ -28,12 +30,12 @@ class CategoryController extends Controller
      * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Category $category)
     {
-        $categories = Category::where('slug', $slug)->first();
-        return response()->json([
-            'success' => true,
-            'results' => $categories
-        ]);
+        if (!$category) {
+            abort(404);
+        }
+
+        return view('guest.categories.show', compact('category'));
     }
 }

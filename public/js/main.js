@@ -2370,44 +2370,50 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       oldLength: 0,
       total: 0,
       dataForm: true
-    }, _defineProperty(_ref, "token", ""), _defineProperty(_ref, "brain", false), _defineProperty(_ref, "showOrder", []), _defineProperty(_ref, "filteredProducts", []), _ref;
+    }, _defineProperty(_ref, "brain", false), _defineProperty(_ref, "showOrder", []), _defineProperty(_ref, "filteredProducts", []), _ref;
   },
   watch: {
     cart: function cart() {
+      var _this = this;
+
       if (this.cart.length > 0) {
         this.form.food = this.cart;
         this.form.food[this.form.food.length - 1]["quantity"] = 1;
+        this.total = 0;
+        this.form.food.map(function (food) {
+          _this.total += food.price;
+        });
         this.showCart = this.form.food; // console.log(this.form.food);
 
         this.$forceUpdate();
       }
     }
   },
-  mounted: function mounted() {
-    if (localStorage.getItem("quantity")) {
-      try {
-        this.form.quantity = JSON.parse(localStorage.getItem("quantity"));
-      } catch (e) {
-        localStorage.removeItem("quantity");
-      }
-    }
-
-    if (localStorage.getItem("total")) {
-      try {
-        this.total = JSON.parse(localStorage.getItem("total"));
-      } catch (e) {
-        localStorage.removeItem("total");
-      }
-    }
-
-    if (localStorage.getItem("oldLength")) {
-      try {
-        this.oldLength = JSON.parse(localStorage.getItem("oldLength"));
-      } catch (e) {
-        localStorage.removeItem("oldLength");
-      }
-    }
-  },
+  // mounted() {
+  //     if (localStorage.getItem("quantity")) {
+  //         try {
+  //             this.form.quantity = JSON.parse(
+  //                 localStorage.getItem("quantity")
+  //             );
+  //         } catch (e) {
+  //             localStorage.removeItem("quantity");
+  //         }
+  //     }
+  //     if (localStorage.getItem("total")) {
+  //         try {
+  //             this.total = JSON.parse(localStorage.getItem("total"));
+  //         } catch (e) {
+  //             localStorage.removeItem("total");
+  //         }
+  //     }
+  //     if (localStorage.getItem("oldLength")) {
+  //         try {
+  //             this.oldLength = JSON.parse(localStorage.getItem("oldLength"));
+  //         } catch (e) {
+  //             localStorage.removeItem("oldLength");
+  //         }
+  //     }
+  // },
   created: function created() {
     this.getToken();
     this.getCartTotal();
@@ -2431,12 +2437,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$forceUpdate();
     },
     getToken: function getToken() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get(this.url).then(function (response) {
         // console.log(response.data.results);
-        _this.brain = true;
-        _this.token = response.data.token;
+        _this2.brain = true;
+        _this2.token = response.data.token;
       })["catch"](function (reject) {});
     },
     paymentOnSuccess: function paymentOnSuccess(nonce) {
@@ -2444,26 +2450,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.buy();
     },
     buy: function buy() {
-      axios.post("http://127.0.0.1:8000/api/makepayment", _objectSpread({}, this.form)).then(function (response) {// console.log(response);
+      var cart = {
+        ciao: "ciao"
+      };
+      axios.post("http://127.0.0.1:8000/api/makepayment", _objectSpread({}, cart)).then(function (response) {
+        console.log(response);
       });
     },
     FormData: function FormData(form) {
       this.form.dataClient = form;
       this.dataForm = false;
     },
-    // savecart() {
-    //   let quantity = JSON.stringify(this.form.quantity);
-    //   localStorage.setItem("quantity", quantity);
-    //   let total = JSON.stringify(this.total);
-    //   localStorage.setItem("total", total);
-    //   let oldLength = JSON.stringify(this.oldLength);
-    //   localStorage.setItem("oldLength", oldLength);
-    // },
     getCartTotal: function getCartTotal() {
-      var _this2 = this;
+      var _this3 = this;
 
+      this.total = 0;
       this.form.food.forEach(function (element) {
-        _this2.total = element.price * element.quantity;
+        _this3.total += element.price * element.quantity;
       });
     }
   }
@@ -2700,9 +2703,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       this.form.id = id;
-      var bodyParameter = {
-        key: 1
-      };
       axios.post("http://127.0.0.1:8000/api/products/plate", _objectSpread({}, this.form)).then(function (response) {
         // console.log(response);
         _this2.cart.push(response.data.plates);
@@ -27583,7 +27583,6 @@ var render = function () {
   return _c("div", { staticClass: "container mt-3" }, [
     _c(
       "div",
-      { attrs: { id: "app" } },
       [
         _c(
           "div",
@@ -27636,10 +27635,9 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c(
-                        "a",
+                        "button",
                         {
                           staticClass: "btn btn-primary",
-                          attrs: { href: "#" },
                           on: {
                             click: function ($event) {
                               return _vm.addToCart(product.id)
@@ -27648,7 +27646,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "Aggiungi al carrello\n                                "
+                            "\n                                    Aggiungi al carrello\n                                "
                           ),
                         ]
                       ),
@@ -45898,7 +45896,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_resource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dist/vue-resource.esm.js");
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-filters */ "./node_modules/vue2-filters/dist/vue2-filters.js");
@@ -45921,39 +45919,35 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
  // Test di Vito
 
 
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("Home", __webpack_require__(/*! ./components/Home.vue */ "./resources/src/components/Home.vue")); //
+ // Vue.component("Home", require("./components/Home.vue"));
+//
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_braintree__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_resource__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("vue-App", __webpack_require__(/*! ./App.vue */ "./resources/src/App.vue"));
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
-  mode: "history",
-  base: __dirname,
-  routes: [{
-    path: "/",
-    component: _components_Home__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }]
-});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("vue-App", __webpack_require__(/*! ./App.vue */ "./resources/src/App.vue")); // const router = new VueRouter({
+//     mode: "history",
+//     base: __dirname,
+//     routes: [{ path: "/", component: Home }],
+// });
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 /* eslint-disable no-new */
 
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
-  router: router,
+  // router,
   render: function render(h) {
     return h(_App__WEBPACK_IMPORTED_MODULE_4__["default"]);
-  },
-  components: {
-    Home: __webpack_require__(/*! ./components/Home.vue */ "./resources/src/components/Home.vue")
-  }
+  } // components: {
+  //     Home: require("./components/Home.vue"),
+  // },
+
 }); // const Home = new Vue({
 //     el: "#app",
 //     render: (h) => h(Home),
 // });
-/* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
 

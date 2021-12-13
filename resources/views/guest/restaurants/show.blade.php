@@ -9,13 +9,7 @@
 @section('content')
 <div class="container mt-3">
     <div class="row">
-
-        <div id="app">
-            <Home></Home>
-            <vue-App></vue-App>
-        </div>
-
-        <script src="{{ mix('js/main.js') }}"></script>
+        {{-- <script src="{{ mix('js/main.js') }}"></script> --}}
         {{-- Dettaglio Ristorante --}}
         <div class="col-md-12">
             <div class="card mb-3">
@@ -48,17 +42,9 @@
             </div>
         </div>
 
-        <div id="app" class="container">
-            <div class="text-right">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
-                    {{-- Cart ({{totalItems}}) --}}
-                    Cart ()
-                </button>
-            </div>
-        </div>
 
         {{-- Card Piatti --}}
-        <div class="container mt-3">
+        {{-- <div class="container mt-3">
             <div class="row g-4">
                 @foreach ($restaurant->plates as $plate)
 
@@ -111,8 +97,11 @@
 
                 @endforeach
             </div>
-        </div>
-
+        </div> --}}
+    </div>
+    <div id="app">
+        {{-- <Home></Home>
+        <vue-App></vue-App> --}}
     </div>
 
     @endsection

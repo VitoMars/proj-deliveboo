@@ -61,7 +61,6 @@ export default {
             oldLength: 0,
             total: 0,
             dataForm: true,
-            token: "",
             brain: false,
             showOrder: [],
             filteredProducts: [],
@@ -72,37 +71,41 @@ export default {
             if (this.cart.length > 0) {
                 this.form.food = this.cart;
                 this.form.food[this.form.food.length - 1]["quantity"] = 1;
+                this.total = 0;
+                this.form.food.map((food) => {
+                    this.total += food.price;
+                });
                 this.showCart = this.form.food;
                 // console.log(this.form.food);
                 this.$forceUpdate();
             }
         },
     },
-    mounted() {
-        if (localStorage.getItem("quantity")) {
-            try {
-                this.form.quantity = JSON.parse(
-                    localStorage.getItem("quantity")
-                );
-            } catch (e) {
-                localStorage.removeItem("quantity");
-            }
-        }
-        if (localStorage.getItem("total")) {
-            try {
-                this.total = JSON.parse(localStorage.getItem("total"));
-            } catch (e) {
-                localStorage.removeItem("total");
-            }
-        }
-        if (localStorage.getItem("oldLength")) {
-            try {
-                this.oldLength = JSON.parse(localStorage.getItem("oldLength"));
-            } catch (e) {
-                localStorage.removeItem("oldLength");
-            }
-        }
-    },
+    // mounted() {
+    //     if (localStorage.getItem("quantity")) {
+    //         try {
+    //             this.form.quantity = JSON.parse(
+    //                 localStorage.getItem("quantity")
+    //             );
+    //         } catch (e) {
+    //             localStorage.removeItem("quantity");
+    //         }
+    //     }
+    //     if (localStorage.getItem("total")) {
+    //         try {
+    //             this.total = JSON.parse(localStorage.getItem("total"));
+    //         } catch (e) {
+    //             localStorage.removeItem("total");
+    //         }
+    //     }
+    //     if (localStorage.getItem("oldLength")) {
+    //         try {
+    //             this.oldLength = JSON.parse(localStorage.getItem("oldLength"));
+    //         } catch (e) {
+    //             localStorage.removeItem("oldLength");
+    //         }
+    //     }
+    // },
     created() {
         this.getToken();
         this.getCartTotal();
@@ -138,28 +141,23 @@ export default {
             this.buy();
         },
         buy() {
+            let cart = {
+                ciao: "ciao",
+            };
             axios
-                .post("http://127.0.0.1:8000/api/makepayment", { ...this.form })
+                .post("http://127.0.0.1:8000/api/makepayment", { ...cart })
                 .then((response) => {
-                    // console.log(response);
+                    console.log(response);
                 });
         },
         FormData(form) {
             this.form.dataClient = form;
             this.dataForm = false;
         },
-        // savecart() {
-        //   let quantity = JSON.stringify(this.form.quantity);
-        //   localStorage.setItem("quantity", quantity);
-        //   let total = JSON.stringify(this.total);
-        //   localStorage.setItem("total", total);
-        //   let oldLength = JSON.stringify(this.oldLength);
-        //   localStorage.setItem("oldLength", oldLength);
-        // },
-
         getCartTotal: function () {
+            this.total = 0;
             this.form.food.forEach((element) => {
-                this.total = element.price * element.quantity;
+                this.total += element.price * element.quantity;
             });
         },
     },
