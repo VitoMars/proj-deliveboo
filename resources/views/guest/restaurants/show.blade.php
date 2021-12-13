@@ -8,11 +8,11 @@
         {{-- <script src="{{ mix('js/main.js') }}"></script> --}}
         {{-- Dettaglio Ristorante --}}
         <div class="col-md-12">
-            <div class="card mb-3">
-                <div class="card-header pr-0 pl-0">
-                    Dettaglio Ristorante
-                </div>
-                <ul>
+            <div class="text-white fw-bold fs-1 mb-3 my-text-shadow pr-0 pl-0">
+                {{$restaurant["name"]}}
+            </div>
+            <div class="card p-4 mb-3">
+                {{-- <ul>
                     <li><strong>Nome ristorante: </strong>{{$restaurant["name"]}}</li>
                     <li><strong>Città: </strong>{{$restaurant["city"]}}</li>
                     <li><strong>Indirizzo: </strong>{{$restaurant["address"]}}</li>
@@ -34,7 +34,37 @@
                         <a href="" class="mx-2">{{$plate['name']}}</a>
                         @endforeach
                     </li>
-                </ul>
+                </ul> --}}
+                <div class="row">
+
+                    <div class="col-9">
+                        <div class="d-flex my-text-blue fw-bolder fs-5 mb-3">
+                            {{$restaurant->city}} · {{$restaurant->address}} · <span class="ms-1"> Consegna: 
+                                @if ($restaurant["delivery_cost"])
+                                {{$restaurant["delivery_cost"]}}€
+                                @else
+                                Gratis
+                                @endif</span>
+                        </div>
+        
+                        <p>{{$restaurant->description}}</p>
+                    </div>
+                    <div class="col-3">
+                        @if ($restaurant->cover)
+                            <img class="w-100" src="{{ asset('storage/'. $restaurant->cover)}}">
+                        @else
+                        <img class="w-100" src="{{ asset('images/logo-restaurant-default.png') }}" alt="{{ $restaurant->name}} Logo">
+                        @endif
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="fs-5 fw-bolder">Categorie:</div>
+                        <div>
+                            @foreach ($restaurant->categories as $category)
+                                <a href="{{ route('categories.show', $category['id']) }}" class="fw-bolder fs-5 my-text-blue mx-2">{{$category['name']}}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

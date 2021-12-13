@@ -45736,8 +45736,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Vito\Desktop\Boolean#39\Projects\proj-deliveboo\resources\src\main.js */"./resources/src/main.js");
-module.exports = __webpack_require__(/*! C:\Users\Vito\Desktop\Boolean#39\Projects\proj-deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Antonio\Desktop\PROGETTO FINALE\FILE ORIGINALE\proj-deliveboo\resources\src\main.js */"./resources/src/main.js");
+module.exports = __webpack_require__(/*! C:\Users\Antonio\Desktop\PROGETTO FINALE\FILE ORIGINALE\proj-deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
