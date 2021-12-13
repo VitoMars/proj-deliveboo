@@ -4,9 +4,9 @@
             <div
                 v-for="(food, index) in showCart"
                 :key="food.index"
-                class="d-flex justify-content-between mt-2"
+                class="d-flex flex-column align-items-start mt-2"
             >
-                <div class="left">
+                <div class="my-2">
                     <!-- Minus -->
                     <button class="btn circle btn-light" @click="minus(index)">
                         <i class="fas fa-minus text-dark"></i>
@@ -20,12 +20,9 @@
                     <!-- Nome Piatto -->
                     <span>{{ food.name }}</span>
                 </div>
-                <div class="right">
-                    <!-- € -->
-                    <span class="cart_food_price text-dark">
-                        {{ total | currency("€") }}
-                    </span>
-                </div>
+            </div>
+            <div class="d-flex cart_food_price text-dark">
+                Totale: {{ total | currency("€") }}
             </div>
             <FormClient v-if="dataForm" @updateForm="FormData" />
             <Payment

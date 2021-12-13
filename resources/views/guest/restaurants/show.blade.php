@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container mt-3">
-    <div class="row my-margin">
+    <div class="row my-padding">
         {{-- <script src="{{ mix('js/main.js') }}"></script> --}}
         {{-- Dettaglio Ristorante --}}
         <div class="col-md-12">

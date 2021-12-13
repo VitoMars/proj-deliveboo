@@ -2342,9 +2342,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -27301,10 +27298,10 @@ var render = function () {
             "div",
             {
               key: food.index,
-              staticClass: "d-flex justify-content-between mt-2",
+              staticClass: "d-flex flex-column align-items-start mt-2",
             },
             [
-              _c("div", { staticClass: "left" }, [
+              _c("div", { staticClass: "my-2" }, [
                 _c(
                   "button",
                   {
@@ -27335,19 +27332,17 @@ var render = function () {
                 _vm._v(" "),
                 _c("span", [_vm._v(_vm._s(food.name))]),
               ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right" }, [
-                _c("span", { staticClass: "cart_food_price text-dark" }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm._f("currency")(_vm.total, "€")) +
-                      "\n                "
-                  ),
-                ]),
-              ]),
             ]
           )
         }),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex cart_food_price text-dark" }, [
+          _vm._v(
+            "\n            Totale: " +
+              _vm._s(_vm._f("currency")(_vm.total, "€")) +
+              "\n        "
+          ),
+        ]),
         _vm._v(" "),
         _vm.dataForm
           ? _c("FormClient", { on: { updateForm: _vm.FormData } })
