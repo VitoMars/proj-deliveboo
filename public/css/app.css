@@ -12190,7 +12190,7 @@ body ::-webkit-scrollbar {
 
 html ::-webkit-scrollbar-thumb,
 body ::-webkit-scrollbar-thumb {
-  background: #006CFA;
+  background: #006cfa;
   border-radius: 15px;
 }
 
@@ -12201,9 +12201,9 @@ body ::-webkit-scrollbar-thumb:hover {
 
 html ::-webkit-scrollbar-track,
 body ::-webkit-scrollbar-track {
-  background: #00338E;
+  background: #00338e;
   border-radius: 0px;
-  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+  box-shadow: inset 0px 0px 0px 0px #f0f0f0;
 }
 
 * {
@@ -12291,6 +12291,11 @@ ul {
   background-color: #adadad;
 }
 
+.my-margin {
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+
 /* Guest Home */
 
 header {
@@ -12355,7 +12360,7 @@ main .banner .banner-top-image {
 }
 
 .my-card ::-webkit-scrollbar-thumb {
-  background: #006CFA;
+  background: #006cfa;
   border-radius: 15px;
 }
 
@@ -12366,7 +12371,7 @@ main .banner .banner-top-image {
 .my-card ::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 0px;
-  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+  box-shadow: inset 0px 0px 0px 0px #f0f0f0;
 }
 
 .my-card .card-logo {

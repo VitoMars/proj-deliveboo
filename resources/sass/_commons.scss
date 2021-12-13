@@ -3,25 +3,23 @@
 
 html,
 body {
-
-
     height: 100% !important;
 
-    ::-webkit-scrollbar{
+    ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
-    ::-webkit-scrollbar-thumb{
-        background: #006CFA;
+    ::-webkit-scrollbar-thumb {
+        background: #006cfa;
         border-radius: 15px;
     }
-    ::-webkit-scrollbar-thumb:hover{
+    ::-webkit-scrollbar-thumb:hover {
         background: #0cd977;
     }
-    ::-webkit-scrollbar-track{
-        background: #00338E;
+    ::-webkit-scrollbar-track {
+        background: #00338e;
         border-radius: 0px;
-        box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+        box-shadow: inset 0px 0px 0px 0px #f0f0f0;
     }
 }
 
@@ -107,6 +105,11 @@ ul {
     background-color: rgb(173, 173, 173);
 }
 
+.my-margin {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+
 /* Guest Home */
 
 header {
@@ -163,21 +166,21 @@ main {
     border-radius: 20px;
     box-shadow: 0px 0px 5px 5px rgba($color: black, $alpha: 0.3);
 
-    ::-webkit-scrollbar{
+    ::-webkit-scrollbar {
         width: 4px;
         height: 4px;
     }
-    ::-webkit-scrollbar-thumb{
-        background: #006CFA;
+    ::-webkit-scrollbar-thumb {
+        background: #006cfa;
         border-radius: 15px;
     }
-    ::-webkit-scrollbar-thumb:hover{
+    ::-webkit-scrollbar-thumb:hover {
         background: #0cd977;
     }
-    ::-webkit-scrollbar-track{
+    ::-webkit-scrollbar-track {
         background: transparent;
         border-radius: 0px;
-        box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+        box-shadow: inset 0px 0px 0px 0px #f0f0f0;
     }
 
     .card-logo {
@@ -194,7 +197,7 @@ main {
     .restaurant-description {
         width: 100%;
         height: 60px;
-        overflow-y:auto;
+        overflow-y: auto;
         font-size: 14px;
     }
 
@@ -223,7 +226,7 @@ main {
     }
 
     &:hover {
-    box-shadow: 0px 0px 5px 5px rgba($color: $my-blue, $alpha: 1);
+        box-shadow: 0px 0px 5px 5px rgba($color: $my-blue, $alpha: 1);
 
         .category-img {
             filter: grayscale(0);
@@ -237,11 +240,11 @@ main {
         font-weight: bold;
     }
 
-    .small-wrap, .large-wrap {
+    .small-wrap,
+    .large-wrap {
         position: relative;
         text-align: center;
 
-        
         h3 {
             font-size: 40px;
             color: white;
@@ -250,7 +253,9 @@ main {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+            text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black,
+                0 -2px 0 black, 1px 1px black, -1px -1px 0 black,
+                1px -1px 0 black, -1px 1px 0 black;
         }
     }
 }
@@ -277,7 +282,7 @@ main {
 
     .delivery-for-work {
         background-color: white;
-        
+
         .right {
             h3 {
                 font-size: 28px;
@@ -314,19 +319,18 @@ main {
             background-color: #ff483b;
         }
     }
-    
+
     .lavora-ristorante {
         .lavora-card {
             background-color: #ff8100;
         }
     }
-    
+
     .lavora-con-noi {
         .lavora-card {
             background-color: #bac3c3;
         }
     }
-
 }
 
 .welcome-wrap {
@@ -340,29 +344,23 @@ main {
 
 //test sfondo
 .radial-gradient {
-    
     background: #326c43;
-    background: 
-      radial-gradient(
-       at center, #5cc279, #326c43);
+    background: radial-gradient(at center, #5cc279, #326c43);
 }
-
-
 
 //Footer
 
-footer{
+footer {
     background-color: $my-blue;
     margin-top: 20px;
     padding: 20px 60px;
 
-    .box-container{
-
+    .box-container {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
 
-        .box-footer{
+        .box-footer {
             width: 250px;
             height: auto;
             background-color: $my-blue2;
@@ -371,21 +369,20 @@ footer{
             color: #fff;
             border-radius: 5px;
 
-            h5{
+            h5 {
                 font-weight: bold;
             }
 
-            ul{
+            ul {
                 list-style-type: none;
                 padding-left: 0;
 
-                li{
-
-                    a{
+                li {
+                    a {
                         text-decoration: none;
                         color: #fff;
 
-                        &:hover{
+                        &:hover {
                             color: $my-green;
                         }
                     }
@@ -398,44 +395,43 @@ footer{
                 }
             }
         }
-
     }
 
-    .nav-icon{
+    .nav-icon {
         margin-top: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .box-icon{
-            span{
+        .box-icon {
+            span {
                 margin-right: 10px;
 
-                #icon-fb{
+                #icon-fb {
                     font-size: 25px;
                     color: #fff;
 
-                    &:hover{
+                    &:hover {
                         color: #3b5998;
                         cursor: pointer;
                     }
                 }
 
-                #icon-tw{
+                #icon-tw {
                     font-size: 25px;
                     color: #fff;
 
-                    &:hover{
+                    &:hover {
                         color: #199ec1;
                         cursor: pointer;
                     }
                 }
 
-                #icon-ig{
+                #icon-ig {
                     font-size: 25px;
                     color: #fff;
 
-                    &:hover{
+                    &:hover {
                         color: #de77c1;
                         cursor: pointer;
                     }
@@ -443,7 +439,7 @@ footer{
             }
         }
 
-        .copyright{
+        .copyright {
             .bool-logo {
                 filter: grayscale(100%);
                 &:hover {
@@ -451,14 +447,12 @@ footer{
                 }
             }
 
-            span{
+            span {
                 font-size: 16px;
                 color: $my-green;
             }
         }
-
     }
-
 }
 
 //Footer
@@ -467,28 +461,29 @@ footer{
     display: block;
     overflow-x: auto;
     white-space: nowrap;
-  }
-  .testimonial-group > .row > .col-2 {
+}
+.testimonial-group > .row > .col-2 {
     display: inline-block;
 
     position: relative;
-        text-align: center;
+    text-align: center;
 
-        
-        h3 {
-            font-size: 22px;
-            color: white;
-            font-weight: bold;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-        }
+    h3 {
+        font-size: 22px;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black,
+            0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black,
+            -1px 1px 0 black;
+    }
 
-        &:hover {
-            img {
-                box-shadow: 0px 0px 5px 5px rgba($color: $my-blue, $alpha: 1);
-            }
+    &:hover {
+        img {
+            box-shadow: 0px 0px 5px 5px rgba($color: $my-blue, $alpha: 1);
         }
-  }
+    }
+}

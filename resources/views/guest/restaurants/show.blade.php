@@ -2,13 +2,9 @@
 
 @section('title',' | ' . $restaurant->name)
 
-{{-- @section('cart')
-<script src="{{ mix('js/main.js') }}"></script>
-@endsection --}}
-
 @section('content')
 <div class="container mt-3">
-    <div class="row">
+    <div class="row my-margin">
         {{-- <script src="{{ mix('js/main.js') }}"></script> --}}
         {{-- Dettaglio Ristorante --}}
         <div class="col-md-12">

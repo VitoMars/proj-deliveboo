@@ -1,84 +1,58 @@
 <template>
-    <div class="container mt-3">
-      
-        <div>
-            <div class="row g-4">
-                <Checkout :TotalOrder="TotalOrder" :total="total" />
-                <div v-for="product in products" :key="product.id" class="col-3">
-                        <div class="card scroll">
-                          <!-- <div>{{ product.cover }}</div> -->
-                            <!-- <div v-if="product.cover">
+    <div class="container">
+        <div class="row g-4 mt-2">
+            <div v-for="product in products" :key="product.id" class="col-3">
+                <div class="card scroll">
+                    <!-- <div>{{ product.cover }}</div> -->
+                    <!-- <div v-if="product.cover">
 
-                            </div> -->
-                            <!-- @if ($plate->cover) -->
-                          
-                            <!-- <img
-                                class="img-thumbnail mt-3"
-                                style="height: 250px; width: 100%"
-                                src="storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg"
-                                alt="img"
-                            /> -->
-                                <!-- :src="require(`storage/${product.cover}/.jpg`)" -->
-                            <!-- @else -->
-                            <img
-                                src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
-                                style="height: 250px; width: 100%"
-                                class="card-img-top mt-3"
-                                alt="img"
-                            />
+                        </div> -->
+                    <!-- @if ($plate->cover) -->
 
-                            <div class="card-body">
-                                <div>
-                                    <h5 class="card-title">
-                                        {{ product.name }}
-                                    </h5>
-                                    <span class="fw-bold">Descrizione: </span>
-                                    <div class="overflow">
-                                        {{ product.description }}
-                                    </div>
-                                    <div class="m-2">
-                                        <strong>Prezzo: </strong
-                                        >{{ product.price }}€
-                                    </div>
-                                    <button
-                                        class="btn btn-primary"
-                                        @click="addToCart(product.id)"
-                                    >
-                                        Aggiungi al carrello
-                                    </button>
-                                </div>
+                    <!-- <img
+                            class="img-thumbnail mt-3"
+                            style="height: 250px; width: 100%"
+                            src="storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg"
+                            alt="img"
+                        /> -->
+                    <!-- :src="require(`storage/${product.cover}/.jpg`)" -->
+                    <!-- @else -->
+                    <img
+                        src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                        style="height: 250px; width: 100%"
+                        class="card-img-top mt-3"
+                        alt="img"
+                    />
+
+                    <div class="card-body">
+                        <div>
+                            <h5 class="card-title">
+                                {{ product.name }}
+                            </h5>
+                            <span class="fw-bold">Descrizione: </span>
+                            <div class="overflow">
+                                {{ product.description }}
                             </div>
+                            <div class="m-2">
+                                <strong>Prezzo: </strong>{{ product.price }}€
+                            </div>
+                            <button
+                                class="btn btn-primary"
+                                @click="addToCart(product.id)"
+                            >
+                                Aggiungi al carrello
+                            </button>
                         </div>
                     </div>
-
-                    <!-- <table class="ui single line table">
-                        <tbody>
-                            <tr class="product">
-                                <td><img :src="product.imgURL" class="ui tiny image" @click="removeFromCart(product)"><i class=""></i></img></td>
-                                <td>{{ product.id }}</td>
-                                <td>{{ product.name }}</td>
-                                <td>{{ product.price | currency("€") }}</td>
-                                <td>
-                                    <button
-                                        @click="addToCart(product.id)"
-                                        class="btn btn-primary"
-                                    >
-                                        Aggiungi al carrello
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> -->
                 </div>
-                <Cart @deleteCartItem="deleteCartItem" :cart="cart" />
             </div>
+            <Cart @deleteCartItem="deleteCartItem" :cart="cart" />
         </div>
     </div>
 </template>
 
 <script>
 import Cart from "../components/Cart.vue";
-import Checkout from "./Checkout.vue";
 export default {
     name: "Home",
     data() {
@@ -95,7 +69,6 @@ export default {
     }, // End data
     components: {
         Cart,
-        Checkout,
     },
     mounted: function () {
         // When the app is ready load the products

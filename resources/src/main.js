@@ -11,8 +11,6 @@ import vueBraintree from "vue-braintree";
 // Test di Vito
 import Cart from "./components/Cart.vue";
 import Home from "./components/Home";
-// Vue.component("Home", require("./components/Home.vue"));
-//
 
 Vue.use(vueBraintree);
 
@@ -21,25 +19,11 @@ Vue.use(Vue2Filters);
 Vue.use(VueRouter);
 
 Vue.component("vue-App", require("./App.vue"));
-// const router = new VueRouter({
-//     mode: "history",
-//     base: __dirname,
-//     routes: [{ path: "/", component: Home }],
-// });
 
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
     el: "#app",
-    // router,
     render: (h) => h(App),
-    // components: {
-    //     Home: require("./components/Home.vue"),
-    // },
 });
-
-// const Home = new Vue({
-//     el: "#app",
-//     render: (h) => h(Home),
-// });
