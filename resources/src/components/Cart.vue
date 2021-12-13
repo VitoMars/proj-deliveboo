@@ -107,12 +107,6 @@ export default {
         this.getToken();
         this.getCartTotal();
     },
-    computed: {
-        // cartSize: function () {
-        //   // Calculates the number of products in the Cart
-        //   this.showOrder = this.total;
-        // },
-    },
     methods: {
         plus(index) {
             this.form.food[index]["quantity"] += 1;

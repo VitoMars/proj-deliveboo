@@ -11,7 +11,7 @@
     <div class="row">
 
         <div id="app">
-            <cart-vue></cart-vue>
+            <Home></Home>
             <vue-App></vue-App>
         </div>
 

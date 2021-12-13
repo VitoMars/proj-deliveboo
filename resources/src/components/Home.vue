@@ -6,18 +6,18 @@
                 <Checkout :TotalOrder="TotalOrder" :total="total" />
                 <div v-for="product in products" :key="product.id" class="col-3">
                         <div class="card scroll">
-                          <div>{{ product.cover }}</div>
+                          <!-- <div>{{ product.cover }}</div> -->
                             <!-- <div v-if="product.cover">
 
                             </div> -->
                             <!-- @if ($plate->cover) -->
                           
-                           <img
+                            <!-- <img
                                 class="img-thumbnail mt-3"
                                 style="height: 250px; width: 100%"
                                 src="storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg"
                                 alt="img"
-                            />
+                            /> -->
                                 <!-- :src="require(`storage/${product.cover}/.jpg`)" -->
                             <!-- @else -->
                             <img
@@ -44,8 +44,8 @@
                                         href="#"
                                         class="btn btn-primary"
                                         @click="addToCart(product.id)"
-                                        >Aggiungi al carrello</a
-                                    >
+                                        >Aggiungi al carrello
+                                    </a>
                                 </div>
                             </div>
                         </div>

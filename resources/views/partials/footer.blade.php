@@ -51,13 +51,15 @@
                         <a href="https://www.linkedin.com/in/antoniorusso1997/" target="_blank">Antonio Russo</a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/vito-marseglia/" target="_blank">Vito Merseglia</a>
+                        <a href="https://www.linkedin.com/in/vito-marseglia/" target="_blank">Vito Marseglia</a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/giovanni-pinto-76b2921ba/" target="_blank">Giovanni Pinto</a>
+                        <a href="https://www.linkedin.com/in/giovanni-pinto-76b2921ba/" target="_blank">Giovanni
+                            Pinto</a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/michele-ierniero-7671a7162/" target="_blank">Michele Ierniero</a>
+                        <a href="https://www.linkedin.com/in/michele-ierniero-7671a7162/" target="_blank">Michele
+                            Ierniero</a>
                     </li>
                 </ul>
             </div>
@@ -65,10 +67,14 @@
             <div class="box-footer">
                 <h5>Porta Deliveboo con te</h5>
                 <div class="download-button w-75 my-2">
-                    <a href="https://apps.apple.com/it/app/deliveroo-piatti-a-domicilio/id1001501844"  target="_blank"><img class="w-100" src="{{ asset('images/download-apple.svg') }}" alt="Download on App Store"></a>
+                    <a href="https://apps.apple.com/it/app/deliveroo-piatti-a-domicilio/id1001501844"
+                        target="_blank"><img class="w-100" src="{{ asset('images/download-apple.svg') }}"
+                            alt="Download on App Store"></a>
                 </div>
                 <div class="download-button w-75">
-                    <a href="https://play.google.com/store/apps/details?id=com.deliveroo.orderapp&hl=it&gl=US"  target="_blank"><img class="w-100" src="{{ asset('images/download-google.svg') }}" alt="Download on Google Play"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.deliveroo.orderapp&hl=it&gl=US"
+                        target="_blank"><img class="w-100" src="{{ asset('images/download-google.svg') }}"
+                            alt="Download on Google Play"></a>
                 </div>
 
             </div>
@@ -95,7 +101,7 @@
             </div>
             <div class="copyright">
                 <span class="bool-logo mx-2">
-                    <a  target="_blank" href="https://www.boolean.careers/">
+                    <a target="_blank" href="https://www.boolean.careers/">
                         <img style="width: 25px" src="{{ asset('images/logo-boolean-small.png') }}" alt="logo boolean">
                     </a>
                 </span>

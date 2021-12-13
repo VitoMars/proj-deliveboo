@@ -2412,11 +2412,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getToken();
     this.getCartTotal();
   },
-  computed: {// cartSize: function () {
-    //   // Calculates the number of products in the Cart
-    //   this.showOrder = this.total;
-    // },
-  },
   methods: {
     plus: function plus(index) {
       this.form.food[index]["quantity"] += 1;
@@ -27601,17 +27596,6 @@ var render = function () {
             _vm._l(_vm.products, function (product) {
               return _c("div", { key: product.id, staticClass: "col-3" }, [
                 _c("div", { staticClass: "card scroll" }, [
-                  _c("div", [_vm._v(_vm._s(product.cover))]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "img-thumbnail mt-3",
-                    staticStyle: { height: "250px", width: "100%" },
-                    attrs: {
-                      src: "storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg",
-                      alt: "img",
-                    },
-                  }),
-                  _vm._v(" "),
                   _c("img", {
                     staticClass: "card-img-top mt-3",
                     staticStyle: { height: "250px", width: "100%" },
@@ -27662,7 +27646,11 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("Aggiungi al carrello")]
+                        [
+                          _vm._v(
+                            "Aggiungi al carrello\n                                "
+                          ),
+                        ]
                       ),
                     ]),
                   ]),
@@ -45917,9 +45905,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_filters__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_filters__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App */ "./resources/src/App.vue");
-/* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Home */ "./resources/src/components/Home.vue");
-/* harmony import */ var vue_braintree__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-braintree */ "./node_modules/vue-braintree/dist/vue-braintree.esm.js");
-/* harmony import */ var _components_Cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Cart */ "./resources/src/components/Cart.vue");
+/* harmony import */ var vue_braintree__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-braintree */ "./node_modules/vue-braintree/dist/vue-braintree.esm.js");
+/* harmony import */ var _components_Cart_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Cart.vue */ "./resources/src/components/Cart.vue");
+/* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Home */ "./resources/src/components/Home.vue");
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -45930,13 +45918,13 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
 
 
-
  // Test di Vito
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("cart-vue", __webpack_require__(/*! ./components/Cart.vue */ "./resources/src/components/Cart.vue")); //
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_braintree__WEBPACK_IMPORTED_MODULE_6__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("Home", __webpack_require__(/*! ./components/Home.vue */ "./resources/src/components/Home.vue")); //
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_braintree__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_resource__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_filters__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]);
@@ -45946,7 +45934,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
   base: __dirname,
   routes: [{
     path: "/",
-    component: _components_Home__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_Home__WEBPACK_IMPORTED_MODULE_7__["default"]
   }]
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
@@ -45959,9 +45947,12 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return h(_App__WEBPACK_IMPORTED_MODULE_4__["default"]);
   },
   components: {
-    cart: __webpack_require__(/*! ./components/Cart.vue */ "./resources/src/components/Cart.vue")
+    Home: __webpack_require__(/*! ./components/Home.vue */ "./resources/src/components/Home.vue")
   }
-});
+}); // const Home = new Vue({
+//     el: "#app",
+//     render: (h) => h(Home),
+// });
 /* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),

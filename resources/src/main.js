@@ -6,12 +6,12 @@ import vueResource from "vue-resource"; //Allows jSon to be imported and used
 import Vue2Filters from "vue2-filters"; // Allows use of currency
 import VueRouter from "vue-router";
 import App from "./App";
-import Home from "./components/Home";
 import vueBraintree from "vue-braintree";
 
 // Test di Vito
-import cart from "./components/Cart";
-Vue.component("cart-vue", require("./components/Cart.vue"));
+import Cart from "./components/Cart.vue";
+import Home from "./components/Home";
+Vue.component("Home", require("./components/Home.vue"));
 //
 
 Vue.use(vueBraintree);
@@ -35,6 +35,11 @@ new Vue({
     router,
     render: (h) => h(App),
     components: {
-        cart: require("./components/Cart.vue"),
+        Home: require("./components/Home.vue"),
     },
 });
+
+// const Home = new Vue({
+//     el: "#app",
+//     render: (h) => h(Home),
+// });
