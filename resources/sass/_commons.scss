@@ -39,8 +39,17 @@ ul {
     margin: 10px 20px;
 }
 
+.my-bg-image {
+    // background-size: cover;
+    background-attachment: fixed;
+}
+
 .my-bg-blue {
     background-color: $my-blue;
+}
+
+.my-bg-green {
+    background-color: $my-green;
 }
 
 .my-shadow {
@@ -81,6 +90,22 @@ ul {
     overflow-y: auto;
 }
 
+
+.my-form-client {
+    // background:transparent;
+    border: none;
+    border-bottom: 5px solid $my-green;
+    // color: white;
+    &::placeholder {
+        color: $my-green;
+    }
+}
+
+.my-card-image {
+    height: 200px !important;
+    width: 100%;
+}
+
 .scroll {
     ::-webkit-scrollbar {
         width: 4px;
@@ -108,6 +133,17 @@ ul {
 .my-padding {
     padding-right: calc(var(--bs-gutter-x) * 0.5);
     padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+
+.checkout-text {
+    position: absolute;
+    right: 15px;
+    bottom: -5px;
+}
+
+.login-container {
+    width: 100vw;
+    height: 700px;
 }
 
 /* Guest Home */

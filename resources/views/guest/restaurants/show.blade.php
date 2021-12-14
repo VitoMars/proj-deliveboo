@@ -3,7 +3,7 @@
 @section('title',' | ' . $restaurant->name)
 
 @section('content')
-<div class="container mt-3">
+<div class="container my-3">
     <div class="row my-padding">
         {{-- <script src="{{ mix('js/main.js') }}"></script> --}}
         {{-- Dettaglio Ristorante --}}
@@ -12,29 +12,6 @@
                 {{$restaurant["name"]}}
             </div>
             <div class="card p-4 mb-3">
-                {{-- <ul>
-                    <li><strong>Nome ristorante: </strong>{{$restaurant["name"]}}</li>
-                    <li><strong>Città: </strong>{{$restaurant["city"]}}</li>
-                    <li><strong>Indirizzo: </strong>{{$restaurant["address"]}}</li>
-                    <li><strong>Descrizione: </strong>{{$restaurant["description"]}}</li>
-                    <li><strong>Costo spedizione: </strong>
-                        @if ($restaurant["delivery_cost"])
-                        {{$restaurant["delivery_cost"]}}€
-                        @else
-                        Gratis
-                        @endif
-                    </li>
-                    <li><strong>Categorie: </strong>
-                        @foreach ($restaurant->categories as $category)
-                        <a href="" class="mx-2">{{$category['name']}}</a>
-                        @endforeach
-                    </li>
-                    <li><strong>Piatti: </strong>
-                        @foreach ($restaurant->plates as $plate)
-                        <a href="" class="mx-2">{{$plate['name']}}</a>
-                        @endforeach
-                    </li>
-                </ul> --}}
                 <div class="row">
 
                     <div class="col-9">
@@ -124,6 +101,9 @@
                 @endforeach
             </div>
         </div> --}}
+    </div>
+    <div class="text-white fw-bold fs-2 mb-3 my-text-shadow pr-0 pl-0">
+        I nostri piatti
     </div>
     <div id="app">
         {{-- <Home></Home>

@@ -2342,6 +2342,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2569,6 +2577,57 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -27291,8 +27350,10 @@ var render = function () {
   return _c("div", { staticClass: "container" }, [
     _c(
       "div",
-      { staticClass: "cart text-dark" },
+      { staticClass: "cart w-100 rounded-3 p-4 my-bg-blue text-white" },
       [
+        _vm._m(0),
+        _vm._v(" "),
         _vm._l(_vm.showCart, function (food, index) {
           return _c(
             "div",
@@ -27301,54 +27362,71 @@ var render = function () {
               staticClass: "d-flex flex-column align-items-start mt-2",
             },
             [
-              _c("div", { staticClass: "my-2" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn circle btn-light",
-                    on: {
-                      click: function ($event) {
-                        return _vm.minus(index)
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "my-2 w-100 d-flex justify-content-between align-items-center",
+                },
+                [
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn my-btn-blue-symbol",
+                        on: {
+                          click: function ($event) {
+                            return _vm.minus(index)
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_c("i", { staticClass: "fas fa-minus text-dark" })]
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(food.quantity))]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn circle btn-light",
-                    on: {
-                      click: function ($event) {
-                        return _vm.plus(index)
+                      [_c("i", { staticClass: "fas fa-minus" })]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(food.quantity))]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn my-btn-blue-symbol",
+                        on: {
+                          click: function ($event) {
+                            return _vm.plus(index)
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_c("i", { staticClass: "fas fa-plus text-dark" })]
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(food.name))]),
-              ]),
+                      [_c("i", { staticClass: "fas fa-plus" })]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(food.name))]),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("€ " + _vm._s(food.price))]),
+                ]
+              ),
             ]
           )
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "d-flex cart_food_price text-dark" }, [
-          _vm._v(
-            "\n            Totale: " +
-              _vm._s(_vm._f("currency")(_vm.total, "€")) +
-              "\n        "
-          ),
-        ]),
+        _c("hr", { staticClass: "mb-1" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "d-flex justify-content-end cart_food_price" },
+          [
+            _vm._v(
+              "\n            Totale: " +
+                _vm._s(_vm._f("currency")(_vm.total, "€ ")) +
+                "\n        "
+            ),
+          ]
+        ),
         _vm._v(" "),
         _vm.dataForm
           ? _c("FormClient", { on: { updateForm: _vm.FormData } })
           : _vm._e(),
         _vm._v(" "),
-        _vm.brain
+        _vm.brain && !_vm.dataForm
           ? _c("Payment", {
               attrs: { authorization: _vm.token },
               on: { onSuccess: _vm.paymentOnSuccess },
@@ -27359,7 +27437,23 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-100 position-relative" }, [
+      _c("img", {
+        staticClass: "w-100",
+        attrs: { src: "/images/deliveboo-logo-christmas.png", alt: "" },
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "checkout-text my-text-green fw-bold fs-5" }, [
+        _vm._v("CHECKOUT"),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -27397,7 +27491,8 @@ var render = function () {
         _vm._v(" "),
         _c("input", {
           ref: "email",
-          staticClass: "form-control",
+          staticClass:
+            "form-control my-form-client bg-transparent my-3 text-white",
           attrs: {
             type: "email",
             name: "email",
@@ -27413,7 +27508,8 @@ var render = function () {
         _vm._v(" "),
         _c("input", {
           ref: "address",
-          staticClass: "form-control",
+          staticClass:
+            "form-control my-form-client bg-transparent my-3 text-white",
           attrs: {
             type: "text",
             name: "address",
@@ -27429,7 +27525,8 @@ var render = function () {
         _vm._v(" "),
         _c("input", {
           ref: "fullName",
-          staticClass: "form-control",
+          staticClass:
+            "form-control my-form-client bg-transparent my-3 text-white",
           attrs: {
             type: "text",
             name: "fullName",
@@ -27471,83 +27568,184 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "row g-4 mt-2" },
-      [
-        _vm._l(_vm.products, function (product) {
-          return _c("div", { key: product.id, staticClass: "col-3" }, [
-            _c("div", { staticClass: "card scroll" }, [
-              _c("img", {
-                staticClass: "card-img-top mt-3",
-                staticStyle: { height: "250px", width: "100%" },
-                attrs: {
-                  src: "https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg",
-                  alt: "img",
-                },
-              }),
+    _c("div", { staticClass: "row g-4 mt-2" }, [
+      _c("div", { staticClass: "col-8" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.products, function (product) {
+            return _c("div", { key: product.id, staticClass: "col-4" }, [
+              product.visibility == 1
+                ? _c("div", { staticClass: "card p-2 mb-3 scroll" }, [
+                    product.cover
+                      ? _c("img", {
+                          staticStyle: { height: "160px" },
+                          attrs: { src: "/storage/" + product.cover, alt: "" },
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !product.cover
+                      ? _c("img", {
+                          staticStyle: { height: "160px" },
+                          attrs: {
+                            src: "https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg",
+                            alt: "img",
+                          },
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(product.name) +
+                              "\n                                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "fw-bold" }, [
+                          _vm._v("Descrizione: "),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "overflow" }, [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(product.description) +
+                              "\n                                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "m-2" }, [
+                          _c("strong", [_vm._v("Prezzo: ")]),
+                          _vm._v(
+                            _vm._s(product.price) +
+                              "€\n                                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn my-btn-blue-plates d-flex align-items-center",
+                            on: {
+                              click: function ($event) {
+                                return _vm.addToCart(product.id)
+                              },
+                            },
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-cart-plus me-1" }),
+                            _vm._v(
+                              " Aggiungi al carrello\n                                "
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]),
+                  ])
+                : _vm._e(),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(product.name) +
-                        "\n                        "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "fw-bold" }, [
-                    _vm._v("Descrizione: "),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "overflow" }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(product.description) +
-                        "\n                        "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "m-2" }, [
-                    _c("strong", [_vm._v("Prezzo: ")]),
-                    _vm._v(
-                      _vm._s(product.price) + "€\n                        "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      on: {
-                        click: function ($event) {
-                          return _vm.addToCart(product.id)
-                        },
-                      },
-                    },
+              product.visibility == 0
+                ? _c(
+                    "div",
+                    { staticClass: "visibility-off card p-2 mb-3 scroll" },
                     [
-                      _vm._v(
-                        "\n                            Aggiungi al carrello\n                        "
-                      ),
+                      product.cover
+                        ? _c("img", {
+                            staticStyle: { height: "160px" },
+                            attrs: {
+                              src: "/storage/" + product.cover,
+                              alt: "",
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !product.cover
+                        ? _c("img", {
+                            staticStyle: { height: "160px" },
+                            attrs: {
+                              src: "https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg",
+                              alt: "img",
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(product.name) +
+                                "\n                                "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "fw-bold" }, [
+                            _vm._v("Descrizione: "),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "overflow" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(product.description) +
+                                "\n                                "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "m-2" }, [
+                            _c("strong", [_vm._v("Prezzo: ")]),
+                            _vm._v(
+                              _vm._s(product.price) +
+                                "€\n                                "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(0, true),
+                        ]),
+                      ]),
                     ]
-                  ),
-                ]),
-              ]),
-            ]),
-          ])
-        }),
-        _vm._v(" "),
-        _c("Cart", {
-          attrs: { cart: _vm.cart },
-          on: { deleteCartItem: _vm.deleteCartItem },
-        }),
-      ],
-      2
-    ),
+                  )
+                : _vm._e(),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-4" },
+        [
+          _c("Cart", {
+            attrs: { cart: _vm.cart },
+            on: { deleteCartItem: _vm.deleteCartItem },
+          }),
+        ],
+        1
+      ),
+    ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass:
+          "btn my-btn-red-plates d-flex w-100 justify-content-center align-items-center",
+      },
+      [
+        _c("i", { staticClass: "fas fa-times-circle me-1" }),
+        _vm._v(" Non Disponibile\n                                "),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 

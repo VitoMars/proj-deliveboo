@@ -1,6 +1,6 @@
-<footer>
+<footer class="my-0">
 
-    <div class="container">
+    <div class="container my-0">
         <div class="box-container">
             <div class="box-footer">
                 <h5> Scopri Deliveboo</h5>

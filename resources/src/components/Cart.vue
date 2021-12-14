@@ -1,32 +1,40 @@
 <template>
     <div class="container">
-        <div class="cart text-dark">
+        <div class="cart w-100 rounded-3 p-4 my-bg-blue text-white">
+            <div class="w-100 position-relative">
+            <img class="w-100" src="/images/deliveboo-logo-christmas.png" alt="">
+            <div class="checkout-text my-text-green fw-bold fs-5">CHECKOUT</div>
+            </div>
             <div
                 v-for="(food, index) in showCart"
                 :key="food.index"
                 class="d-flex flex-column align-items-start mt-2"
             >
-                <div class="my-2">
+                <div class="my-2 w-100 d-flex justify-content-between align-items-center">
+                    <div>
                     <!-- Minus -->
-                    <button class="btn circle btn-light" @click="minus(index)">
-                        <i class="fas fa-minus text-dark"></i>
+                    <button class="btn my-btn-blue-symbol" @click="minus(index)">
+                        <i class="fas fa-minus"></i>
                     </button>
                     <!-- Quantità -->
                     <span>{{ food.quantity }}</span>
                     <!-- Plus -->
-                    <button class="btn circle btn-light" @click="plus(index)">
-                        <i class="fas fa-plus text-dark"></i>
+                    <button class="btn my-btn-blue-symbol" @click="plus(index)">
+                        <i class="fas fa-plus"></i>
                     </button>
                     <!-- Nome Piatto -->
                     <span>{{ food.name }}</span>
+                    </div>
+                    <span>€ {{food.price}}</span>
                 </div>
             </div>
-            <div class="d-flex cart_food_price text-dark">
-                Totale: {{ total | currency("€") }}
+            <hr class="mb-1">
+            <div class="d-flex justify-content-end cart_food_price">
+                Totale: {{ total | currency("€ ") }}
             </div>
             <FormClient v-if="dataForm" @updateForm="FormData" />
             <Payment
-                v-if="brain"
+                v-if="brain && !dataForm"
                 :authorization="token"
                 @onSuccess="paymentOnSuccess"
             />

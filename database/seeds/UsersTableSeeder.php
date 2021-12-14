@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
         $new_user->address = $faker->address();
         $new_user->save();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 19; $i++) {
             $new_user = new User();
             $new_user->name = $faker->name();
             $new_user->email = $faker->email();

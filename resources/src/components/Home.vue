@@ -1,52 +1,103 @@
 <template>
     <div class="container">
         <div class="row g-4 mt-2">
-            <div v-for="product in products" :key="product.id" class="col-3">
-                <div class="card scroll">
-                    <!-- <div>{{ product.cover }}</div> -->
-                    <!-- <div v-if="product.cover">
+            <div class="col-8">
+                <div class="row">
 
-                        </div> -->
-                    <!-- @if ($plate->cover) -->
+                    <div v-for="product in products" :key="product.id" class="col-4">
+                        <div v-if="product.visibility == 1" class="card p-2 mb-3 scroll">
+                            <!-- <div>{{ product.cover }}</div> -->
+                            <!-- <div v-if="product.cover">
 
-                    <!-- <img
-                            class="img-thumbnail mt-3"
-                            style="height: 250px; width: 100%"
-                            src="storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg"
-                            alt="img"
-                        /> -->
-                    <!-- :src="require(`storage/${product.cover}/.jpg`)" -->
-                    <!-- @else -->
-                    <img
-                        src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
-                        style="height: 250px; width: 100%"
-                        class="card-img-top mt-3"
-                        alt="img"
-                    />
+                                </div> -->
+                            <!-- @if ($plate->cover) -->
 
-                    <div class="card-body">
-                        <div>
-                            <h5 class="card-title">
-                                {{ product.name }}
-                            </h5>
-                            <span class="fw-bold">Descrizione: </span>
-                            <div class="overflow">
-                                {{ product.description }}
+                            <!-- <img
+                                    class="img-thumbnail mt-3"
+                                    style="height: 250px; width: 100%"
+                                    src="storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg"
+                                    alt="img"
+                                /> -->
+                            <!-- :src="require(`storage/${product.cover}/.jpg`)" -->
+                            <!-- @else -->
+                            
+                            <img v-if="product.cover" :src="`/storage/${product.cover}`" alt=""
+                            style="height: 160px">
+                            <img v-if="!product.cover"
+                                src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                                alt="img"
+                                style="height: 160px">
+
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">
+                                        {{ product.name }}
+                                    </h5>
+                                    <span class="fw-bold">Descrizione: </span>
+                                    <div class="overflow">
+                                        {{ product.description }}
+                                    </div>
+                                    <div class="m-2">
+                                        <strong>Prezzo: </strong>{{ product.price }}€
+                                    </div>
+                                    <button
+                                        class="btn my-btn-blue-plates d-flex align-items-center"
+                                        @click="addToCart(product.id)"
+                                    >
+                                        <i class="fas fa-cart-plus me-1"></i> Aggiungi al carrello
+                                    </button>
+                                </div>
                             </div>
-                            <div class="m-2">
-                                <strong>Prezzo: </strong>{{ product.price }}€
+                        </div>
+                        <div v-if="product.visibility == 0" class="visibility-off card p-2 mb-3 scroll">
+                            <!-- <div>{{ product.cover }}</div> -->
+                            <!-- <div v-if="product.cover">
+
+                                </div> -->
+                            <!-- @if ($plate->cover) -->
+
+                            <!-- <img
+                                    class="img-thumbnail mt-3"
+                                    style="height: 250px; width: 100%"
+                                    src="storage/app/plate_covers/XbvlQoq3pwD0cdTsNd3wbkRdiJldXUE17E7i5roR.jpg"
+                                    alt="img"
+                                /> -->
+                            <!-- :src="require(`storage/${product.cover}/.jpg`)" -->
+                            <!-- @else -->
+                            
+                            <img v-if="product.cover" :src="`/storage/${product.cover}`" alt=""
+                            style="height: 160px">
+                            <img v-if="!product.cover"
+                                src="https://www.buttalapasta.it/wp-content/uploads/2017/11/pizza-napoletana-vera-ricetta.jpg"
+                                alt="img"
+                                style="height: 160px">
+
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">
+                                        {{ product.name }}
+                                    </h5>
+                                    <span class="fw-bold">Descrizione: </span>
+                                    <div class="overflow">
+                                        {{ product.description }}
+                                    </div>
+                                    <div class="m-2">
+                                        <strong>Prezzo: </strong>{{ product.price }}€
+                                    </div>
+                                    <button
+                                        class="btn my-btn-red-plates d-flex w-100 justify-content-center align-items-center"
+                                    >
+                                       <i class="fas fa-times-circle me-1"></i> Non Disponibile
+                                    </button>
+                                </div>
                             </div>
-                            <button
-                                class="btn btn-primary"
-                                @click="addToCart(product.id)"
-                            >
-                                Aggiungi al carrello
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-4">
             <Cart @deleteCartItem="deleteCartItem" :cart="cart" />
+            </div>
         </div>
     </div>
 </template>

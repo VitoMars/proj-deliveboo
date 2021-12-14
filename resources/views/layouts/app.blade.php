@@ -70,7 +70,7 @@
             </div>
         </header>
 
-        <main class="py-4">
+        <main class="py-0">
             {{-- @yield('cart') --}}
             @yield('content')
         </main>

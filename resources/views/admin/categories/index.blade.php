@@ -12,12 +12,13 @@
         </div>
         @endif
 
+        <div class="my-text-blue fw-bold fs-1 mb-3 pr-0 pl-0">
+            Lista Categorie
+        </div>
+
         {{-- Lista Categorie --}}
         <div class="col-md-12">
             <div class="card mb-3">
-                <div class="card-header pr-0 pl-0">
-                    Lista categorie
-                </div>
                 <ol>
                     @foreach ($categories as $category)
                     <li class="m-2">

@@ -6,7 +6,7 @@
                 type="email"
                 ref="email"
                 name="email"
-                class="form-control"
+                class="form-control my-form-client bg-transparent my-3 text-white"
                 id="email"
                 required
                 placeholder="Inserisci email"
@@ -18,7 +18,7 @@
                 type="text"
                 ref="address"
                 name="address"
-                class="form-control"
+                class="form-control my-form-client bg-transparent my-3 text-white"
                 id="address"
                 required
                 placeholder="Inserisci Indirizzo"
@@ -30,7 +30,7 @@
                 type="text"
                 ref="fullName"
                 name="fullName"
-                class="form-control"
+                class="form-control my-form-client bg-transparent my-3 text-white"
                 id="fullName"
                 required
                 placeholder="Inserisci il tuo nome"
